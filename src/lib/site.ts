@@ -1,13 +1,14 @@
 export const siteConfig = {
   name: "NEXTOSA",
-  tagline: "AI-Powered CRM & WhatsApp Automation",
+  tagline: "The AI Operating System to Run Your Entire Business",
   description:
-    "NEXTOSA is an AI-powered CRM and WhatsApp automation platform that helps businesses manage clients, automate support, and never miss a follow-up.",
+    "NEXTOSA is an all-in-one AI business operating system — billing, staff management, compliance tracking, and automated WhatsApp client communication, with dedicated modules for 9 industries.",
   url: "https://nextosa.com",
   email: "nextosa7@gmail.com",
   founder: "Harsh Soni",
   navLinks: [
     { href: "/", label: "Home" },
+    { href: "/#industries", label: "Industries" },
     { href: "/#features", label: "Features" },
     { href: "/#pricing", label: "Pricing" },
     { href: "/about", label: "About" },
@@ -15,6 +16,7 @@ export const siteConfig = {
   ],
   footerLinks: {
     product: [
+      { href: "/#industries", label: "Industries" },
       { href: "/#features", label: "Features" },
       { href: "/#how-it-works", label: "How it Works" },
       { href: "/#pricing", label: "Pricing" },

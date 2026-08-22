@@ -6,6 +6,11 @@ import SectionHeading from "../SectionHeading";
 
 const faqs = [
   {
+    question: "Is NEXTOSA just a WhatsApp tool, or more than that?",
+    answer:
+      "Much more. WhatsApp automation is one module inside NEXTOSA — the platform also runs your billing, staff and job management, compliance calendars, document vault, and AI business insights, with dedicated workflows for 9 industries.",
+  },
+  {
     question: "Does NEXTOSA use the official WhatsApp Business API?",
     answer:
       "Yes. NEXTOSA integrates with the official WhatsApp Business Platform (Meta) to send and receive messages, ensuring your automation stays compliant with WhatsApp's messaging policies.",
@@ -46,7 +51,7 @@ export default function FAQ() {
         <SectionHeading
           eyebrow="FAQ"
           title="Frequently asked questions"
-          description="Everything you need to know about NEXTOSA and how it works with WhatsApp."
+          description="Everything you need to know about NEXTOSA — from running your business operations to how WhatsApp automation fits in."
         />
 
         <div className="mt-14 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">

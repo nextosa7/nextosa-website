@@ -3,10 +3,58 @@ import SectionHeading from "../SectionHeading";
 
 const features = [
   {
-    title: "AI Customer Support",
+    title: "Core Operations & Billing",
     description:
-      "Your AI agent answers customer questions on WhatsApp instantly, 24/7 — trained on your business so replies sound like you, not a generic bot.",
+      "Run invoicing, payments, and day-to-day operations from one dashboard — built to match how your industry actually bills and works.",
     span: true,
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 9v1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    ),
+  },
+  {
+    title: "Staff & Job Management",
+    description:
+      "Assign jobs, track staff schedules, and manage your team's workload from a built-in job board — no separate HR tool required.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m-4 6h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z"
+      />
+    ),
+  },
+  {
+    title: "Compliance Calendars",
+    description:
+      "Never miss a filing, renewal, or regulatory deadline — NEXTOSA tracks industry-specific compliance dates and alerts you automatically.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+      />
+    ),
+  },
+  {
+    title: "AI Business Insights",
+    description:
+      "Get AI-generated reports on revenue, client activity, and staff performance — the insights you need to make decisions, without the spreadsheets.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+      />
+    ),
+  },
+  {
+    title: "WhatsApp Client Automation",
+    description:
+      "Your AI agent answers client questions and sends reminders on WhatsApp instantly, 24/7 — trained on your business so replies sound like you.",
     icon: (
       <path
         strokeLinecap="round"
@@ -16,75 +64,27 @@ const features = [
     ),
   },
   {
-    title: "Client Management",
-    description:
-      "A complete CRM that keeps every contact, conversation, and deal organized in one place — no more spreadsheets or scattered chats.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-4-4"
-      />
-    ),
-  },
-  {
-    title: "WhatsApp Reminders",
-    description:
-      "Automatically send appointment reminders, payment nudges, and follow-ups so nothing slips through the cracks.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .53-.21 1.04-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-      />
-    ),
-  },
-  {
-    title: "Document Storage",
+    title: "Secure Document Vault",
     description:
       "Securely store contracts, invoices, and client files, and retrieve any document instantly from your dashboard or via WhatsApp.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
       />
     ),
   },
   {
-    title: "AI Q&A Knowledge Base",
+    title: "Industry-Specific Modules",
     description:
-      "Upload your docs and FAQs — NEXTOSA's AI learns your business and answers client questions accurately, without you lifting a finger.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9.663 17h4.673M12 3a6 6 0 00-6 6c0 2.093 1.132 3.393 2.09 4.393.545.567.91 1.16.91 1.607v.5a1 1 0 001 1h4a1 1 0 001-1v-.5c0-.447.365-1.04.91-1.607C15.868 12.393 17 11.093 17 9a6 6 0 00-6-6z"
-      />
-    ),
-  },
-  {
-    title: "Template Management",
-    description:
-      "Create and reuse Meta-approved WhatsApp message templates for broadcasts, receipts, and updates — fully compliant and ready to send.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4 6h16M4 6a2 2 0 012-2h12a2 2 0 012 2M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6m-9 5h4m-4 4h4"
-      />
-    ),
-  },
-  {
-    title: "Away Mode",
-    description:
-      "Stepping away? Flip on Away Mode and let your AI assistant handle every incoming conversation until you're back online.",
+      "From CA firms to salons to schools, NEXTOSA ships with dedicated workflows for your industry — not a one-size-fits-all chatbot.",
     span: true,
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"
       />
     ),
   },
@@ -95,9 +95,9 @@ export default function Features() {
     <section id="features" className="bg-white py-24 sm:py-32">
       <Container>
         <SectionHeading
-          eyebrow="Features"
-          title="Everything you need to run client communication on autopilot"
-          description="NEXTOSA brings your CRM and WhatsApp together with AI at the core — so your business responds faster, stays organized, and never drops a client."
+          eyebrow="Platform"
+          title="One operating system for every part of your business"
+          description="From billing and staff management to compliance tracking and AI-powered WhatsApp automation — NEXTOSA replaces the patchwork of tools most businesses juggle."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

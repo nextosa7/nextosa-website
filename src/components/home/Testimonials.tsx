@@ -4,19 +4,19 @@ import SectionHeading from "../SectionHeading";
 const testimonials = [
   {
     quote:
-      "We used to lose track of client follow-ups constantly. Now NEXTOSA's AI handles reminders and FAQs on WhatsApp automatically — it feels like we hired a full-time support agent.",
+      "We run staff schedules, billing, and client reminders on WhatsApp all from NEXTOSA now. It replaced three different tools and everything finally stays in sync.",
     name: "Priya M.",
     role: "Salon Owner",
   },
   {
     quote:
-      "The AI Q&A feature is incredible. It answers pricing and availability questions from our documents so accurately that clients think a human replied instantly.",
+      "The AI Q&A feature is incredible for handling client questions, but what sold us was the compliance calendar — we haven't missed a filing deadline since we switched.",
     name: "Arjun K.",
-    role: "Real Estate Consultant",
+    role: "CA Firm Partner",
   },
   {
     quote:
-      "Away Mode alone is worth it. I can step away from my shop and know every WhatsApp message still gets a smart, on-brand reply.",
+      "Away Mode alone is worth it, but the real win is having inventory-aware billing and WhatsApp in one place. I can step away from my shop and everything still runs.",
     name: "Fatima R.",
     role: "Boutique Retailer",
   },
@@ -29,7 +29,7 @@ export default function Testimonials() {
         <SectionHeading
           eyebrow="Testimonials"
           title="Businesses run smoother with NEXTOSA"
-          description="See how teams use NEXTOSA to automate WhatsApp and manage clients without extra headcount."
+          description="See how teams across industries run billing, staffing, compliance, and client communication from one platform — without extra headcount."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">

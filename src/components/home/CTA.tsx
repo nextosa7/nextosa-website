@@ -8,11 +8,12 @@ export default function CTA() {
       <div className="absolute inset-0 bg-grid opacity-30" />
       <Container className="relative text-center">
         <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Ready to automate your WhatsApp &amp; grow faster?
+          Ready to run your entire business on one platform?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-          Join businesses using NEXTOSA to respond instantly, stay organized,
-          and turn every conversation into a client relationship.
+          Join businesses using NEXTOSA to manage billing, staff, and
+          compliance, and automate client communication on WhatsApp — all
+          from one AI operating system.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button href="/contact" size="lg">

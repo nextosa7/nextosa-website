@@ -17,17 +17,18 @@ export default function Hero() {
       <Container className="relative py-24 sm:py-28 lg:py-32">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="animate-fade-up">
-            <Badge>AI-Powered CRM for WhatsApp</Badge>
+            <Badge>AI Business Operating System</Badge>
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Turn WhatsApp into your{" "}
+              The All-in-One AI{" "}
               <span className="bg-gradient-to-r from-accent-400 to-cyan-400 bg-clip-text text-transparent">
-                smartest sales &amp; support channel
+                Operating System to Run Your Entire Business
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              NEXTOSA combines an AI-powered CRM with WhatsApp automation —
-              answer client questions instantly, manage every contact in one
-              place, and never miss a follow-up again.
+              NEXTOSA runs your core operations, billing, and staff
+              management end-to-end — with automated WhatsApp client
+              communication built in and dedicated modules for 9 industries,
+              from CA firms to healthcare clinics.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
