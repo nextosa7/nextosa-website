@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Is there a free trial?",
     answer:
-      "Yes, every plan includes a 14-day free trial with no credit card required, so you can test AI automation on your real WhatsApp number before committing.",
+      "Yes, every plan includes a 3-day free trial with no credit card required, so you can test AI automation on your real WhatsApp number before committing.",
   },
 ];
 
