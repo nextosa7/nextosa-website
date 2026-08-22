@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about NEXTOSA's mission to help businesses automate client communication with AI-powered CRM and WhatsApp automation.",
+    "Learn about NEXTOSA's mission to give every business an AI-powered operating system — covering billing, staff management, compliance, and WhatsApp automation across 9 industries.",
 };
 
 const values = [
@@ -71,13 +71,13 @@ export default function AboutPage() {
         <Container className="relative text-center">
           <Badge>About NEXTOSA</Badge>
           <h1 className="mx-auto mt-6 max-w-2xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Helping businesses build better client relationships, powered by AI
+            Helping businesses run their entire operation, powered by AI
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-300">
             NEXTOSA was born from a simple observation: businesses were
-            drowning in WhatsApp messages, missed follow-ups, and scattered
-            client information. We built the CRM and automation layer to fix
-            that.
+            drowning in disconnected tools — one for billing, one for staff,
+            one for WhatsApp, none of them talking to each other. We built
+            the operating system to fix that.
           </p>
         </Container>
       </section>
@@ -88,15 +88,19 @@ export default function AboutPage() {
             <div>
               <Badge>Our Mission</Badge>
               <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-                Give every business an AI teammate for client communication
+                Give every business an AI operating system, not another point
+                solution
               </h2>
               <p className="mt-6 text-lg leading-7 text-slate-600">
-                Millions of businesses run their entire customer relationship
-                through WhatsApp — but without the tools to manage it at
-                scale. NEXTOSA&apos;s mission is to give any business, regardless
-                of size or technical skill, an AI-powered CRM that automates
-                the busywork of client communication: answering questions,
-                sending reminders, organizing contacts, and storing documents.
+                Millions of businesses juggle separate tools for billing,
+                staff scheduling, compliance tracking, and client
+                communication — with nothing connecting them. NEXTOSA&apos;s
+                mission is to give any business, regardless of size or
+                technical skill, one AI-powered operating system that runs
+                the busywork end-to-end: billing, staff and job management,
+                compliance calendars, document storage, and automated
+                WhatsApp client communication, with modules purpose-built for
+                9 industries.
               </p>
               <p className="mt-4 text-lg leading-7 text-slate-600">
                 We believe automation should feel personal, not robotic. Every
@@ -108,9 +112,10 @@ export default function AboutPage() {
             <div className="rounded-2xl bg-slate-50 p-10 ring-1 ring-slate-200">
               <blockquote className="text-xl font-medium leading-8 text-navy-900">
                 &ldquo;We started NEXTOSA because we saw business owners
-                losing clients not from bad service, but from slow replies
-                and disorganized follow-ups. AI and WhatsApp automation can
-                fix that — for every business, not just the big ones.&rdquo;
+                losing time and money to a patchwork of disconnected tools,
+                not from a lack of effort. One AI operating system, built for
+                how each industry actually works, can fix that — for every
+                business, not just the big ones.&rdquo;
               </blockquote>
               <div className="mt-6 flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-accent-700 text-lg font-bold text-white">
@@ -179,10 +184,10 @@ export default function AboutPage() {
             Founder &amp; CEO, {siteConfig.name}
           </p>
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600">
-            Harsh founded NEXTOSA to help businesses of every size turn
-            WhatsApp into a scalable, AI-powered customer relationship
-            channel — combining practical CRM tools with automation that
-            actually gets used.
+            Harsh founded NEXTOSA to give businesses of every size a single
+            AI-powered operating system — replacing the patchwork of
+            billing, staffing, and communication tools with dedicated
+            modules built for each industry.
           </p>
         </Container>
       </section>
@@ -194,8 +199,9 @@ export default function AboutPage() {
             Want to see NEXTOSA in action?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-slate-300">
-            Get in touch and we&apos;ll walk you through how NEXTOSA can
-            automate your WhatsApp and client management.
+            Get in touch and we&apos;ll walk you through how NEXTOSA can run
+            your billing, staff, compliance, and WhatsApp communication from
+            one platform.
           </p>
           <div className="mt-8">
             <Button href="/contact" size="lg">
