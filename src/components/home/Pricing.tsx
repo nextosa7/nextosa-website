@@ -32,7 +32,7 @@ const plans = [
       "Core CRM & WhatsApp automation",
     ],
     highlighted: false,
-    cta: "Start Free Trial",
+    cta: "Select Plan",
   },
   {
     name: "Growth",
@@ -53,7 +53,7 @@ const plans = [
       "Advanced analytics",
     ],
     highlighted: true,
-    cta: "Start Free Trial",
+    cta: "Select Plan",
   },
   {
     name: "Enterprise",
@@ -74,7 +74,7 @@ const plans = [
       "Custom integrations",
     ],
     highlighted: false,
-    cta: "Start Free Trial",
+    cta: "Select Plan",
   },
 ];
 
@@ -84,6 +84,16 @@ function formatInr(amount: number) {
 
 export default function Pricing() {
   const [cycle, setCycle] = useState<Cycle>("monthly");
+  const [workspaces, setWorkspaces] = useState<Record<string, number>>(
+    Object.fromEntries(plans.map((plan) => [plan.name, 1]))
+  );
+
+  const adjustWorkspaces = (planName: string, delta: number) => {
+    setWorkspaces((prev) => ({
+      ...prev,
+      [planName]: Math.max(1, prev[planName] + delta),
+    }));
+  };
 
   return (
     <section id="pricing" className="bg-slate-50 py-24 sm:py-32">
@@ -200,10 +210,59 @@ export default function Pricing() {
                   ))}
                 </ul>
 
+                <div className="mt-8">
+                  <p
+                    className={`text-center text-xs font-semibold uppercase tracking-wider ${
+                      plan.highlighted ? "text-slate-400" : "text-slate-500"
+                    }`}
+                  >
+                    Workspaces
+                  </p>
+                  <div
+                    className={`mx-auto mt-2 flex w-fit items-center gap-4 rounded-full border px-2 py-1.5 ${
+                      plan.highlighted
+                        ? "border-white/15"
+                        : "border-slate-200"
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      aria-label={`Decrease ${plan.name} workspace count`}
+                      onClick={() => adjustWorkspaces(plan.name, -1)}
+                      className={`flex h-7 w-7 items-center justify-center rounded-full text-base font-semibold transition-colors ${
+                        plan.highlighted
+                          ? "text-white hover:bg-white/10"
+                          : "text-navy-900 hover:bg-slate-100"
+                      }`}
+                    >
+                      −
+                    </button>
+                    <span
+                      className={`w-4 text-center text-sm font-semibold ${
+                        plan.highlighted ? "text-white" : "text-navy-900"
+                      }`}
+                    >
+                      {workspaces[plan.name]}
+                    </span>
+                    <button
+                      type="button"
+                      aria-label={`Increase ${plan.name} workspace count`}
+                      onClick={() => adjustWorkspaces(plan.name, 1)}
+                      className={`flex h-7 w-7 items-center justify-center rounded-full text-base font-semibold transition-colors ${
+                        plan.highlighted
+                          ? "text-white hover:bg-white/10"
+                          : "text-navy-900 hover:bg-slate-100"
+                      }`}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
                 <Button
                   href="/contact"
                   variant={plan.highlighted ? "primary" : "secondary"}
-                  className={`mt-8 w-full ${
+                  className={`mt-6 w-full ${
                     !plan.highlighted
                       ? "!bg-navy-900 !text-white hover:!bg-navy-800"
                       : ""
@@ -214,6 +273,17 @@ export default function Pricing() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <Button
+            href="/contact"
+            variant="secondary"
+            size="lg"
+            className="!border-2 !border-navy-900 !bg-transparent !text-navy-900 !shadow-none hover:!bg-navy-900 hover:!text-white"
+          >
+            Start your free 3-day trial
+          </Button>
         </div>
       </Container>
     </section>
