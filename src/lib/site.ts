@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://nextosa.com",
   appUrl: "https://nextosa-frontend.vercel.app",
   loginUrl: "https://nextosa-frontend.vercel.app/login",
-  signupUrl: "https://nextosa-frontend.vercel.app/register",
+  signupUrl: "https://nextosa-frontend.vercel.app/signup",
   email: "nextosa7@gmail.com",
   founder: "Harsh Soni",
   navLinks: [
