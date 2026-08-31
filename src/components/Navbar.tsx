@@ -36,8 +36,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
-            <Button href="/contact" size="md">
+          <div className="hidden items-center gap-6 md:flex">
+            <Link
+              href={siteConfig.loginUrl}
+              className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+            >
+              Login
+            </Link>
+            <Button href={siteConfig.signupUrl} size="md">
               Get Started
             </Button>
           </div>
@@ -95,8 +101,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={siteConfig.loginUrl}
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+              onClick={() => setOpen(false)}
+            >
+              Login
+            </Link>
             <div className="mt-2">
-              <Button href="/contact" size="md" className="w-full">
+              <Button href={siteConfig.signupUrl} size="md" className="w-full">
                 Get Started
               </Button>
             </div>

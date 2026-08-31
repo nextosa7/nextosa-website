@@ -1,6 +1,7 @@
 import Button from "../Button";
 import Container from "../Container";
 import Badge from "../Badge";
+import { siteConfig } from "@/lib/site";
 
 const trustPoints = [
   "No credit card required",
@@ -32,7 +33,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href="/contact" size="lg">
+              <Button href={siteConfig.signupUrl} size="lg">
                 Start Free Trial
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
