@@ -4,6 +4,7 @@ import { useState } from "react";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
 import Button from "../Button";
+import { siteConfig } from "@/lib/site";
 
 type Cycle = "monthly" | "quarterly" | "yearly";
 
@@ -260,7 +261,7 @@ export default function Pricing() {
                 </div>
 
                 <Button
-                  href="/contact"
+                  href={siteConfig.signupUrl}
                   variant={plan.highlighted ? "primary" : "secondary"}
                   className={`mt-6 w-full ${
                     !plan.highlighted
@@ -277,7 +278,7 @@ export default function Pricing() {
 
         <div className="mt-14 flex justify-center">
           <Button
-            href="/contact"
+            href={siteConfig.signupUrl}
             variant="secondary"
             size="lg"
             className="!border-2 !border-navy-900 !bg-transparent !text-navy-900 !shadow-none hover:!bg-navy-900 hover:!text-white"

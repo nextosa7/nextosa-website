@@ -199,13 +199,13 @@ export default function AboutPage() {
             Want to see NEXTOSA in action?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-slate-300">
-            Get in touch and we&apos;ll walk you through how NEXTOSA can run
-            your billing, staff, compliance, and WhatsApp communication from
-            one platform.
+            Start your free trial and explore how NEXTOSA can run your
+            billing, staff, compliance, and WhatsApp communication from one
+            platform.
           </p>
           <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Contact Us
+            <Button href={siteConfig.signupUrl} size="lg">
+              Start Free Trial
             </Button>
           </div>
         </Container>

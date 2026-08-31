@@ -1,5 +1,6 @@
 import Container from "../Container";
 import Button from "../Button";
+import { siteConfig } from "@/lib/site";
 
 export default function CTA() {
   return (
@@ -16,7 +17,7 @@ export default function CTA() {
           from one AI operating system.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button href="/contact" size="lg">
+          <Button href={siteConfig.signupUrl} size="lg">
             Start Free Trial
           </Button>
           <Button href="/about" variant="ghost" size="lg">
