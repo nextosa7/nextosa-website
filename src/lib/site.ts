@@ -4,9 +4,9 @@ export const siteConfig = {
   description:
     "NEXTOSA is an all-in-one AI business operating system — billing, staff management, compliance tracking, and automated WhatsApp client communication, with dedicated modules for 9 industries.",
   url: "https://nextosa.com",
-  appUrl: "https://nextosa-frontend.vercel.app",
-  loginUrl: "https://nextosa-frontend.vercel.app/login",
-  signupUrl: "https://nextosa-frontend.vercel.app/signup",
+  appUrl: "https://nextosa-app-client.vercel.app",
+  loginUrl: "https://nextosa-app-client.vercel.app/login",
+  signupUrl: "https://nextosa-app-client.vercel.app/signup",
   email: "nextosa7@gmail.com",
   founder: "Harsh Soni",
   navLinks: [
