@@ -1,32 +1,26 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useActionState, useRef, useEffect } from "react";
 import Button from "../Button";
-import { siteConfig } from "@/lib/site";
+import { submitLeadToNextosa, type ContactFormState } from "@/app/contact/actions";
+
+const initialState: ContactFormState = { status: "idle", message: "" };
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction, pending] = useActionState(
+    submitLeadToNextosa,
+    initialState,
+  );
+  const formRef = useRef<HTMLFormElement>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = data.get("name")?.toString() ?? "";
-    const email = data.get("email")?.toString() ?? "";
-    const business = data.get("business")?.toString() ?? "";
-    const message = data.get("message")?.toString() ?? "";
-
-    const subject = encodeURIComponent(`NEXTOSA Inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nBusiness: ${business}\n\nMessage:\n${message}`
-    );
-
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  }
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state]);
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form ref={formRef} action={formAction} className="space-y-5">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label
@@ -62,20 +56,38 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div>
-        <label
-          htmlFor="business"
-          className="mb-1.5 block text-sm font-medium text-navy-900"
-        >
-          Business Name
-        </label>
-        <input
-          id="business"
-          name="business"
-          type="text"
-          placeholder="Your Business Inc."
-          className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-navy-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
-        />
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="phone"
+            className="mb-1.5 block text-sm font-medium text-navy-900"
+          >
+            Phone Number
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            placeholder="+1 555 123 4567"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-navy-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="business"
+            className="mb-1.5 block text-sm font-medium text-navy-900"
+          >
+            Business Name
+          </label>
+          <input
+            id="business"
+            name="business"
+            type="text"
+            placeholder="Your Business Inc."
+            className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-navy-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
+          />
+        </div>
       </div>
 
       <div>
@@ -95,21 +107,18 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" className="w-full">
-        Send Message
+      <Button type="submit" size="lg" className="w-full" disabled={pending}>
+        {pending ? "Sending..." : "Send Message"}
       </Button>
 
-      {submitted && (
-        <p className="text-center text-sm text-emerald-600">
-          Your email client should now be open with your message ready to
-          send. If it didn&apos;t open, email us directly at{" "}
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="font-medium underline"
-          >
-            {siteConfig.email}
-          </a>
-          .
+      {state.status !== "idle" && (
+        <p
+          aria-live="polite"
+          className={`text-center text-sm ${
+            state.status === "success" ? "text-emerald-600" : "text-red-600"
+          }`}
+        >
+          {state.message}
         </p>
       )}
     </form>

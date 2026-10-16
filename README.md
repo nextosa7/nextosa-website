@@ -31,6 +31,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+## Environment Variables
+
+This site integrates both ways with a NEXTOSA CRM Custom App connection (Settings > Integrations >
+Custom Apps in NEXTOSA). Copy `.env.example` to `.env.local` and fill in both values from the same
+connection - they're shown together, once, when you click "Generate Inbound API Key":
+
+| Variable               | Used by                                            | Purpose                                                                                                         |
+| ----------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `NEXTOSA_INBOUND_URL`   | `src/app/contact/actions.ts`                       | The full, connection-specific URL this site POSTs new Contact form leads to.                                   |
+| `CRM_WEBHOOK_SECRET`    | `src/app/contact/actions.ts`, `src/app/api/webhooks/crm/route.ts` | The connection's shared secret - sent as the `x-api-key` header on outbound leads, and used to verify the `x-nextosa-signature` HMAC-SHA256 header on inbound commands NEXTOSA sends this site. |
+
+In production (Vercel), set both under the project's own Environment Variables settings rather
+than committing `.env.local`.
+
 ## Scripts
 
 ```bash
