@@ -1,5 +1,7 @@
 import Hero from "@/components/home/Hero";
 import Industries from "@/components/home/Industries";
+import PlatformStack from "@/components/home/PlatformStack";
+import ArchitectureBanner from "@/components/home/ArchitectureBanner";
 import Features from "@/components/home/Features";
 import HowItWorks from "@/components/home/HowItWorks";
 import Pricing from "@/components/home/Pricing";
@@ -12,6 +14,8 @@ export default function Home() {
     <>
       <Hero />
       <Industries />
+      <PlatformStack />
+      <ArchitectureBanner />
       <Features />
       <HowItWorks />
       <Pricing />
