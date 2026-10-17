@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "NEXTOSA",
   tagline: "The AI Operating System to Run Your Entire Business",
   description:
-    "NEXTOSA is an all-in-one AI business operating system — billing, staff management, compliance tracking, and automated WhatsApp client communication, with dedicated modules for 9 industries.",
+    "NEXTOSA is an all-in-one AI business operating system — billing, staff management, compliance tracking, and automated WhatsApp client communication, with dedicated modules for 10 industries.",
   url: "https://nextosa.com",
   appUrl: "https://app.nextosa.com",
   loginUrl: "https://app.nextosa.com/login",

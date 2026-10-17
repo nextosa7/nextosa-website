@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Is NEXTOSA just a WhatsApp tool, or more than that?",
     answer:
-      "Much more. WhatsApp automation is one module inside NEXTOSA — the platform also runs your billing, staff and job management, compliance calendars, document vault, and AI business insights, with dedicated workflows for 9 industries.",
+      "Much more. WhatsApp automation is one module inside NEXTOSA — the platform also runs your billing, staff and job management, compliance calendars, document vault, and AI business insights, with dedicated workflows for 10 industries.",
   },
   {
     question: "Does NEXTOSA use the official WhatsApp Business API?",

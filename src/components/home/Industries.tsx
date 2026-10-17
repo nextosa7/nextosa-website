@@ -110,6 +110,18 @@ const industries = [
       />
     ),
   },
+  {
+    name: "Gym & Fitness Studios",
+    description:
+      "Membership management, class scheduling, and automated workout reminders.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+      />
+    ),
+  },
 ];
 
 export default function Industries() {
@@ -119,7 +131,7 @@ export default function Industries() {
         <SectionHeading
           eyebrow="Built For Your Industry"
           title="One platform, tailored to how your industry actually works"
-          description="NEXTOSA isn't a generic chatbot — every module, workflow, and automation is purpose-built for the way these 9 industries run their business."
+          description="NEXTOSA isn't a generic chatbot — every module, workflow, and automation is purpose-built for the way these 10 industries run their business."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

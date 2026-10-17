@@ -28,7 +28,7 @@ export default function Hero() {
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
               NEXTOSA runs your core operations, billing, and staff
               management end-to-end — with automated WhatsApp client
-              communication built in and dedicated modules for 9 industries,
+              communication built in and dedicated modules for 10 industries,
               from CA firms to healthcare clinics.
             </p>
 
