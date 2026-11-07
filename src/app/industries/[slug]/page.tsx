@@ -6,6 +6,8 @@ import PageHero from "@/components/PageHero";
 import ModuleRows from "@/components/ModuleRows";
 import SectionHeading from "@/components/SectionHeading";
 import CTA from "@/components/home/CTA";
+import PortalCards from "@/components/PortalCards";
+import { industryDepth } from "@/lib/portals";
 import { industryBySlug, industryPages, leadShot } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -23,6 +25,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const page = industryBySlug(slug);
   if (!page) notFound();
+  const depth = industryDepth[page.slug];
 
   return (
     <>
@@ -69,6 +72,44 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           </ul>
         </Container>
       </section>
+
+      {depth && (
+        <>
+          <section className="bg-white py-16 sm:py-20">
+            <Container>
+              <SectionHeading eyebrow="In depth" title={`How NEXTOSA handles the details for ${page.name.toLowerCase()}`} />
+              <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {depth.details.map((d) => (
+                  <div key={d.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
+                    <h3 className="text-lg font-semibold text-navy-900">{d.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{d.text}</p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </section>
+
+          <section id="portals" className="bg-slate-50 py-16 sm:py-20">
+            <Container>
+              <SectionHeading
+                eyebrow="Portals"
+                title={depth.portals.length ? "Self-service portals for the people you serve" : "Portals"}
+                description={depth.portals.length ? "Each portal is a separate, locked-down sign-in. Outside people see only their own information." : undefined}
+              />
+              <div className="mt-12">
+                {depth.portals.length ? (
+                  <PortalCards portals={depth.portals} />
+                ) : (
+                  <p className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-7 text-center text-sm leading-6 text-slate-600">{depth.noPortalNote}</p>
+                )}
+              </div>
+              <p className="mt-8 text-center text-sm text-slate-600">
+                <Link href="/portals" className="font-medium text-accent-600 hover:underline">See portals for every industry</Link>
+              </p>
+            </Container>
+          </section>
+        </>
+      )}
 
       <section className="bg-white py-16">
         <Container className="text-center">
