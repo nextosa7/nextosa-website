@@ -17,7 +17,7 @@ export default function SectionHeading({
     <div
       className={`mx-auto max-w-2xl ${center ? "text-center" : "text-left"}`}
     >
-      {eyebrow && <Badge>{eyebrow}</Badge>}
+      {eyebrow && <Badge light={!dark}>{eyebrow}</Badge>}
       <h2
         className={`mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl ${
           dark ? "text-white" : "text-navy-900"

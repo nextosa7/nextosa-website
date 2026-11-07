@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0a1628;
+  --foreground: #0b1f24;
 }
 
 @theme inline {
@@ -11,19 +11,25 @@
   --font-sans: var(--font-inter);
 
   /* NEXTOSA brand palette */
-  --color-navy-950: #05090f;
-  --color-navy-900: #0a1628;
-  --color-navy-850: #0d1c33;
-  --color-navy-800: #11213c;
-  --color-navy-700: #172a4a;
-  --color-navy-600: #203a63;
-  --color-navy-500: #2c4d80;
+  /* Deep teal-ink base: stability and premium weight, a step away from the generic SaaS blue. */
+  --color-navy-950: #060f12;
+  --color-navy-900: #0b1f24;
+  --color-navy-850: #0e262c;
+  --color-navy-800: #122e35;
+  --color-navy-700: #19404a;
+  --color-navy-600: #245562;
+  --color-navy-500: #327080;
 
-  --color-accent-300: #93c5fd;
-  --color-accent-400: #60a5fa;
-  --color-accent-500: #3b82f6;
-  --color-accent-600: #2563eb;
-  --color-accent-700: #1d4ed8;
+  /* Teal-emerald accent: growth, money and health, and close to the WhatsApp green our users live in.
+     600/700 are dark enough for white text and for links on white (AA contrast). */
+  --color-accent-50: #f0fdfa;
+  --color-accent-100: #ccfbf1;
+  --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0f766e;
+  --color-accent-700: #115e59;
 
   --color-cyan-400: #22d3ee;
 
@@ -87,8 +93,8 @@ body {
 .bg-radial-glow {
   background: radial-gradient(
     60% 50% at 50% 0%,
-    rgba(59, 130, 246, 0.25) 0%,
-    rgba(10, 22, 40, 0) 70%
+    rgba(20, 184, 166, 0.22) 0%,
+    rgba(11, 31, 36, 0) 70%
   );
 }
 
