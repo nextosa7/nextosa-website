@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-navy-950">
       <Container className="py-16">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2">
             <Link
               href="/"
@@ -39,6 +39,19 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm text-slate-400 hover:text-white"
                   >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-white">Industries</h3>
+            <ul className="mt-4 space-y-3">
+              {siteConfig.footerLinks.industries.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-slate-400 hover:text-white">
                     {link.label}
                   </Link>
                 </li>

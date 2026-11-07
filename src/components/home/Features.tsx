@@ -3,9 +3,9 @@ import SectionHeading from "../SectionHeading";
 
 const features = [
   {
-    title: "Core Operations & Billing",
+    title: "CRM, Invoicing & Accounting",
     description:
-      "Run invoicing, payments, and day-to-day operations from one dashboard — built to match how your industry actually bills and works.",
+      "Contacts, deals, invoices, payments and a real double-entry ledger with reports — plus credit notes, tax handling and Razorpay payment links.",
     span: true,
     icon: (
       <path
@@ -16,9 +16,9 @@ const features = [
     ),
   },
   {
-    title: "Staff & Job Management",
+    title: "Team, HR & Job Boards",
     description:
-      "Assign jobs, track staff schedules, and manage your team's workload from a built-in job board — no separate HR tool required.",
+      "Roles with fine-grained permissions, attendance, payroll, task boards with checklists, and the option to restrict staff to specific WhatsApp numbers.",
     icon: (
       <path
         strokeLinecap="round"
@@ -28,9 +28,9 @@ const features = [
     ),
   },
   {
-    title: "Compliance Calendars",
+    title: "Automations Builder",
     description:
-      "Never miss a filing, renewal, or regulatory deadline — NEXTOSA tracks industry-specific compliance dates and alerts you automatically.",
+      "A visual builder for triggers, delays and actions — schedules, drips, email and WhatsApp sends — with a run history you can inspect.",
     icon: (
       <path
         strokeLinecap="round"
@@ -40,9 +40,9 @@ const features = [
     ),
   },
   {
-    title: "AI Business Insights",
+    title: "AI Business Assistant",
     description:
-      "Get AI-generated reports on revenue, client activity, and staff performance — the insights you need to make decisions, without the spreadsheets.",
+      "Ask questions about your revenue, clients and stock in plain language, and get AI reports without the spreadsheets.",
     icon: (
       <path
         strokeLinecap="round"
@@ -52,9 +52,9 @@ const features = [
     ),
   },
   {
-    title: "WhatsApp Client Automation",
+    title: "WhatsApp & Email Inbox",
     description:
-      "Your AI agent answers client questions and sends reminders on WhatsApp instantly, 24/7 — trained on your business so replies sound like you.",
+      "One inbox for WhatsApp (several numbers) and Gmail, AI auto-replies or an approval queue, templates, campaigns and broadcasts.",
     icon: (
       <path
         strokeLinecap="round"
@@ -64,9 +64,9 @@ const features = [
     ),
   },
   {
-    title: "Secure Document Vault",
+    title: "Documents & Storage",
     description:
-      "Securely store contracts, invoices, and client files, and retrieve any document instantly from your dashboard or via WhatsApp.",
+      "Upload invoices, contracts and files, chat with your documents, and extract bills automatically. Stored on Google Cloud.",
     icon: (
       <path
         strokeLinecap="round"
@@ -76,9 +76,9 @@ const features = [
     ),
   },
   {
-    title: "Industry-Specific Modules",
+    title: "Industry Modules",
     description:
-      "From CA firms to salons to schools, NEXTOSA ships with dedicated workflows for your industry — not a one-size-fits-all chatbot.",
+      "Dedicated workflows for 10 industries — from hospital mode and school admissions to QR restaurant ordering and gym memberships.",
     span: true,
     icon: (
       <path
@@ -96,8 +96,8 @@ export default function Features() {
       <Container>
         <SectionHeading
           eyebrow="Platform"
-          title="One operating system for every part of your business"
-          description="From billing and staff management to compliance tracking and AI-powered WhatsApp automation — NEXTOSA replaces the patchwork of tools most businesses juggle."
+          title="One platform for every part of your business"
+          description="From invoicing and accounting to team management, automations and AI agents on WhatsApp and email — NEXTOSA replaces the patchwork of tools most businesses juggle."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

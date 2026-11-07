@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about NEXTOSA's mission to give every business an AI-powered operating system — covering billing, staff management, compliance, and WhatsApp automation across 9 industries.",
+    "Learn about NEXTOSA's mission to give every business an AI-powered operating system — covering billing, staff management, compliance, and WhatsApp automation across 10 industries.",
 };
 
 const values = [
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 the busywork end-to-end: billing, staff and job management,
                 compliance calendars, document storage, and automated
                 WhatsApp client communication, with modules purpose-built for
-                9 industries.
+                10 industries.
               </p>
               <p className="mt-4 text-lg leading-7 text-slate-600">
                 We believe automation should feel personal, not robotic. Every

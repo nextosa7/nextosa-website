@@ -4,27 +4,27 @@ import SectionHeading from "../SectionHeading";
 const steps = [
   {
     number: "01",
-    title: "Connect WhatsApp",
+    title: "Pick your industry",
     description:
-      "Link your WhatsApp Business number to NEXTOSA in minutes using the official WhatsApp Business API.",
+      "Choose your business type and NEXTOSA sets up the right modules, with demo data to explore before you add your own.",
   },
   {
     number: "02",
-    title: "Train your AI",
+    title: "Connect your channels",
     description:
-      "Upload documents, FAQs, and client details. Your AI assistant learns your business instantly.",
+      "Link WhatsApp through the official Business API, connect Gmail, and add the chat widget to your website.",
   },
   {
     number: "03",
-    title: "Automate & Engage",
+    title: "Train your AI agents",
     description:
-      "Set up reminders, templates, and Away Mode so replies and follow-ups happen automatically.",
+      "Add your catalog, prices and knowledge-base articles. Sales, Support and Marketing agents answer from them.",
   },
   {
     number: "04",
-    title: "Manage from one CRM",
+    title: "Run it from one place",
     description:
-      "Track every client, conversation, and document from a single, unified NEXTOSA dashboard.",
+      "Invoices, conversations, automations, staff and reports live in one dashboard, and you can step in on any chat.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function HowItWorks() {
       <Container className="relative">
         <SectionHeading
           eyebrow="How It Works"
-          title="From setup to automation in four simple steps"
-          description="No developers, no complicated integrations — NEXTOSA is built for business owners to set up themselves."
+          title="From sign-up to AI-run follow-ups in four steps"
+          description="No developers needed — NEXTOSA is built for business owners to set up themselves."
           dark
         />
 

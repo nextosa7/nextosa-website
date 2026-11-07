@@ -24,13 +24,16 @@ const plans = [
       yearly: { perMonth: 1249, billedNote: "Billed ₹14,990 per year" },
     },
     features: [
-      "1 team member",
-      "1 Workspace",
+      "3 team members",
       "100 WhatsApp messages/mo",
+      "1 WhatsApp number",
+      "1 site connection",
       "500,000 AI tokens/mo",
       "Up to 50 documents",
       "500MB document storage",
-      "Core CRM & WhatsApp automation",
+      "Full-stack CRM & core finance engine",
+      "Basic ERP modules",
+      "Standard tech support",
     ],
     highlighted: false,
     cta: "Select Plan",
@@ -45,13 +48,16 @@ const plans = [
     },
     features: [
       "5 team members",
-      "1 Workspace",
       "1,000 WhatsApp messages/mo",
+      "3 WhatsApp numbers",
+      "2 site connections",
       "2,000,000 AI tokens/mo",
       "Up to 500 documents",
       "5GB document storage",
-      "Priority support",
+      "Advanced ERP, FMS & LMS suite",
+      "Automated financial workflows",
       "Advanced analytics",
+      "24/7 priority support",
     ],
     highlighted: true,
     cta: "Select Plan",
@@ -66,17 +72,26 @@ const plans = [
     },
     features: [
       "15 team members",
-      "1 Workspace",
       "3,000 WhatsApp messages/mo",
+      "10 WhatsApp numbers",
+      "5 site connections",
       "5,000,000 AI tokens/mo",
       "Up to 2,000 documents",
       "20GB document storage",
-      "Dedicated support",
+      "Complete enterprise suite (ERP, FMS, LMS)",
+      "Custom infrastructure & API access",
       "Custom integrations",
+      "Dedicated account manager",
     ],
     highlighted: false,
     cta: "Select Plan",
   },
+];
+
+const topUps = [
+  { tokens: "1M", price: "₹499" },
+  { tokens: "5M", price: "₹1,999" },
+  { tokens: "15M", price: "₹4,499" },
 ];
 
 function formatInr(amount: number) {
@@ -274,6 +289,25 @@ export default function Pricing() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-16 rounded-2xl border border-slate-200 bg-white p-8">
+          <h3 className="text-center text-lg font-semibold text-navy-900">
+            Need more AI tokens? Top up any time
+          </h3>
+          <p className="mx-auto mt-2 max-w-xl text-center text-sm text-slate-600">
+            One-time packs that never expire and are used automatically after
+            your plan&apos;s monthly allowance runs out.
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {topUps.map((pack) => (
+              <div key={pack.tokens} className="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center">
+                <p className="text-2xl font-bold text-navy-900">{pack.tokens}</p>
+                <p className="text-xs text-slate-500">AI tokens</p>
+                <p className="mt-2 text-xl font-semibold text-accent-600">{pack.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-14 flex justify-center">

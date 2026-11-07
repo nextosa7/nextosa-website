@@ -5,7 +5,7 @@ const industries = [
   {
     name: "CA Firms",
     description:
-      "Compliance calendars, client billing, and document workflows built for practice management.",
+      "Job board, client billing, compliance calendar and document workflows built for practice management.",
     icon: (
       <path
         strokeLinecap="round"
@@ -17,7 +17,7 @@ const industries = [
   {
     name: "Real Estate",
     description:
-      "Property listings, lead follow-ups, and site-visit scheduling on autopilot.",
+      "Property inventory, leads, site-visit bookings and finance — with AI follow-ups on WhatsApp.",
     icon: (
       <path
         strokeLinecap="round"
@@ -29,7 +29,7 @@ const industries = [
   {
     name: "Retail & Product Business",
     description:
-      "Inventory-aware billing, order tracking, and automated customer re-engagement.",
+      "Inventory with batches and a selling price, sales orders, invoices and AI that quotes live prices and stock.",
     icon: (
       <path
         strokeLinecap="round"
@@ -41,7 +41,7 @@ const industries = [
   {
     name: "Salon & Spa",
     description:
-      "Appointment booking, staff schedules, and automated client reminders.",
+      "Booking calendar, staff roster and payroll, client portal and automated reminders.",
     icon: (
       <path
         strokeLinecap="round"
@@ -53,7 +53,7 @@ const industries = [
   {
     name: "Healthcare & Clinics",
     description:
-      "Patient records, appointment reminders, and secure document storage.",
+      "Appointments and billing for clinics — and a full hospital mode with IPD beds, EMR, pharmacy, lab and TPA claims.",
     icon: (
       <path
         strokeLinecap="round"
@@ -65,7 +65,7 @@ const industries = [
   {
     name: "Schools & Colleges",
     description:
-      "Fee management, parent communication, and admissions tracking.",
+      "Admissions with task checklists, fees, attendance, exams and homework, plus parent, student and teacher portals.",
     icon: (
       <path
         strokeLinecap="round"
@@ -77,7 +77,7 @@ const industries = [
   {
     name: "Restaurants & Food Service",
     description:
-      "Order updates, table reservations, and staff shift management.",
+      "QR table ordering with WhatsApp OTP and online payment, a live orders board, recipes and stock.",
     icon: (
       <path
         strokeLinecap="round"
@@ -89,7 +89,7 @@ const industries = [
   {
     name: "Professional Services",
     description:
-      "Client onboarding, project billing, and deadline tracking.",
+      "Client projects on a Kanban board with tasks and checklists, timesheets and invoicing from hours.",
     icon: (
       <path
         strokeLinecap="round"
@@ -99,9 +99,21 @@ const industries = [
     ),
   },
   {
+    name: "Gyms & Fitness Studios",
+    description:
+      "Memberships and plans, check-in desk, trainer commissions, equipment tracking and a members store.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
+    ),
+  },
+  {
     name: "Manufacturers",
     description:
-      "Job orders, vendor communication, and production compliance tracking.",
+      "Production board, purchase and sales orders, raw materials and finished-goods inventory.",
     icon: (
       <path
         strokeLinecap="round"
@@ -119,7 +131,7 @@ export default function Industries() {
         <SectionHeading
           eyebrow="Built For Your Industry"
           title="One platform, tailored to how your industry actually works"
-          description="NEXTOSA isn't a generic chatbot — every module, workflow, and automation is purpose-built for the way these 9 industries run their business."
+          description="NEXTOSA isn't a generic chatbot — every module, workflow, and automation is purpose-built for the way these 10 industries run their business."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
