@@ -6,9 +6,8 @@ import PageHero from "@/components/PageHero";
 import ModuleRows from "@/components/ModuleRows";
 import SectionHeading from "@/components/SectionHeading";
 import CTA from "@/components/home/CTA";
-import PortalCards from "@/components/PortalCards";
 import { industryDepth } from "@/lib/portals";
-import { industryBySlug, industryPages, leadShot } from "@/lib/content";
+import { industryBySlug, industryPages, leadShot, type ModuleBlock } from "@/lib/content";
 
 export function generateStaticParams() {
   return industryPages.map((p) => ({ slug: p.slug }));
@@ -26,6 +25,15 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   const page = industryBySlug(slug);
   if (!page) notFound();
   const depth = industryDepth[page.slug];
+  // Portals are shown as ordinary module rows, right after the app screens, so they sit with the rest of the modules.
+  const modules: ModuleBlock[] = [
+    ...page.modules,
+    ...(depth?.portals ?? []).map((p) => ({
+      title: p.kind,
+      description: `For the ${p.persona.toLowerCase()}. ${p.signIn}`,
+      bullets: [...p.can, `Security: ${p.boundary}`],
+    })),
+  ];
 
   return (
     <>
@@ -50,7 +58,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <SectionHeading eyebrow="Modules" title={`Built for ${page.name.toLowerCase()}, screen by screen`} description="Every screen below is from the live NEXTOSA app." />
         </Container>
       </div>
-      <ModuleRows modules={page.modules} />
+      <ModuleRows modules={modules} />
 
       <section className="relative overflow-hidden bg-navy-900 py-20 sm:py-24">
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -86,26 +94,6 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                   </div>
                 ))}
               </div>
-            </Container>
-          </section>
-
-          <section id="portals" className="bg-slate-50 py-16 sm:py-20">
-            <Container>
-              <SectionHeading
-                eyebrow="Portals"
-                title={depth.portals.length ? "Self-service portals for the people you serve" : "Portals"}
-                description={depth.portals.length ? "Each portal is a separate, locked-down sign-in. Outside people see only their own information." : undefined}
-              />
-              <div className="mt-12">
-                {depth.portals.length ? (
-                  <PortalCards portals={depth.portals} />
-                ) : (
-                  <p className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-7 text-center text-sm leading-6 text-slate-600">{depth.noPortalNote}</p>
-                )}
-              </div>
-              <p className="mt-8 text-center text-sm text-slate-600">
-                <Link href="/portals" className="font-medium text-accent-600 hover:underline">See portals for every industry</Link>
-              </p>
             </Container>
           </section>
         </>

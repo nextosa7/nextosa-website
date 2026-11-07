@@ -65,7 +65,6 @@ export default function Navbar() {
             {trigger("industries", "Industries")}
             <Link href="/platform/ai-agents" className={topLink} onMouseEnter={() => setMenu(null)}>AI Agents</Link>
             <Link href="/#pricing" className={topLink} onMouseEnter={() => setMenu(null)}>Pricing</Link>
-            <Link href="/portals" className={topLink} onMouseEnter={() => setMenu(null)}>Portals</Link>
             <Link href="/compare" className={topLink} onMouseEnter={() => setMenu(null)}>Why NEXTOSA</Link>
             <Link href="/about" className={topLink} onMouseEnter={() => setMenu(null)}>About</Link>
             <Link href="/contact" className={topLink} onMouseEnter={() => setMenu(null)}>Contact</Link>
@@ -124,7 +123,7 @@ export default function Navbar() {
               <Link key={p.slug} href={`/industries/${p.slug}`} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">{p.name}</Link>
             ))}
             <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Company</p>
-            {[["/#pricing", "Pricing"], ["/portals", "Portals"], ["/compare", "Why NEXTOSA"], ["/about", "About"], ["/contact", "Contact"]].map(([href, label]) => (
+            {[["/#pricing", "Pricing"], ["/compare", "Why NEXTOSA"], ["/about", "About"], ["/contact", "Contact"]].map(([href, label]) => (
               <Link key={href} href={href} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">{label}</Link>
             ))}
             <Link href={siteConfig.loginUrl} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">Login</Link>
