@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -32,6 +34,10 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       title: p.kind,
       description: `For the ${p.persona.toLowerCase()}. ${p.signIn}`,
       bullets: [...p.can, `Security: ${p.boundary}`],
+      shot:
+        p.shotFile && existsSync(join(process.cwd(), "public", "screens", "portals", `${p.shotFile}.jpg`))
+          ? { src: `/screens/portals/${p.shotFile}.jpg`, caption: p.kind, url: `app.nextosa.com${p.shotUrl ?? ""}` }
+          : undefined,
     })),
   ];
 

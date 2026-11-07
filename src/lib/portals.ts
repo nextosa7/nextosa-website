@@ -7,6 +7,8 @@ export interface Portal {
   signIn: string;
   can: string[];
   boundary: string;
+  shotFile?: string; // file under /screens/portals, without extension
+  shotUrl?: string; // route shown in the browser frame
 }
 
 export interface IndustryDepth {
@@ -18,6 +20,8 @@ export interface IndustryDepth {
 const employeePortal: Portal = {
   persona: "Staff member",
   kind: "Employee self-service portal",
+  shotFile: "school-employee",
+  shotUrl: "/employee-portal",
   signIn: "Phone number and a 4-8 digit PIN that the admin sets on the staff record. Clearing the PIN revokes access.",
   can: ["View own profile", "Request leave and track its status", "See assigned shifts", "List and download payslips as PDF"],
   boundary: "A separate token with no user account behind it, so it cannot reach any staff screen or API.",
@@ -42,6 +46,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Parent or guardian",
         kind: "Parent portal",
+        shotFile: "school-parent",
+        shotUrl: "/parent",
         signIn: "The school invites them from Settings > Team with at least one linked student. They accept the invite, set a password (or use Google) and sign in. It uses no paid seat.",
         can: ["Switch between several children", "See attendance and exam results", "View fee invoices", "Create and track leave requests", "Read announcements and notifications", "Message the child's teachers, with attachments"],
         boundary: "Only the parent-portal APIs answer; every other route returns 403, and the child records are resolved on the server from the guardian link.",
@@ -49,6 +55,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Student",
         kind: "Student portal",
+        shotFile: "school-student",
+        shotUrl: "/student",
         signIn: "Invited with a link to their own student record, then password sign-in.",
         can: ["Own profile", "Homework", "Timetable", "Exam results", "Announcements and notifications"],
         boundary: "Read-only, and limited to the student-portal APIs.",
@@ -56,6 +64,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Class teacher",
         kind: "Teacher portal",
+        shotFile: "school-teacher",
+        shotUrl: "/teacher",
         signIn: "Invited from the HR record, which binds the staff member to a class. It is an unpaid, portal-only seat.",
         can: ["Mark attendance for the class", "Set homework and enter exam marks", "See the timetable and library", "Request own leave", "Message parents"],
         boundary: "A default-deny allowlist: finance, billing, settings and HR answer 403 even if permissions were granted by mistake.",
@@ -74,6 +84,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Diner",
         kind: "QR table ordering page",
+        shotFile: "restaurant-diner",
+        shotUrl: "/t/your-table",
         signIn: "No account. The diner scans the table's QR code, then verifies their WhatsApp number with a one-time code at checkout.",
         can: ["Browse the live menu", "Build a cart", "Pay online or at the counter", "Add order notes", "Track the order from paid to preparing, ready and served"],
         boundary: "The QR code identifies only the table. Prices always come from your menu, never from the request, and the order page is protected by its own token.",
@@ -102,6 +114,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Distributor or B2B customer",
         kind: "Distributor portal",
+        shotFile: "manufacturer-distributor",
+        shotUrl: "/b2b-catalog",
         signIn: "The team invites them from Settings > Team, linked to their customer record, then password sign-in.",
         can: ["Browse your published finished-goods catalog with list prices", "Place orders", "See their own order history and order detail"],
         boundary: "They never see cost or stock. Price and customer are stamped on the server, and only published, priced finished goods can be ordered.",
@@ -120,6 +134,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Tax client",
         kind: "Secure client portal",
+        shotFile: "ca-firm-client",
+        shotUrl: "/tax-client-portal",
         signIn: "Staff enable portal access with an email and password for the client, who then signs in at a shareable firm link.",
         can: ["View their profile", "List and download their documents", "See invoices with detail and payment history"],
         boundary: "Access is re-checked against the database on every request, so switching a client's portal off takes effect immediately, and the token cannot reach any staff API.",
@@ -147,6 +163,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Salon client",
         kind: "Client portal",
+        shotFile: "salon-client",
+        shotUrl: "/salon-client-portal",
         signIn: "Staff enable it on the client record with an email and password, and the client signs in at the salon's own link.",
         can: ["See their profile", "View packages and wallet or membership balance", "List their own bookings", "Book an appointment by choosing a service, a staff member and an available slot"],
         boundary: "A separate sign-in with its own token; a client sees only their own data.",
@@ -164,6 +182,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Client",
         kind: "Client portal",
+        shotFile: "professional-services-client",
+        shotUrl: "/professional-services-client-portal",
         signIn: "Staff enable access with an email and a password of at least eight characters, and the client signs in at the firm's link.",
         can: ["See their projects", "View invoices with payment status and an overdue badge", "Open shared documents", "View their profile"],
         boundary: "Read-only, with its own token that cannot reach any staff API.",
@@ -181,6 +201,8 @@ export const industryDepth: Record<string, IndustryDepth> = {
       {
         persona: "Gym member",
         kind: "Member portal (mobile)",
+        shotFile: "gym-member",
+        shotUrl: "/portal/member",
         signIn: "The gym clicks Send Portal Access and the member receives a single-use magic link valid for 7 days. No password to remember.",
         can: ["See their name, photo and check-in QR code", "View current plan, status, dates and days remaining", "Browse the gym store", "View their profile"],
         boundary: "The member id comes from the session, never from the client, and every other route is closed to a member.",
