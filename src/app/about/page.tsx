@@ -71,13 +71,13 @@ export default function AboutPage() {
         <Container className="relative text-center">
           <Badge>About NEXTOSA</Badge>
           <h1 className="mx-auto mt-6 max-w-2xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Helping businesses run their entire operation, powered by AI
+            One connected platform for how your business actually runs
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-300">
-            NEXTOSA was born from a simple observation: businesses were
-            drowning in disconnected tools — one for billing, one for staff,
-            one for WhatsApp, none of them talking to each other. We built
-            the operating system to fix that.
+            Businesses were drowning in disconnected tools: one for billing,
+            one for staff, one for WhatsApp, none of them talking to each
+            other. NEXTOSA brings CRM, ERP, finance and training into one
+            platform, with AI agents that work across it.
           </p>
         </Container>
       </section>
@@ -94,13 +94,13 @@ export default function AboutPage() {
               <p className="mt-6 text-lg leading-7 text-slate-600">
                 Millions of businesses juggle separate tools for billing,
                 staff scheduling, compliance tracking, and client
-                communication — with nothing connecting them. NEXTOSA&apos;s
+                communication, with nothing connecting them. NEXTOSA&apos;s
                 mission is to give any business, regardless of size or
-                technical skill, one AI-powered operating system that runs
-                the busywork end-to-end: billing, staff and job management,
-                compliance calendars, document storage, and automated
-                WhatsApp client communication, with modules purpose-built for
-                10 industries.
+                technical skill, one operating system that handles the
+                busywork end to end: CRM, inventory and purchasing,
+                invoicing and accounting, training, and automated
+                conversations on WhatsApp, email and your website, with
+                modules purpose-built for 10 industries.
               </p>
               <p className="mt-4 text-lg leading-7 text-slate-600">
                 We believe automation should feel personal, not robotic. Every
@@ -135,7 +135,35 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-24 sm:py-32">
+      <section className="bg-slate-50 py-20 sm:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="What we have built"
+            title="A platform, not a point solution"
+            description="A snapshot of what is in the product today."
+          />
+          <dl className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {[
+              { v: "10", l: "industry modules, from clinics and schools to gyms and CA firms" },
+              { v: "3", l: "AI agents: Sales, Support and Marketing" },
+              { v: "Multi", l: "WhatsApp numbers per workspace, plus Gmail and your website chat" },
+              { v: "13", l: "automation triggers in a visual workflow builder" },
+            ].map((s) => (
+              <div key={s.l} className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+                <dt className="text-3xl font-extrabold text-navy-900">{s.v}</dt>
+                <dd className="mt-2 text-sm leading-6 text-slate-600">{s.l}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-10 text-center">
+            <Button href="/industries/healthcare" variant="secondary">
+              Explore the industry modules
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="What We Believe"
@@ -171,7 +199,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-slate-50 py-24 sm:py-32">
         <Container className="max-w-3xl text-center">
           <Badge>Founder</Badge>
           <div className="mx-auto mt-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-accent-700 text-2xl font-bold text-white">
@@ -185,9 +213,8 @@ export default function AboutPage() {
           </p>
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600">
             Harsh founded NEXTOSA to give businesses of every size a single
-            AI-powered operating system — replacing the patchwork of
-            billing, staffing, and communication tools with dedicated
-            modules built for each industry.
+            operating system, replacing the patchwork of billing, staffing
+            and communication tools with modules built for each industry.
           </p>
         </Container>
       </section>
@@ -199,9 +226,8 @@ export default function AboutPage() {
             Want to see NEXTOSA in action?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-slate-300">
-            Start your free trial and explore how NEXTOSA can run your
-            billing, staff, compliance, and WhatsApp communication from one
-            platform.
+            Start your free trial and explore the module built for your
+            industry, with sample data already in place.
           </p>
           <div className="mt-8">
             <Button href={siteConfig.signupUrl} size="lg">

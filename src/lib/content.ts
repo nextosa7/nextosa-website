@@ -630,17 +630,12 @@ export const industryPages: IndustryPage[] = [
 export const platformBySlug = (slug: string) => platformPages.find((p) => p.slug === slug);
 export const industryBySlug = (slug: string) => industryPages.find((p) => p.slug === slug);
 
-// Captures taken from a fresh test workspace where the page had little or no data are not shown: an empty table sells
-// nothing. Those modules render as text-only cards instead.
+// Captures that still show an empty page, a permission notice or a setup nag are not shown. Those modules render as
+// text-only cards instead.
 const SPARSE = new Set([
-  "platform/approvals", "platform/lms-courses", "gym/checkin", "platform/tasks", "platform/templates", "platform/campaigns",
-  "restaurant/menu", "salon/staff", "real-estate/property-inventory", "salon/bookings", "gym/trainer-commissions",
-  "ca-firm/ai-insights", "school/transport", "salon/clients", "school/notice-board", "school/library", "school/timetable",
-  "ca-firm/calendar", "gym/plans", "salon/services", "professional-services/service-catalog", "salon/ai-insights",
-  "salon/payroll", "gym/store", "platform/purchase-orders", "gym/equipment", "healthcare/diagnostics", "healthcare/pharmacy",
-  "retail/purchase-orders", "ca-firm/billing", "ca-firm/clients", "manufacturer/production-board", "manufacturer/hr",
-  "manufacturer/equipment", "real-estate/agent-dashboard", "real-estate/finance-ledger", "real-estate/bookings",
-  "school/attendance", "platform/business-ai", "platform/ai-agents",
+  "gym/checkin", "gym/trainer-commissions", "school/timetable", "retail/purchase-orders", "healthcare/emr",
+  "platform/approvals", "platform/lms-courses", "platform/tasks", "platform/templates", "platform/campaigns",
+  "platform/purchase-orders", "platform/ai-agents", "platform/documents",
 ]);
 const isSparse = (sh?: Shot) => !!sh && SPARSE.has(sh.src.replace("/screens/", "").replace(".jpg", ""));
 for (const p of [...platformPages, ...industryPages]) {

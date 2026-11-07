@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with the NEXTOSA team to learn how our AI-powered CRM and WhatsApp automation platform can help your business.",
+    "Talk to the NEXTOSA team about a demo, pricing or the module for your industry.",
 };
 
 const contactPoints = [
@@ -60,11 +60,12 @@ export default function ContactPage() {
         <Container className="relative text-center">
           <Badge>Contact</Badge>
           <h1 className="mx-auto mt-6 max-w-2xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Let&apos;s talk about automating your WhatsApp
+            Let&apos;s talk about running your business on NEXTOSA
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-300">
-            Have a question, want a demo, or ready to get started? Send us a
-            message and our team will get back to you shortly.
+            Want a demo, a price for your team size, or to know how NEXTOSA
+            fits your industry? Send us a message and we will get back to you
+            shortly.
           </p>
         </Container>
       </section>
