@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "NEXTOSA Privacy Policy: how we collect, use, store, and protect your data, including data processed through the WhatsApp Business Platform.",
 };
 
-const LAST_UPDATED = "July 13, 2026";
+const LAST_UPDATED = "November 7, 2026";
 
 const toc = [
   { id: "introduction", label: "1. Introduction" },
@@ -394,6 +394,15 @@ export default function PrivacyPolicyPage() {
                 preferences, and improve performance. You can disable cookies
                 through your browser settings, though this may affect Service
                 functionality.
+              </p>
+              <p>
+                On our public website we use Vercel Web Analytics to count
+                visits and clicks on buttons such as &quot;Start free
+                trial&quot; or &quot;Contact&quot;. It records the page, the
+                button text and the section of the page, and is used only to
+                understand which pages and buttons help visitors. It does not
+                use cookies and we do not send it your name, email address or
+                phone number.
               </p>
             </LegalSection>
 

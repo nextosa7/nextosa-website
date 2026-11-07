@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackBar from "@/components/BackBar";
+import ClickTracker from "@/components/ClickTracker";
+import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
@@ -64,6 +66,8 @@ export default function RootLayout({
         </div>
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
+        <ClickTracker />
       </body>
     </html>
   );
