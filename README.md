@@ -41,6 +41,8 @@ connection - they're shown together, once, when you click "Generate Inbound API 
 | ----------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `NEXTOSA_INBOUND_URL`   | `src/app/contact/actions.ts`                       | The full, connection-specific URL this site POSTs new Contact form leads to.                                   |
 | `CRM_WEBHOOK_SECRET`    | `src/app/contact/actions.ts`, `src/app/api/webhooks/crm/route.ts` | The connection's shared secret - sent as the `x-api-key` header on outbound leads, and used to verify the `x-nextosa-signature` HMAC-SHA256 header on inbound commands NEXTOSA sends this site. |
+| `NEXTOSA_API_URL`       | `src/app/contact/actions.ts`                       | Base URL of the NEXTOSA API including `/api`. The Contact form posts to `/public/website-inquiries`: the inquiry is stored for the Superadmin panel and the owner is emailed. |
+| `WEBSITE_INQUIRY_SECRET` | `src/app/contact/actions.ts`                      | Shared secret sent as `x-website-secret`; must equal the API server's `WEBSITE_INQUIRY_SECRET`. |
 
 In production (Vercel), set both under the project's own Environment Variables settings rather
 than committing `.env.local`.

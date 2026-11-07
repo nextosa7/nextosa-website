@@ -21,6 +21,11 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} action={formAction} className="space-y-5">
+      {/* Honeypot: hidden from people, tempting to bots. Anything typed here is silently dropped. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="company_website">Company website</label>
+        <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label
