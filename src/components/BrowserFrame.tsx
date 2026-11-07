@@ -13,6 +13,19 @@ export default function BrowserFrame({
   className?: string;
   showCaption?: boolean;
 }) {
+  if (shot.mobile) {
+    // Phone-sized capture: a narrow device frame, so a tall screenshot never stretches the layout.
+    return (
+      <figure className={className}>
+        <div className="mx-auto w-[260px] rounded-[2.2rem] border-[7px] border-navy-900 bg-navy-900 shadow-2xl shadow-navy-900/20 sm:w-[280px]">
+          <div className="overflow-hidden rounded-[1.7rem] bg-white">
+            <Image src={shot.src} alt={shot.caption} width={780} height={1688} priority={priority} sizes="280px" className="h-auto w-full" />
+          </div>
+        </div>
+        {showCaption && <figcaption className="mt-3 text-center text-sm text-slate-500">{shot.caption}</figcaption>}
+      </figure>
+    );
+  }
   return (
     <figure className={className}>
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xl shadow-navy-900/15 ring-1 ring-black/5">

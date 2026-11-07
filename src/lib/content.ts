@@ -5,6 +5,7 @@ export interface Shot {
   src: string; // path under /screens
   caption: string;
   url: string; // the in-app route shown in the browser frame, e.g. "app.nextosa.com/invoices"
+  mobile?: boolean; // phone-sized capture (390x844 at 2x): shown in a phone frame instead of a browser frame
 }
 
 export interface ModuleBlock {

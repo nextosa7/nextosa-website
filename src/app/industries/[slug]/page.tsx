@@ -36,7 +36,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       bullets: [...p.can, `Security: ${p.boundary}`],
       shot:
         p.shotFile && existsSync(join(process.cwd(), "public", "screens", "portals", `${p.shotFile}.jpg`))
-          ? { src: `/screens/portals/${p.shotFile}.jpg`, caption: p.kind, url: `app.nextosa.com${p.shotUrl ?? ""}` }
+          ? { src: `/screens/portals/${p.shotFile}.jpg`, caption: p.kind, url: `app.nextosa.com${p.shotUrl ?? ""}`, mobile: p.shotFile === "gym-member" || p.shotFile === "restaurant-diner" }
           : undefined,
     })),
   ];

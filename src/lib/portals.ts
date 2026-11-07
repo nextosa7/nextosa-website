@@ -70,7 +70,6 @@ export const industryDepth: Record<string, IndustryDepth> = {
         can: ["Mark attendance for the class", "Set homework and enter exam marks", "See the timetable and library", "Request own leave", "Message parents"],
         boundary: "A default-deny allowlist: finance, billing, settings and HR answer 403 even if permissions were granted by mistake.",
       },
-      employeePortal,
     ],
     details: [
       { title: "Admissions as a board", text: "Every admission is a card with tasks and nested checklists (documents, entrance assessment, fee clearance, class allotment), progress, overdue flags and the people involved." },
