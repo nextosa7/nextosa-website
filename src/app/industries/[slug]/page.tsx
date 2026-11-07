@@ -9,6 +9,8 @@ import ModuleRows from "@/components/ModuleRows";
 import SectionHeading from "@/components/SectionHeading";
 import CTA from "@/components/home/CTA";
 import { industryDepth } from "@/lib/portals";
+import { industryExtra } from "@/lib/depth";
+import { FaqList, SetupSteps } from "@/components/DepthBlocks";
 import { industryBySlug, industryPages, leadShot, type ModuleBlock } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -27,6 +29,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   const page = industryBySlug(slug);
   if (!page) notFound();
   const depth = industryDepth[page.slug];
+  const extra = industryExtra[page.slug];
   // Portals are shown as ordinary module rows, right after the app screens, so they sit with the rest of the modules.
   const modules: ModuleBlock[] = [
     ...page.modules,
@@ -116,6 +119,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           </p>
         </Container>
       </section>
+      {extra && <SetupSteps items={extra.setup} title={`Getting started with ${page.name.toLowerCase()}`} />}
+      {extra && <FaqList faqs={extra.faqs} />}
       <CTA />
     </>
   );

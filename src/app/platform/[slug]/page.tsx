@@ -7,6 +7,8 @@ import ModuleRows from "@/components/ModuleRows";
 import SectionHeading from "@/components/SectionHeading";
 import CTA from "@/components/home/CTA";
 import { leadShot, platformBySlug, platformPages } from "@/lib/content";
+import { DetailGrid, FaqList } from "@/components/DepthBlocks";
+import { platformDepth } from "@/lib/depth";
 
 export function generateStaticParams() {
   return platformPages.map((p) => ({ slug: p.slug }));
@@ -23,11 +25,13 @@ export default async function PlatformPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const page = platformBySlug(slug);
   if (!page) notFound();
+  const depth = platformDepth[page.slug];
 
   return (
     <>
       <PageHero eyebrow={page.name} title={page.headline} intro={page.intro} shot={leadShot(page)} stats={page.stats} />
       <ModuleRows modules={page.modules} />
+      {depth && <DetailGrid eyebrow="In depth" title={`How ${page.name} really works`} items={depth.details} tone="white" />}
 
       <section className="bg-slate-50 py-20 sm:py-24">
         <Container>
@@ -58,6 +62,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ slug:
           </div>
         </Container>
       </section>
+      {depth && <FaqList faqs={depth.faqs} tone="white" />}
       <CTA />
     </>
   );

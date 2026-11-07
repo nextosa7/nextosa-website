@@ -325,6 +325,46 @@ export const platformPages: PlatformPage[] = [
     ],
     related: ["automations", "whatsapp", "fms"],
   },
+  {
+    slug: "email",
+    name: "Email",
+    short: "Invoices, drips and AI replies through Gmail",
+    headline: "Send invoices, run drips and answer your inbox, all through your own Gmail",
+    intro:
+      "Connect Gmail once. Invoices and receipts go out automatically, automations send broadcasts and drips with a built-in unsubscribe link, and an AI agent can answer customers who email you, threaded like a normal reply.",
+    stats: [
+      { value: "Gmail", label: "your own address" },
+      { value: "Opt-in", label: "inbound AI replies" },
+      { value: "Unsubscribe", label: "on every automation email" },
+    ],
+    modules: [
+      {
+        title: "Invoices & receipts by email",
+        description: "Send invoices and payment receipts to the client's email, automatically or by hand.",
+        bullets: ["Auto-send toggle in Settings", "Send or resend from the invoice page", "School invoices go to the guardian only", "Clear message if Gmail is not connected or the address is invalid"],
+        shot: s("platform", "invoices", "Invoices with a Send via Email action", "/invoices"),
+      },
+      {
+        title: "Email automations",
+        description: "Broadcasts and drips built on the same automation canvas, with no separate campaign tool.",
+        bullets: ["Broadcast to all contacts or a tag on a schedule", "Drip: trigger, email, wait, email", "Marketing opt-outs always skipped", "Daily cap per workspace"],
+      },
+      {
+        title: "Inbound AI replies",
+        description: "A Support or Sales Agent answers customers who email your connected inbox.",
+        bullets: ["You switch it on; mail from before is never answered", "Threaded replies as a normal Re:", "Skips newsletters, automated mail and no-reply senders", "Limit of three replies per conversation per hour"],
+      },
+    ],
+    capabilities: [
+      "Gmail send and read-only access, not full mailbox control",
+      "HTML and plain-text bodies",
+      "One-click unsubscribe headers",
+      "Inbound email as an automation trigger",
+      "Duplicate-safe: a redelivered email never gets a second reply",
+      "Renewal job keeps the inbox connection alive",
+    ],
+    related: ["automations", "ai-agents", "fms"],
+  },
 ];
 
 export interface IndustryPage {

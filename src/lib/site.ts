@@ -26,6 +26,7 @@ export const siteConfig = {
       { href: "/platform/lms", label: "Training" },
       { href: "/platform/automations", label: "Automations" },
       { href: "/platform/whatsapp", label: "WhatsApp" },
+      { href: "/platform/email", label: "Email" },
       { href: "/platform/ai-agents", label: "AI Agents" },
       { href: "/platform/integrations", label: "Integrations" },
       { href: "/#pricing", label: "Pricing" },
@@ -44,6 +45,8 @@ export const siteConfig = {
     ],
     company: [
       { href: "/about", label: "About Us" },
+      { href: "/security", label: "Security" },
+      { href: "/roles-and-permissions", label: "Roles & permissions" },
       { href: "/compare", label: "Why NEXTOSA" },
       { href: "/contact", label: "Contact" },
     ],
