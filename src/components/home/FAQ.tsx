@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What happens if I run out of AI tokens?",
     answer:
-      "Each plan includes a monthly AI token allowance. If you use it up, you can buy one-time token top-ups (1M, 5M or 15M tokens) that never expire and are used after your monthly allowance.",
+      "Each plan includes a monthly AI token allowance. If you use it up, you can buy one-time token top-ups (1M, 5M or 15M tokens) that never expire and are used after your monthly allowance. See the AI tokens page for exactly where tokens are used.",
   },
   {
     question: "Can I run several businesses or branches?",

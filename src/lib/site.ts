@@ -30,6 +30,7 @@ export const siteConfig = {
       { href: "/platform/ai-agents", label: "AI Agents" },
       { href: "/platform/integrations", label: "Integrations" },
       { href: "/#pricing", label: "Pricing" },
+      { href: "/ai-tokens", label: "AI tokens" },
     ],
     industries: [
       { href: "/industries/healthcare", label: "Healthcare" },
