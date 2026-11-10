@@ -1,0 +1,240 @@
+{
+  "title": "Manufacturer - Setup and Modules Guide",
+  "subtitle": "Set up a factory or production business from scratch, then run inventory, purchasing, sales orders, the production board, equipment, HR, and the distributor and labour portals.",
+  "intro": "Manufacturer workspaces add Sales Orders, the Production Board (work orders), Equipment, Staff & HR and Audit Logs to the shared modules. Contacts are called Customers, and Service Records are called Orders (a repair or service job, not a sales order or purchase order). Two portals exist: a Distributor portal for B2B ordering and a Labour Portal for factory workers.",
+  "chapters": [
+    {
+      "title": "Factory-specific setup",
+      "summary": "After the common workspace setup, build the factory in this order. A work order cannot be created until the finished good has a recipe, and a purchase order needs raw materials to exist.",
+      "sections": [
+        {
+          "title": "1. Add your inventory items: raw materials and finished goods",
+          "route": "/inventory",
+          "permission": "Manage Inventory",
+          "body": "Inventory holds both raw materials and finished goods in one place, each with its own stock level. Give every item a cost price, a unit and a low-stock threshold (the alert appears on your Dashboard before you run out). Set a list price on every finished good you want distributors to see.",
+          "steps": [
+            "Open Inventory and add each raw material.",
+            "Add each finished good with its list price.",
+            "Set a low-stock threshold on every item.",
+            "Enter opening quantities so stock is right from day one."
+          ]
+        },
+        {
+          "title": "2. Define each finished good's recipe (Bill of Materials)",
+          "route": "/inventory",
+          "permission": "Manage Inventory",
+          "body": "A work order cannot be created for a finished good that has no recipe. Define which raw materials, and how much of each, make one unit. Keep raw-material names consistent, because work orders draw stock from these exact records."
+        },
+        {
+          "title": "3. Configure your production stages",
+          "route": "/settings",
+          "permission": "Manage Production Board",
+          "body": "In Settings, set up the stages a work order moves through on your shop floor (for example Mixing, Baking, Packing). The board uses your own stages between Planned and Completed."
+        },
+        {
+          "title": "4. Register your machines",
+          "route": "/equipment",
+          "permission": "Manage Equipment",
+          "body": "Add every machine to Equipment. Its maintenance history lives there from now on; log each service as it happens so you have a searchable record before a breakdown."
+        },
+        {
+          "title": "5. Add suppliers and customers",
+          "route": "/contacts",
+          "permission": "Manage Clients",
+          "body": "Customers holds every company you deal with: suppliers, distributors and direct buyers. Create a distributor as a customer first, because the Distributor role is linked to a customer record."
+        },
+        {
+          "title": "6. Add factory workers in Staff & HR",
+          "route": "/hr",
+          "permission": "Manage Staff & HR",
+          "body": "Factory workers are added in Staff & HR, not through Invite User. Add each with a name, job title, phone and a PIN of 4 to 8 digits. Phone plus PIN is what unlocks the Labour Portal; leaving the PIN blank simply means they cannot log in yet.",
+          "steps": [
+            "Open Staff & HR and click Add Staff Member.",
+            "Enter name (required), job title, phone and a 4 to 8 digit PIN.",
+            "Give the worker the Labour Portal link and their phone and PIN."
+          ]
+        },
+        {
+          "title": "7. Invite admins and distributors",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite User / Staff is for real app logins: admins, staff with the right toggles, and Distributors. Pick Distributor and link it to the existing customer. Grant manufacturing permissions one by one; there is no single manufacturing preset."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Setting a worker's PIN is the only thing that unlocks the Labour Portal for them. A worker record with no PIN is just a roster entry."
+      }
+    },
+    {
+      "title": "Inventory and purchasing",
+      "sections": [
+        {
+          "title": "Inventory",
+          "route": "/inventory",
+          "permission": "Manage Inventory",
+          "body": "Raw materials and finished goods with live stock and low-stock alerts. Stock moves automatically: purchase orders bring materials in, work orders consume them and add finished goods, and fulfilled sales orders ship goods out."
+        },
+        {
+          "title": "Purchase Orders",
+          "route": "/purchase-orders",
+          "permission": "Manage Purchase Orders",
+          "body": "Raise a purchase order to a vendor for raw materials, record what is actually received and your inventory updates as goods arrive, or cancel it. It keeps a paper trail of what you ordered, from whom, and when it arrived. Add a raw material first, or there is nothing to order.",
+          "steps": [
+            "Open Purchase Orders and create one for a vendor.",
+            "Add the raw materials and quantities.",
+            "Receive the order when the goods arrive; stock updates."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sales: Deals, Sales Orders and invoicing",
+      "sections": [
+        {
+          "title": "Deals",
+          "route": "/deals",
+          "permission": "Manage Deals",
+          "body": "A B2B opportunity pipeline (enquiry, quoted, negotiating, won) on a Kanban board. A won deal can be converted into a Sales Order once the customer confirms."
+        },
+        {
+          "title": "Sales Orders",
+          "route": "/sales-orders",
+          "permission": "Manage Sales Orders",
+          "body": "A multi-stage confirm-then-fulfil workflow. Create or receive an order, confirm it, and fulfil it: stock is deducted and a dispatch record is created the moment you mark it fulfilled. If an order is larger than the stock on hand, you are warned that it will be backordered. Orders placed by distributors through their portal land here as Draft, to be confirmed and fulfilled like any other.",
+          "steps": [
+            "Open Sales Orders and create an order, or open a distributor's Draft order.",
+            "Confirm it.",
+            "Fulfil it when goods ship; stock is deducted.",
+            "Generate the tax invoice from the fulfilled order."
+          ]
+        },
+        {
+          "title": "Sales (one-off) and Invoices",
+          "route": "/invoices",
+          "permission": "Manage Sales, Manage Invoices",
+          "body": "Sales is a flat, single-step record for small transactions that do not need the full order workflow, and rolls into Reports. Invoices can be created directly or generated from a fulfilled sales order, with Paid, Pending or Partial status, PDF download and WhatsApp delivery."
+        },
+        {
+          "title": "Orders (service jobs)",
+          "route": "/service-records",
+          "permission": "Manage Service Records",
+          "body": "This is the generic Service Records module renamed Orders. Use it for a customer service request or repair job. It is not a sales order or purchase order."
+        }
+      ]
+    },
+    {
+      "title": "Production Board",
+      "sections": [
+        {
+          "title": "Work orders",
+          "route": "/production-board",
+          "permission": "Manage Production Board",
+          "body": "A Kanban board of work orders: the manufacturing jobs that consume raw materials and produce finished goods. Create a work order for a finished good with a planned quantity; it starts in Planned. Drag it through your configured production stages as work happens.",
+          "steps": [
+            "Create a work order: choose the finished good and the planned quantity.",
+            "Start it and drag it through your stages on the floor.",
+            "Move it to Completed to open Quality Control and Grading.",
+            "Enter the Passed quantity and the Scrap or Failed quantity; they must add up to the planned quantity."
+          ]
+        },
+        {
+          "title": "What completing a work order does",
+          "body": "In one step: raw materials are deducted from stock, the passed quantity is added to finished goods, scrap goes to its own tracked item, and the matching journal entry posts to Finance. There is no separate QA stage; the passed-versus-scrap split at completion is your quality check and the only place actual output is recorded."
+        }
+      ]
+    },
+    {
+      "title": "Equipment",
+      "sections": [
+        {
+          "title": "Machines and maintenance",
+          "route": "/equipment",
+          "permission": "Manage Equipment",
+          "body": "Track factory machines, their status and their maintenance history. Log a maintenance event against the machine when it happens. There is no separate maintenance scheduler, so consistent logging is what gives you a record to plan from and evidence for an investigation."
+        }
+      ]
+    },
+    {
+      "title": "Staff & HR and the Labour Portal",
+      "sections": [
+        {
+          "title": "Staff & HR",
+          "route": "/hr",
+          "permission": "Manage Staff & HR",
+          "body": "The admin side of your workforce: the staff roster, attendance, leave requests, shift scheduling and payroll including salary components. Approve or reject a leave request a worker submitted through their portal, and run payroll from the same page."
+        },
+        {
+          "title": "Labour Portal (for factory workers)",
+          "route": "/employee-portal",
+          "body": "Workers use a public link that contains your workspace ID and sign in with their phone and PIN, with no separate app account. There they can apply for leave and check its status. They see only their own records.",
+          "steps": [
+            "In Staff & HR set the worker's phone and PIN.",
+            "Send them the Labour Portal link.",
+            "Review and approve their leave requests in Staff & HR."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Distributor portal",
+      "summary": "Your distributors order directly from you.",
+      "sections": [
+        {
+          "title": "What a distributor sees",
+          "route": "/b2b-catalog",
+          "body": "A distributor is locked to their own portal: the B2B Catalog of your finished goods that have a list price (never your cost price or your stock quantity) and their own Order History. They order from the catalog, which creates a real Sales Order in Draft with pricing set on the server. They follow it as Draft, Confirmed, Fulfilled and Completed."
+        },
+        {
+          "title": "Set a distributor up",
+          "steps": [
+            "Create the distributor as a Customer.",
+            "In Settings, Workspace & Users, invite them with the Distributor role, linked to that customer.",
+            "Once they accept, their orders appear in your normal Sales Orders queue."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Audit Logs",
+      "sections": [
+        {
+          "title": "Who changed what",
+          "route": "/audit-logs",
+          "permission": "View Audit Logs",
+          "body": "A read-only, system-wide activity trail to trace who changed a price, approved a payment or deleted a record. It cannot undo anything; reversing a mistake happens in the module where it occurred. It is off by default for new members."
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a factory",
+      "sections": [
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Manage Production Board, Manage Sales Orders, Manage Equipment, Manage Staff & HR (off by default) and View Audit Logs (off by default), alongside the shared Manage Inventory, Manage Purchase Orders, Manage Clients and Manage Deals. Each is an independent toggle."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or plant head: Admin role.",
+            "Production supervisor: Staff with Manage Production Board and Manage Inventory.",
+            "Purchasing: Staff with Manage Purchase Orders and Manage Inventory.",
+            "Sales: Staff with Manage Deals, Manage Sales Orders and Manage Invoices.",
+            "Maintenance lead: Staff with Manage Equipment.",
+            "HR: Staff with Manage Staff & HR."
+          ]
+        },
+        {
+          "title": "Portal users are not staff",
+          "body": "Distributors and factory workers are limited to their own portals and never get a staff seat or back-office access."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Factory workers are added in Staff & HR with a phone and PIN, not invited as users. Distributors are invited with the Distributor role."
+      }
+    }
+  ]
+}

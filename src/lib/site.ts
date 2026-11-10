@@ -30,6 +30,7 @@ export const siteConfig = {
       { href: "/platform/ai-agents", label: "AI Agents" },
       { href: "/platform/integrations", label: "Integrations" },
       { href: "/#pricing", label: "Pricing" },
+      { href: "/docs", label: "Documentation" },
       { href: "/ai-tokens", label: "AI tokens" },
       { href: "/plan-limits", label: "Plan limits" },
     ],

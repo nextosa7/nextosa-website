@@ -1,0 +1,306 @@
+{
+  "title": "Integrations and Payments - Setup Guide",
+  "subtitle": "Connect WhatsApp, your own Razorpay account, Gmail, Instagram, your website and the rest, step by step, and learn exactly what each connection switches on.",
+  "intro": "Every connection belongs to one workspace and uses your own accounts and credentials. Secrets (WhatsApp tokens, Razorpay secrets, API keys) are stored encrypted and are never shown back to you, so copy anything that is shown once straight away. Connecting needs the Manage Integrations permission, and disconnecting a sensitive connection asks you to re-enter your password. None of this is needed to start: add each connection when you need what it does.",
+  "chapters": [
+    {
+      "title": "WhatsApp Business",
+      "summary": "The channel for customer conversations, AI replies, campaigns, reminders and sending invoices. Connect it first.",
+      "callout": {
+        "type": "tip",
+        "body": "Gather the three IDs before you open NEXTOSA: the permanent access token, the Phone Number ID and the WhatsApp Business Account ID. Having them in one note makes connecting a one-minute job."
+      },
+      "sections": [
+        {
+          "title": "What you need from Meta first",
+          "body": "NEXTOSA uses the official WhatsApp Business Platform, so you need a Meta Business account with a WhatsApp Business Account and a phone number added to it. From Meta's developer console you collect: a permanent access token (create it for a system user so it does not expire), the Phone Number ID of the number you want to connect, the WhatsApp Business Account ID (WABA ID), and optionally your Meta App ID.",
+          "steps": [
+            "Create or open your Meta Business account and your app in Meta's developer console.",
+            "Add the WhatsApp product and a phone number to your WhatsApp Business Account.",
+            "Create a permanent access token for a system user with WhatsApp permissions and copy it.",
+            "Copy the Phone Number ID and the WhatsApp Business Account ID from the WhatsApp section of the console.",
+            "Copy the Meta App ID from the app dashboard if you plan to use templates with an image, video or document header."
+          ]
+        },
+        {
+          "title": "Connect a number",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Open Settings, Integrations, WhatsApp and choose Add WhatsApp Number. NEXTOSA checks the details with Meta before saving, so a wrong token or ID is rejected straight away with a plain message (for example that the token looks invalid or expired, or that Meta cannot find the ID).",
+          "steps": [
+            "Give the number a label such as Sales or Support. The label is what your team sees on conversation tags and number pickers.",
+            "Paste the permanent token, the Phone Number ID and the WhatsApp Business Account ID.",
+            "Add the Meta App ID if you want media-header templates.",
+            "Choose the mode (Auto or Approval, explained below) and save."
+          ]
+        },
+        {
+          "title": "Several numbers, one primary",
+          "body": "A workspace can hold more than one number, up to your plan's limit. One is the primary number and is used when the app sends something on its own and no number is named. Each number has its own mode and can be given its own AI agent. A number can be connected to only one NEXTOSA workspace at a time; connecting one that is already in use elsewhere is refused. Every conversation lives on the number it came in on, and replies always leave from that same number."
+        },
+        {
+          "title": "Auto or Approval mode",
+          "body": "Auto lets the AI reply to a customer straight away. Approval holds every AI draft in the Approval Inbox until a person approves, edits or rejects it. Start in Approval while you are tuning your instructions, then move to Auto once you trust the answers. The mode is set per number and can be changed any time.",
+          "steps": [
+            "Open Settings, Integrations, WhatsApp and pick the number.",
+            "Choose Auto or Approval.",
+            "In Approval mode, review drafts on the Approval Inbox page."
+          ]
+        },
+        {
+          "title": "Receiving customer messages",
+          "body": "Incoming messages reach NEXTOSA through Meta's webhook for your app. After you connect a number, send it a test message from a personal phone. If nothing appears in Conversations, the webhook delivery in your Meta app is not pointed at NEXTOSA yet: contact the NEXTOSA team through the Contact page and we will give you the exact callback address and verification token for your account. Customer messages sent to you do not count against your monthly message allowance."
+        },
+        {
+          "title": "Templates and the 24-hour window",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "WhatsApp only lets you send a free-form message within 24 hours of the customer's last message. Outside that window you must use a template that Meta has approved. Create templates on the Templates page, then submit for approval. A template goes Draft, then Pending, then Approved or Rejected, and only Approved templates can be sent. Some automations need a template shaped a particular way, for example invoices, receipts, proposals and demand letters need a Document header and exactly one variable in the body (the client's first name) so the PDF can be attached.",
+          "steps": [
+            "Open Templates and create a template with a clear category and body.",
+            "For document sends, set the header to Document and upload an example PDF.",
+            "Click Submit for Approval and wait for Meta's review.",
+            "Once Approved, select it in the matching Settings automation (invoices, receipts, reminders and so on)."
+          ]
+        },
+        {
+          "title": "What counts against your plan",
+          "body": "Every message your workspace successfully sends counts toward the monthly WhatsApp allowance of your plan: replies, AI replies, templates, campaigns, reminders and document sends. Incoming messages and failed sends do not count. See the Plan limits page for the numbers per plan."
+        },
+        {
+          "title": "Update or disconnect",
+          "body": "To rotate a token, choose Update credentials and paste the new one; leaving the token blank keeps the existing one. Disconnecting stops automated replies and the Approval Inbox for that number until you reconnect, and asks for your password."
+        }
+      ]
+    },
+    {
+      "title": "Payments: your own Razorpay account",
+      "summary": "Connect Razorpay so payment links, invoice QR codes and online payments go to your own business account, never a shared one.",
+      "callout": {
+        "type": "important",
+        "body": "Money goes straight from your customer to your Razorpay account. NEXTOSA never holds funds, and uses your Key ID and Key Secret only to create payment links and to read confirmations."
+      },
+      "sections": [
+        {
+          "title": "Get your Razorpay keys",
+          "body": "You need a Razorpay account. In the Razorpay Dashboard open Settings, then API Keys, and generate a Key ID and Key Secret. Test keys (starting rzp_test) let you try everything without real money; live keys (starting rzp_live) need Razorpay's account verification first. If you do not have a website during verification, choose that you have no website and explain that you use NEXTOSA to generate invoices and collect payments, or give your business Instagram or Facebook page address instead.",
+          "steps": [
+            "Log in to the Razorpay Dashboard.",
+            "Go to Settings, API Keys and generate a key pair.",
+            "Copy the Key ID and the Key Secret. The secret is shown by Razorpay only once."
+          ]
+        },
+        {
+          "title": "Connect Razorpay in NEXTOSA",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Open Settings, Payment Integrations. Paste the Key ID and Key Secret and save. NEXTOSA checks them against Razorpay and tells you if they are wrong. To change the Key ID later, leave the secret blank to keep the stored one."
+        },
+        {
+          "title": "Close the payment loop with the webhook",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Without the webhook a customer can pay, but NEXTOSA does not find out. With it, a captured payment automatically marks the matching invoice Paid and records the payment. Each workspace has its own webhook address and its own secret.",
+          "steps": [
+            "In Payment Integrations choose Generate Webhook Secret. Copy the secret now: it is shown once.",
+            "Copy the Webhook URL shown on the same card.",
+            "In the Razorpay Dashboard open Settings, Webhooks, Add New Webhook.",
+            "Paste the URL and the secret into the matching fields.",
+            "Under Active Events tick payment.captured and order.paid, then save."
+          ]
+        },
+        {
+          "title": "Regenerating the secret",
+          "body": "If you lose the webhook secret, regenerate it. The old secret stops working immediately, so update it in the Razorpay Dashboard in the same minute, or captured payments will stop being recorded."
+        },
+        {
+          "title": "Scan-to-pay QR on invoices",
+          "body": "Turn on Show Razorpay QR Code on Invoices to put a scan-to-pay QR, linked to a real payment link for the amount due, on every invoice PDF you download or send."
+        },
+        {
+          "title": "What payments switch on",
+          "body": "With Razorpay connected: the AI Sales Agent can send payment links to customers; invoices can carry a QR code; payments confirmed by the webhook mark invoices Paid; and, for restaurants, diners can pay online at a QR table order (the app can also refund a cancelled paid order automatically). Without Razorpay you can still record payments by hand on any invoice as Paid, Pending or Partial, and restaurants can offer pay at the counter."
+        },
+        {
+          "title": "Receipts after payment",
+          "body": "A payment receipt can go to the customer automatically. Turn on the auto-send receipts option in Settings and pick an approved receipt template with a Document header, or turn on email sending if Gmail is connected. If neither is set up, nothing is sent and you can still download or send the receipt yourself from the invoice."
+        },
+        {
+          "title": "Disconnect",
+          "body": "Disconnecting Razorpay stops payment links and invoice QR codes until you reconnect, and asks for your password."
+        }
+      ]
+    },
+    {
+      "title": "Gmail and email",
+      "summary": "Send invoices, receipts and campaigns from your own Gmail, and optionally let the AI answer your inbox.",
+      "sections": [
+        {
+          "title": "Connect Gmail",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Open Settings, App Integrations, Gmail and sign in with the Google account whose mailbox you want to use. NEXTOSA asks only for permission to send mail and to read mail. Everything NEXTOSA emails goes out from this mailbox, so use the address your customers know."
+        },
+        {
+          "title": "Email invoices and receipts",
+          "body": "Turn on the email option in Settings, Billing and invoicing to email every invoice and payment receipt automatically with the PDF attached. It sends only to clients who have an email address saved; others are skipped without error. For schools the email goes to the guardian. You can also send or resend any single invoice or receipt by hand from its page."
+        },
+        {
+          "title": "Email broadcasts and drips",
+          "route": "/automations",
+          "permission": "Manage Integrations",
+          "body": "The Automations page has one-click starters for an email broadcast, a drip sequence and an automatic reply to incoming mail. Every marketing email carries an unsubscribe link, contacts who unsubscribed are never emailed again, and a workspace is limited to 300 automation emails per rolling 24 hours."
+        },
+        {
+          "title": "Let the AI answer your inbox",
+          "body": "Switch on Answer inbound emails with AI to have new customer emails answered in the same thread. It is off until you turn it on, only mail that arrives afterwards is answered, newsletters, mailing lists, automated and no-reply mail and your own messages are always skipped, and the AI sends at most three replies per conversation per hour. If Gmail asks for permission to read mail, choose Reconnect Gmail and approve it. Choose which agent answers (Support or Sales) on that agent's page. If the switch reports that inbound email is unavailable, contact us, because it depends on a platform-side mail connection.",
+          "steps": [
+            "Connect Gmail, then open the Gmail panel in App Integrations.",
+            "Turn on Let the AI answer new emails that arrive in this inbox.",
+            "Pick the Support Agent or Sales Agent that should handle the mailbox.",
+            "Send yourself a test email from another address and check the reply."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Instagram and marketing",
+      "summary": "Connect an Instagram Business account so the Marketing Agent can plan, write and publish for you.",
+      "sections": [
+        {
+          "title": "Before you connect",
+          "body": "You need an Instagram Business account linked to a Facebook Page. If your Page has no linked Instagram Business account yet, link one in Meta Business Suite first."
+        },
+        {
+          "title": "Connect Instagram",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Open Settings, Instagram and choose Connect Instagram. Sign in with Meta and approve access. NEXTOSA then shows whether your Page and ad account were found; if the ad account is not resolved, reconnect."
+        },
+        {
+          "title": "Organic posts and paid ads",
+          "body": "Organic posting to your feed has no ad spend, but every caption and image still uses AI tokens from your plan. Paid ads need a daily budget: every campaign is created paused and spends nothing until you activate it, and Meta needs a valid payment method on your ad account. Video uses more tokens than a still image."
+        },
+        {
+          "title": "The AI Marketing Agent",
+          "route": "/ai-agents/marketing-agent",
+          "permission": "Admin",
+          "body": "Write a weekly or monthly plan in plain words, preview what the agent understood, apply it, and review the drafts in the Content queue. It runs in review mode by default; autopilot is an opt-in switch. WhatsApp broadcasts use an approved template and only contacts with your chosen tag, and anyone who opted out is always excluded. Replies from broadcast recipients that show buying interest can be handed to the Sales Agent with a Deal and a follow-up task."
+        }
+      ]
+    },
+    {
+      "title": "Connected Websites and your own apps",
+      "summary": "Send leads and bookings from your website into NEXTOSA, and let NEXTOSA send commands back to your site.",
+      "sections": [
+        {
+          "title": "Add a connected website",
+          "route": "/custom-apps",
+          "permission": "Manage Integrations",
+          "body": "Open Connected Websites in the sidebar and choose Add Custom App. Give it a name, its base URL, and the headers it needs (an API key or a Bearer token is just a header). Optionally set an outbound webhook URL where NEXTOSA sends commands to your site, link a WhatsApp number to it so leads from that site are answered on that number, and keep it Active. The number of connections is limited by your plan."
+        },
+        {
+          "title": "Send data into NEXTOSA",
+          "body": "Generate an Inbound API Key on the connection. The key and the inbound address are shown once, so copy them into your website's server settings. Your site then posts leads and events to the inbound address with the key in an x-api-key header, and they appear as contacts in NEXTOSA. Regenerating the key stops the old one immediately.",
+          "steps": [
+            "Create the connection and save it.",
+            "Choose Generate Inbound API Key and copy the key and the inbound address.",
+            "Store the key in your website's server-side environment settings, never in browser code.",
+            "Send a test lead from your site and confirm the contact appears."
+          ]
+        },
+        {
+          "title": "Receive commands from NEXTOSA",
+          "body": "When NEXTOSA sends a command to your site, it signs the request with the same key (an HMAC-SHA256 signature in the x-nextosa-signature header). Build a POST route on your backend, and verify that signature before acting, so you only accept genuine NEXTOSA requests."
+        },
+        {
+          "title": "Store catalog and the AI Sales Agent",
+          "body": "A connection can sync a product catalog from a product sync address and let the AI Sales Agent answer WhatsApp questions using only that store's products. Only one connected store can have this on at a time."
+        },
+        {
+          "title": "Booking availability",
+          "body": "Decide when customers can book appointments from your websites. A site checks your open slots first and only then books, so you are never double-booked, even against appointments your team adds by hand."
+        }
+      ]
+    },
+    {
+      "title": "Shopify, Slack, Zapier and outgoing webhooks",
+      "summary": "Connect the other tools you already use.",
+      "sections": [
+        {
+          "title": "Shopify",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "In App Integrations connect your Shopify store with its shop domain and credentials, then use Test Connection to confirm. Once connected your AI can add products and analyse recent sales and revenue by product."
+        },
+        {
+          "title": "Slack",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Connect your Slack workspace from App Integrations. By default the AI can post to any channel the bot can see; turn on Restrict AI to specific channels to allow only the ones you tick. The bot must be added to a channel in Slack before it appears in the list."
+        },
+        {
+          "title": "Zapier, Make and Google Sheets",
+          "body": "In the AI customer support settings you can paste a Zapier webhook address. The AI then sends lead details (name, phone, email, context) to it, which connects NEXTOSA to thousands of apps such as Google Sheets and Notion. Add custom tags (for example campaign: diwali_sale) that go out with every lead so you can filter and route them."
+        },
+        {
+          "title": "Outbound webhooks",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "Outbound Webhooks tell your own system when something happens, for example Invoice paid or Contact created. Add the target address and the events, and copy the signing secret that is shown once. Each request is a signed POST and you verify the X-NEXTOSA-Signature header. Use the test ping to confirm delivery.",
+          "steps": [
+            "Open Settings, Outbound Webhooks and choose Add webhook.",
+            "Enter the target address, a description and tick the events to send.",
+            "Copy the signing secret immediately.",
+            "Send a test ping and check that your system received it."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AI setup",
+      "summary": "Teach the AI how your business talks, and choose which agent answers where.",
+      "sections": [
+        {
+          "title": "Instructions and replies",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "In the AI customer support settings turn on AI replies to incoming WhatsApp messages and write your instructions: who you are, what you sell, your tone, your opening hours, what the AI must never promise. The AI follows these together with each number's Auto or Approval mode. Away mode lets you set an automatic out-of-hours behaviour."
+        },
+        {
+          "title": "Sales, Support and Marketing agents",
+          "route": "/ai-agents",
+          "permission": "Admin",
+          "body": "The AI Agents page has three agents. The Sales Agent answers prospects with your catalog and prices and can create deals and bookings. The Support Agent answers from your knowledge base, hands the chat to a person when it cannot help, and can have several named personas. The Marketing Agent plans and publishes content. A WhatsApp number is answered by exactly one agent. You can test each one safely in its Test chat before it talks to a customer."
+        },
+        {
+          "title": "Knowledge base",
+          "body": "For the Support Agent add articles in plain text. Only published articles are used, the agent answers only from them, and when it has no good answer it hands over instead of guessing."
+        },
+        {
+          "title": "Tokens and cost",
+          "body": "Every AI action uses tokens from one monthly allowance per workspace. See the AI tokens page for exactly where tokens are used, what never uses tokens, and the top-up packs."
+        }
+      ]
+    },
+    {
+      "title": "Plan, billing and limits",
+      "summary": "Where to see what you have used and what to do at a limit.",
+      "sections": [
+        {
+          "title": "Check your usage",
+          "route": "/settings",
+          "body": "Settings, Billing and Plan shows your plan and live usage of messages, AI tokens, documents, storage and team seats. A plan covers one workspace; add more workspaces for separate businesses or branches."
+        },
+        {
+          "title": "At a limit",
+          "body": "Reaching a limit blocks only the action that went over, such as a send, an upload or an invitation, and the app offers an upgrade on the spot. Nothing is deleted. The Plan limits page lists every limit for every plan."
+        },
+        {
+          "title": "If a plan lapses",
+          "body": "The workspace becomes read-only: you can still view and export your data, but changes are refused until you renew."
+        }
+      ]
+    }
+  ]
+}

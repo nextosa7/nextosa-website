@@ -1,0 +1,422 @@
+{
+  "title": "Healthcare & Clinic - Setup and Modules Guide",
+  "subtitle": "Set up a clinic or hospital from scratch, then run the front desk, pharmacy, billing, and (in hospital mode) inpatients, clinical records, lab and radiology, and insurance.",
+  "intro": "This guide covers the plain clinic first, then hospital mode. The chapters on inpatients, clinical records, the pharmacy desk, lab and radiology, hospital billing and access controls describe how those modules really behave, including what they refuse.",
+  "chapters": [
+    {
+      "title": "Healthcare-specific setup",
+      "summary": "After the common workspace setup, choose clinic or hospital, then build in this order. Steps 1 to 3 are all a plain clinic needs; steps 4 to 13 apply once an Admin turns hospital mode on.",
+      "sections": [
+        {
+          "title": "1. Decide: plain clinic or hospital mode",
+          "body": "A Healthcare workspace starts as a clinic: Patients, Appointments, Pharmacy & Supplies and Billing & Claims. Hospital mode adds departments, inpatient beds, clinical records, a pharmacy desk, lab and radiology, and hospital billing with insurance. It is switched on once, by an Admin, and cannot be switched back, so decide before you build. Use one workspace per hospital branch."
+        },
+        {
+          "title": "2. Clinic setup: patients, appointments and pharmacy",
+          "route": "/contacts",
+          "permission": "Manage Patients, Manage Appointments, Manage Pharmacy & Supplies",
+          "body": "Add your patients, create appointments (a walk-in is just an appointment for now), and add each medicine or supply to Pharmacy & Supplies with cost and sell price and a low-stock threshold. Create approved WhatsApp templates for appointment reminders.",
+          "steps": [
+            "Open Patients and add your first patient.",
+            "Open Appointments and create one, then move it through its statuses.",
+            "Open Pharmacy & Supplies and add items with a reorder level.",
+            "Submit a WhatsApp appointment-reminder template."
+          ]
+        },
+        {
+          "title": "3. Invite your clinic team",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite doctors with Manage Appointments and Documents, and front desk with Manage Patients, Manage Appointments and Manage Billing & Claims. Inviting staff for hospital work is step 11."
+        },
+        {
+          "title": "4. Turn on hospital mode (Admin)",
+          "route": "/hospital",
+          "permission": "Admin",
+          "body": "Open Hospital setup and enable hospital mode after confirming the acknowledgement. From that moment every access to patient data is audited and the hospital modules appear for people who hold their permissions."
+        },
+        {
+          "title": "5. Create departments, then practitioners",
+          "route": "/hospital",
+          "permission": "Manage Hospital Setup",
+          "body": "Build the department tree (up to 4 levels, each with a unique code), then give each clinical staff member a practitioner profile (doctor, nurse and so on, specialty, statutory registration number, fee) and their departments. One Head per department."
+        },
+        {
+          "title": "6. Build the duty roster",
+          "route": "/hospital",
+          "permission": "Manage Duty Rosters",
+          "body": "Create shifts and patterns per department and generate the roster for a date range. Nobody can be booked into overlapping shifts and approved leave is skipped."
+        },
+        {
+          "title": "7. Set up wards, rooms and beds",
+          "route": "/ipd",
+          "permission": "Manage Wards & Beds",
+          "body": "Create wards under departments, optional rooms, and each bed. Assign nursing staff to wards."
+        },
+        {
+          "title": "8. Set room tariffs and the charge master",
+          "route": "/hospital-billing",
+          "permission": "Manage Hospital Tariffs",
+          "body": "Give every ward a room-rent and nursing tariff (a ward with none blocks finalizing a bill) and add the other chargeable items. Set billing rules such as the checkout cut-off."
+        },
+        {
+          "title": "9. Build the lab and imaging test catalog",
+          "route": "/diagnostics",
+          "permission": "Manage Hospital Tariffs",
+          "body": "Add each laboratory and imaging test, each linked to an Investigation charge-master item that supplies its price. Doctors can only order from this catalog."
+        },
+        {
+          "title": "10. Turn on batch tracking in the pharmacy",
+          "route": "/pharmacy",
+          "permission": "Manage Pharmacy Stock",
+          "body": "Enable batch tracking for each medicine with opening batches (batch number and expiry) that add up to what is on the shelf. Dispensing only draws from in-date batches."
+        },
+        {
+          "title": "11. Add insurers and TPAs",
+          "route": "/hospital-billing",
+          "permission": "Manage Insurance & TPA Claims",
+          "body": "Add the insurers, TPAs, schemes or corporates you work with, so a patient's policy can be attached to a bill."
+        },
+        {
+          "title": "12. Invite clinical staff with exactly their permissions",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Switch on only what each person needs: View and Write Clinical Records, Manage Admissions, View Bed Board, Dispense Medication, Manage Pharmacy Stock, Process Lab Requests, Process Radiology Requests, Manage Hospital Bills and so on. All are off by default."
+        },
+        {
+          "title": "13. Restrict people to their own care team, and decide on AI",
+          "route": "/ipd",
+          "permission": "Admin",
+          "body": "In Inpatient & beds, Care-team access, restrict members who should only see their own patients. The AI clinical summary stays off unless your platform operator confirms zero data retention and the workspace opts in; leave it off if unsure. Existing clinics can migrate old patient history with a dry run first from Clinical records."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Hospital mode is one-way, and a ward with no tariff, a medicine with no batches or a test with no catalog entry will each stop work later. Finish steps 4 to 11 before you admit your first patient."
+      }
+    },
+    {
+      "title": "Front Desk & Patients",
+      "sections": [
+        {
+          "title": "Add a patient",
+          "body": "Open Patients and create a new record with their contact details."
+        },
+        {
+          "title": "Manage the daily appointment list",
+          "body": "Open Appointments and move each one through its status as the day progresses - there's no separate \"queue\" screen, just the appointment list itself, sortable and filterable like any other record list."
+        },
+        {
+          "title": "Handle a walk-in",
+          "body": "Create a new appointment directly for right now - a walk-in doesn't need to be scheduled ahead of time."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Appointments and Billing & Claims are separate records - completing an appointment doesn't automatically create a bill. Log the charge separately once the visit is settled."
+      }
+    },
+    {
+      "title": "Clinical Operations & Records",
+      "sections": [
+        {
+          "title": "Update Patient Records",
+          "body": "In a plain clinic, Patient Records is the Documents module scoped to a patient - open Documents, switch to the \"Patient Documents\" tab for that patient, and upload the file. Once hospital mode is on, patient files are refused here and go into Clinical records instead (chapter 9), where they are encrypted."
+        },
+        {
+          "title": "Add clinical Notes",
+          "body": "Use Notes for anything that doesn't need a specific record attached - it's a general scratchpad, not tied to one patient or appointment, and supports up to 4 attached images."
+        },
+        {
+          "title": "Use Templates for outbound WhatsApp",
+          "body": "Auto-Reply templates are canned responses the AI can use when replying on WhatsApp; WhatsApp templates are submitted for approval and tracked Draft, Pending, Approved, or Rejected."
+        }
+      ],
+      "callout": {
+        "type": "alert",
+        "body": "\"Templates\" here means WhatsApp message templates only. A plain clinic has no prescription generator or structured chart - write the prescription wherever you normally do and upload the file. Prescriptions, structured notes and orders arrive with hospital mode (chapters 7-13)."
+      }
+    },
+    {
+      "title": "Pharmacy & Inventory",
+      "sections": [
+        {
+          "title": "Add a medicine or supply item",
+          "body": "Open Pharmacy & Supplies and add it with its own cost price vs. sell price."
+        },
+        {
+          "title": "Set a reorder level",
+          "body": "Set a low-stock threshold on the item - once its quantity drops below that number, it's flagged so you know to reorder before it actually runs out."
+        },
+        {
+          "title": "Log supplier deliveries",
+          "body": "Record incoming stock as a stock movement against the item - this keeps its running quantity accurate alongside whatever gets billed out to patients."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Log every supplier delivery as a stock movement the moment it arrives, not in a batch later - the low-stock alert is only as accurate as the quantity behind it."
+      }
+    },
+    {
+      "title": "Finance & Billing",
+      "sections": [
+        {
+          "title": "Process a bill in Billing & Claims",
+          "body": "Log a Product, Service, or Manual entry - covering a consultation fee, procedure, or insurance claim - and mark it Paid, Pending, or Partial."
+        },
+        {
+          "title": "Generate a formal Invoice",
+          "body": "Invoices is separate, general-purpose billing - download it as a PDF, or send it straight to the patient over WhatsApp."
+        },
+        {
+          "title": "Track Expenses and monitor Finance",
+          "body": "Log clinic overhead in Expenses, then use Finance for your Chart of Accounts, Journal Entries, and financial statements."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Billing & Claims and Invoices are two different things: Billing & Claims is quick, itemized billing; Invoices is separate, formal billing. Both stay active independently - generating one doesn't require the other."
+      }
+    },
+    {
+      "title": "Communications & Approvals",
+      "sections": [
+        {
+          "title": "Check the Communication Log",
+          "body": "A full, read-only history of every WhatsApp message sent or received, with delivery status - filter by date range to review a period's activity."
+        },
+        {
+          "title": "Run a health checkup Campaign",
+          "body": "Build a bulk WhatsApp campaign - pick an approved template and an audience of patients - and schedule it for later, or send immediately."
+        },
+        {
+          "title": "Review the Approval Inbox",
+          "body": "If your WhatsApp connection is set to Approval mode instead of Auto, AI-drafted replies wait here before they're sent - approve & send, edit, or reject each one."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "The Approval Inbox reviews AI-drafted WhatsApp replies only - it doesn't review lab reports or prescriptions, and there's no separate clinical sign-off workflow in this app for those."
+      }
+    },
+    {
+      "title": "Hospital Mode & Setup",
+      "sections": [
+        {
+          "title": "Turn on hospital mode",
+          "body": "An Admin opens Hospital setup and enables hospital mode after confirming an explicit acknowledgement. It cannot be switched back. Until it is on, the hospital pages are unavailable and your clinic behaves exactly as before. Use one workspace per hospital branch."
+        },
+        {
+          "title": "Create departments",
+          "body": "Under Departments, build your structure - up to 4 levels deep, each with a code that is unique in the workspace. A department that already has history is deactivated rather than deleted. Needs the \"Manage Hospital Setup\" permission."
+        },
+        {
+          "title": "Add practitioners",
+          "body": "Under Practitioners, give each staff member a profile: their type (doctor, nurse, technician and so on), specialty, statutory registration number (unique), consultation fee, and the departments they belong to. Each department can have only one Head."
+        },
+        {
+          "title": "Build the duty roster",
+          "body": "Under Duty roster, create shifts and shift patterns, then generate the roster for a date range. Generation respects your timezone and overnight shifts, skips approved leave, never overwrites an existing shift, and a person can never be booked into two overlapping shifts. Needs \"Manage Duty Rosters\"."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Hospital mode is one-way, and from the moment it is on every access to patient data is written to a tamper-evident audit log. Make the decision deliberately, and tell your team."
+      }
+    },
+    {
+      "title": "Inpatients & Beds",
+      "sections": [
+        {
+          "title": "Set up wards, rooms and beds",
+          "body": "Open Inpatient & beds, Wards & beds. A ward belongs to a department, rooms are optional, and each bed is Available, Occupied, Reserved, Cleaning or Maintenance. A ward or bed that has history is deactivated, never deleted. Assign nurses to a ward here too. Needs \"Manage Wards & Beds\"."
+        },
+        {
+          "title": "Admit a patient",
+          "body": "Under Admissions, choose the patient, a bed and the attending doctor. Each admission gets a number like ADM-000001. A patient can have only one current admission, and if two people try to take the same bed at the same moment only one succeeds - the other is told the bed is taken. Needs \"Manage Admissions\"."
+        },
+        {
+          "title": "Transfer, discharge or cancel",
+          "body": "Transfer moves a patient to another bed or ward and keeps the full bed history (it also drives room charges). Discharge sends the bed to Cleaning. Cancel is only for an admission entered by mistake and frees the bed straight away. A bed can never be set to Occupied by hand."
+        },
+        {
+          "title": "Watch the bed board",
+          "body": "The Bed board shows live occupancy by ward and updates without refreshing. Anyone with \"View Bed Board\" sees occupancy. A member who is limited to their own care team sees a patient's name only for patients within their scope - for the rest the bed shows as occupied with the identity masked."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Bed status moves only through admit, transfer, discharge and cancel, so the board always matches reality. A patient who is currently admitted cannot be deleted."
+      }
+    },
+    {
+      "title": "Clinical Records (EMR)",
+      "sections": [
+        {
+          "title": "Start from My worklist",
+          "body": "Open Clinical records. My worklist shows only your own consultations in progress, today's appointments assigned to you (doctors), and inpatients on your care team - there is no patient register to browse. \"Find a patient\" searches by name and last 4 digits, and every search is audited."
+        },
+        {
+          "title": "Start an encounter",
+          "body": "An OPD encounter needs an appointment with that patient assigned to you around now. An emergency encounter needs a written reason and appears in the Admin access review. An inpatient encounter needs you to be on the admission's care team. Starting the encounter is what gives you access, so these checks cannot be skipped."
+        },
+        {
+          "title": "Write, sign and correct notes",
+          "body": "Doctors write SOAP, progress and consult notes; nurses write nursing notes and record vitals. A note is a draft until you sign it, and then it is locked. To correct it, write an amendment - a new version that keeps the original, which is marked Amended once the new one is signed. A wrongly filed note is marked entered in error with a reason, never deleted. An encounter cannot be closed with unsigned drafts."
+        },
+        {
+          "title": "Prescribe with the allergy check",
+          "body": "Only doctors prescribe. Before a prescription is issued it is screened against the patient's recorded allergies (by name and drug class). A conflict blocks issuing unless the prescriber types an override reason of at least 10 characters, which becomes part of the record. An issued prescription is sealed and can only be cancelled."
+        },
+        {
+          "title": "Order tests, add documents, optional AI draft",
+          "body": "Lab and imaging orders come from the priced test catalog (chapter 11). Upload PDF, PNG, JPEG, TIFF or DICOM files up to 25 MB - they are encrypted and open only inside the app. The AI summary is off by default, needs your platform's zero-data-retention confirmation plus a workspace opt-in, sends only de-identified text, and produces a draft that becomes part of the record only when a doctor accepts, edits and signs it."
+        }
+      ],
+      "callout": {
+        "type": "alert",
+        "body": "There is no admin bypass. An Admin cannot open a chart just by being an Admin; the only route in without a treating relationship is break-glass (chapter 13) - a written reason, 4 hours, read-only, audited and reviewed. Front desk and billing staff never have chart access."
+      }
+    },
+    {
+      "title": "Pharmacy Desk",
+      "sections": [
+        {
+          "title": "Turn on batch tracking for a medicine",
+          "body": "Open Pharmacy desk, Stock & batches. Enabling batch tracking needs opening batches whose quantities add up to what is already on the shelf. From then on the medicine's quantity is the sum of its batches. Needs \"Manage Pharmacy Stock\"."
+        },
+        {
+          "title": "Receive stock by batch",
+          "body": "Record each delivery with its batch number and expiry date (and optionally price and supplier). An already-expired batch cannot be received. Batch details can't be edited - fix a wrong expiry by quarantining that batch and receiving a new one. Quarantine and recall need a reason, and a recalled batch can never return to use."
+        },
+        {
+          "title": "Dispense from the queue",
+          "body": "Dispensing queue lists issued prescriptions with what is left to give. The dialog warns about allergies first, caps each quantity at what remains, and chooses batches soonest-expiry-first automatically - expired, quarantined and recalled batches are shown but cannot be picked. Dispensing a different medicine needs a written reason. Partial dispensing is allowed. Needs \"Dispense Medication\"."
+        },
+        {
+          "title": "Billing and returns",
+          "body": "For an admitted patient the dispensing is charged to their hospital bill in the same step; an outpatient dispensing is marked for billing at the counter through Invoices. A finalized bill refuses new dispensing. A return reverses a whole line with a reason, and the stock goes back to the same batch only if you confirm it is fit and the batch is still usable."
+        },
+        {
+          "title": "Check expiry and the stock ledger",
+          "body": "The Expiry tab shows what is expiring soon, and the Dispensing log shows every dispensing. \"Verify ledger\" proves each batch matches its history of movements. Nothing in the ledger can be edited or deleted."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Stock management and dispensing are separate permissions on purpose, so the person who receives stock is not the only check on what leaves. A member limited to their own care team cannot use the pharmacy desk at all."
+      }
+    },
+    {
+      "title": "Lab & Radiology",
+      "sections": [
+        {
+          "title": "Build the test catalog",
+          "body": "Open Lab & radiology, Test catalog (needs \"Manage Hospital Tariffs\"). Each test has a code, a name, a kind (laboratory or imaging) and a linked charge-master item in the Investigation category, which supplies its price, tax and whether insurers cover it. A code never changes; retire a test instead of deleting it."
+        },
+        {
+          "title": "Doctors order from the catalog",
+          "body": "In an encounter's Orders tab, a doctor picks Laboratory or Imaging, a priority (Routine, Urgent or STAT) and tests from the priced list - a test that is not in the catalog cannot be ordered, so nothing is ever free by accident. Duplicates are blocked; imaging takes a region or view."
+        },
+        {
+          "title": "Collect or perform",
+          "body": "Staff work the Lab queue or Radiology queue (each needs its own permission), STAT first. Marking a sample collected or an exam performed posts the charge to an admitted patient's hospital bill; an outpatient order is billed at the counter. Rejecting an order (for example a haemolysed sample) needs a reason and reverses the charge, and is only possible before a result exists."
+        },
+        {
+          "title": "Enter results and amend them",
+          "body": "Enter lab values with units, reference ranges and flags - partial entry is fine. For imaging the impression and findings are entered, and only a doctor reports. A recorded result is write-once: to change it, use Amend with a reason - the replaced value stays in an amendment history that cannot be erased."
+        },
+        {
+          "title": "Attach scans and reports",
+          "body": "After the sample or exam is done, attach the report or images to the order. Files are encrypted, open only through the app's secure viewer, and the uploader can remove their own file until the order is resulted. The treating doctor sees them in the patient's documents."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Lab and radiology staff only see what the test needs - never the patient's chart - and a lab technician cannot touch radiology orders or files, nor the reverse."
+      }
+    },
+    {
+      "title": "Hospital Billing & Insurance",
+      "sections": [
+        {
+          "title": "Set room tariffs and the charge master",
+          "body": "Open Hospital billing. Room tariffs set ward-wide room-rent and nursing prices, and are only ever added, so past stays keep the price they were billed at. A ward with no tariff blocks finalizing instead of billing as free. The Charge master lists every other chargeable item and whether insurers cover it. Optional rules: a checkout cut-off time and a minimum of one day."
+        },
+        {
+          "title": "Room and nursing charges accrue automatically",
+          "body": "A bill is created for each admitted patient, and room and nursing are added by the midnight census: a day is charged when the patient is still in a bed at the midnight that ends it, in the bed they sleep in. A mid-day transfer bills the new bed. Voiding an automatic line is a permanent waiver for that day."
+        },
+        {
+          "title": "Add charges and attach the policy",
+          "body": "Add other charges from the charge master; a charge is never edited - it is voided with a reason. Pharmacy and test charges arrive by themselves and can only be reversed by a return or rejection. Attach the patient's policy (TPA, insurer, scheme or corporate) with its co-pay, deductible and room-rent cap."
+        },
+        {
+          "title": "Preview, then finalize",
+          "body": "The bill screen shows a live split of what the patient pays and what the insurer pays, naming each reason an amount fell to the patient. Finalizing creates a patient invoice and a payer invoice that add up exactly to the bill. If the policy needs a pre-authorization that is not approved, finalizing is refused for a planned admission unless you deliberately choose to finalize without it; emergency admissions are not blocked."
+        },
+        {
+          "title": "Pre-authorizations and claims",
+          "body": "Pre-authorizations and claims move through Draft, Submitted, Query, Approved and Settled, with partial payments, tax deducted at source, and closing a claim short. A disallowed amount becomes a credit note against the payer invoice and is either written off or billed to the patient as a supplement. A claim is tracked here, not transmitted to the insurer."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Finalized bills, invoices and ledger entries are never edited or deleted - corrections are credit notes. A member limited to their own care team is refused billing completely."
+      }
+    },
+    {
+      "title": "Access Controls & Privacy",
+      "sections": [
+        {
+          "title": "Give each person only their module",
+          "body": "Invite staff with Staff role and switch on only what they need: View/Write Clinical Records, Manage Admissions, View Bed Board, Dispense Medication, Manage Pharmacy Stock, Process Lab Requests, Process Radiology Requests, Manage Hospital Bills, Manage Insurance & TPA Claims, Manage Hospital Tariffs, Manage Hospital Setup, Manage Duty Rosters. All are off by default for a new member."
+        },
+        {
+          "title": "Limit someone to their own care team",
+          "body": "Open Inpatient & beds, Care-team access, and switch on the restriction for a member. They then see only patients on their care team (plus 7 days after it ends), patients in wards they staff and patients they have their own appointment with. If they have no practitioner profile or no assignments they see no patients at all - it fails closed. Admins are never restricted."
+        },
+        {
+          "title": "Use break-glass only in an emergency",
+          "body": "If a chart is outside your access, break-glass asks for a written reason of at least 10 characters and then gives 4 hours of read-only access. Each read under it is audited, you cannot use it on a chart you already have, and a different Admin reviews it afterwards under Access review."
+        },
+        {
+          "title": "Review who accessed what",
+          "body": "Hospital setup, Access audit lists every access to patient data (including denied attempts) and your own review of the audit log is logged too. Verify integrity checks that no entry has been altered or removed. Entries are kept for at least 6 years."
+        }
+      ],
+      "callout": {
+        "type": "alert",
+        "body": "These limits are enforced on the server for every request. If someone reports that they cannot open a patient or a page, check their permission toggles, their care-team restriction and the patient's treating relationship before assuming something is broken."
+      }
+    }
+  ],
+  "closing": [
+    {
+      "title": "Staff & Role Management",
+      "sections": [
+        {
+          "title": "Open Invite User / Staff",
+          "body": "From Settings, open Workspace & Users, then click Invite User / Staff."
+        },
+        {
+          "title": "Clinic Admins / Owners",
+          "body": "Choose the Admin role - full, unrestricted access to every patient, appointment, pharmacy item, bill, and financial figure, regardless of any permission toggle."
+        },
+        {
+          "title": "Doctors / Physicians",
+          "body": "Choose Staff, then enable \"Manage Appointments\" and Documents for Patient Records. In hospital mode also enable \"View Clinical Records\" and \"Write Clinical Records\" (chapter 13)."
+        },
+        {
+          "title": "Receptionists / Front Desk",
+          "body": "Choose Staff, then enable \"Manage Patients\", \"Manage Appointments\", and \"Manage Billing & Claims\" for daily front-desk work."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "In a plain clinic these permissions are workspace-wide - a Doctor with \"Manage Appointments\" sees every patient's appointments. Hospital mode adds real per-patient limits: clinical records follow a treating relationship, and an Admin can restrict a member to their own care team (chapter 13)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "title": "Gym & Fitness Studio - Setup and Modules Guide",
+  "subtitle": "Set up a membership gym from scratch, then run members, check-ins, trainers, equipment, the store and the member portal.",
+  "intro": "Gym workspaces replace the generic Contacts, Service Records and Inventory pages with their own: Members & Leads, Gym Plans, Gym Dashboard, Check-in Desk, Trainer Commissions, Equipment & Maintenance and Store & Products. Members & Leads and the Dashboard follow Manage Clients; every other Gym screen has its own permission switch. Read chapter 1 for the order to set things up, then use the rest as a reference.",
+  "chapters": [
+    {
+      "title": "Gym-specific setup",
+      "summary": "After the common workspace setup, do these in order so members can be signed up on day one.",
+      "sections": [
+        {
+          "title": "1. Create your membership plans",
+          "route": "/gym/plans",
+          "permission": "Manage Gym Plans",
+          "body": "A member cannot be signed up or renewed until a plan exists. Open Gym Plans and add each plan with a name, a price and a duration in days (for example Monthly 30, Quarterly 90, Annual 365).",
+          "steps": [
+            "Open Gym Plans and click Add Plan.",
+            "Enter the plan name, the price and the duration in days.",
+            "Save, and repeat for every plan you sell. You can edit a plan later."
+          ]
+        },
+        {
+          "title": "2. Add trainers as staff and note their commission",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite your trainers under Settings, Workspace & Users so they exist on your team. A member is then assigned a trainer from their profile, and the Trainer Commissions report is built from those assignments. A trainer's commission percentage is set on that report; one with none set uses the default shown there."
+        },
+        {
+          "title": "3. Register your equipment",
+          "route": "/gym/equipment",
+          "permission": "Manage Gym Equipment",
+          "body": "Open Equipment & Maintenance and add each machine. Each gets a QR code you can print and stick on it; scanning it with a phone opens that machine's maintenance page so staff can log a service on the spot."
+        },
+        {
+          "title": "4. List your store products",
+          "route": "/gym/store",
+          "permission": "Manage Gym Store & Products",
+          "body": "Open Store & Products and add supplements, merchandise and gear with a price and a stock quantity. These are what members see in the Store tab of their portal."
+        },
+        {
+          "title": "5. Prepare the WhatsApp templates you will need",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "Create and submit templates for membership-expiry reminders and absence nudges. For automatic Workout Chart / Diet Plan delivery you need a template with a Document header and exactly one variable; the setting refuses any other shape."
+        },
+        {
+          "title": "6. Turn on PT & Diet plan auto-delivery (optional)",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "In Settings, Automation, switch on 'Automatically send PT & Diet plans to members via WhatsApp upon upload' and choose that template. From then on, the moment a trainer or admin uploads a plan on a member's profile it is sent to the member over WhatsApp."
+        },
+        {
+          "title": "7. Build your reminder automations",
+          "route": "/automations",
+          "permission": "Manage Integrations",
+          "body": "Gym adds four triggers to Automations: Membership Expiring (a set number of days before, on, or after the plan ends), Member Absent (an active member who has not checked in for a set number of days), Gym Lead Created (a new walk-in lead) and Equipment Broken (a machine has needed repair for a set number of days). The membership, absence and equipment triggers are checked once a day and act on every record that matches. Create one automation per message you want.",
+          "steps": [
+            "Open Automations and create a new automation.",
+            "Pick the trigger (for example Membership Expiring or Member Absent) and set its timeframe or number of days.",
+            "Add a Send WhatsApp template step with your approved template.",
+            "Activate it; it runs on the next daily sweep."
+          ]
+        },
+        {
+          "title": "8. Start signing up members",
+          "route": "/gym/members",
+          "body": "With plans in place, open Members & Leads and add your first member (chapter 2). Adding a member with a plan generates their invoice automatically."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Plans, the check-in desk, trainer commissions, equipment and the store each have their own switch, so a front-desk person can check members in without being able to change prices or see trainer pay. Anyone who already managed clients keeps their current access until you change it in Edit Permissions."
+      }
+    },
+    {
+      "title": "Members & Leads",
+      "summary": "The one hub for people. The generic Contacts page is hidden for Gym.",
+      "sections": [
+        {
+          "title": "Active Members and Walk-in Leads",
+          "route": "/gym/members",
+          "permission": "Manage Clients",
+          "body": "Two tabs. Active Members are people signed up to a plan. Walk-in Leads are enquiries who have not paid yet; adding one creates a Gym Lead, not a paid member. When a lead signs up, use Add Member for them."
+        },
+        {
+          "title": "Add a member",
+          "body": "Click Add Member, enter their details, choose a plan and an optional trainer. The membership starts and an invoice is generated for you; the confirmation shows the invoice number.",
+          "steps": [
+            "Open Members & Leads and click Add Member.",
+            "Enter name, phone and the other details you collect.",
+            "Choose the plan, and the assigned trainer if they have personal training.",
+            "Save. The invoice number is shown; send or collect payment from Invoices."
+          ]
+        },
+        {
+          "title": "The member profile (Client 360)",
+          "body": "Open a member to see health metrics (BMI is calculated automatically from weight and height), their current plan and status (Active, Expired or Frozen), the assigned trainer, documents such as waivers and ID proofs, and PT & Diet plans. A full activity timeline is not built yet."
+        },
+        {
+          "title": "Renew, freeze and reactivate",
+          "body": "Renew Membership puts the member on a plan again and generates a new invoice. Freeze Plan pauses a membership (a frozen member is refused at the check-in desk) and Reactivate Plan resumes it.",
+          "steps": [
+            "Open the member's profile.",
+            "Choose Renew Membership, pick the plan, and confirm to generate the invoice.",
+            "Or choose Freeze Plan to pause; choose Reactivate Plan when they return."
+          ]
+        },
+        {
+          "title": "Send Portal Access",
+          "body": "From a member's profile, Send Portal Access creates a one-click login link for their Member Portal, no password needed. Each link works once and expires in 7 days; send a fresh one any time."
+        }
+      ]
+    },
+    {
+      "title": "Plans, billing and payments",
+      "sections": [
+        {
+          "title": "Gym Plans",
+          "route": "/gym/plans",
+          "permission": "Manage Gym Plans",
+          "body": "The list of plans members can be signed up or renewed onto, each with a price and a duration in days. Plans are the source of every membership invoice."
+        },
+        {
+          "title": "Invoices, payments and Sales",
+          "route": "/invoices",
+          "permission": "Manage Invoices, Manage Sales",
+          "body": "Membership invoices appear in Invoices, where you mark them Paid, Pending or Partial, download a PDF or send it over WhatsApp. The generic Sales log, Payments and Expenses stay available for day-to-day takings and costs. Deals and the generic Inventory page are hidden for Gym, because Store & Products is your stock."
+        }
+      ]
+    },
+    {
+      "title": "Check-in desk and Gym Dashboard",
+      "sections": [
+        {
+          "title": "Gym Dashboard",
+          "route": "/gym",
+          "permission": "Manage Clients, Use Gym Check-in Desk",
+          "body": "Live check-in activity and quick links to your gym tools, updating without a refresh."
+        },
+        {
+          "title": "Check-in Desk (kiosk)",
+          "route": "/gym/desk",
+          "permission": "Use Gym Check-in Desk",
+          "body": "Open Check-in Kiosk on a front-desk device and point a scanner or camera at a member's QR code (it is in their portal and on their profile). The desk answers straight away: Checked in successfully; This membership has expired; This membership is currently frozen; This member has no membership plan on file; or Unrecognized code. Only active memberships are admitted.",
+          "steps": [
+            "Open Check-in Desk and start the kiosk.",
+            "Have the member show their Access QR.",
+            "Read the result on screen; send expired or frozen members to renew or reactivate."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Check-ins are what the Member Absent automation counts. If your desk is not used, absence messages will fire for members who are actually attending."
+      }
+    },
+    {
+      "title": "Trainers and personal training",
+      "sections": [
+        {
+          "title": "Assign a trainer",
+          "body": "On a member's profile choose the Assigned Trainer. A member with none shows 'No trainer assigned'."
+        },
+        {
+          "title": "Upload PT & Diet plans",
+          "body": "On the member's profile upload a Workout Chart or Diet Plan. If auto-delivery is on (chapter 1, step 6) it is sent to the member's WhatsApp immediately; either way it appears in their portal under Today's Workout & Diet."
+        },
+        {
+          "title": "Trainer Commissions",
+          "route": "/gym/reports/trainers",
+          "permission": "View Trainer Commissions",
+          "body": "A report of active PT clients, revenue and estimated commission per trainer. A trainer with no percentage set uses the default stated on the page. A trainer appears only once they have an active member assigned."
+        }
+      ]
+    },
+    {
+      "title": "Equipment and maintenance",
+      "sections": [
+        {
+          "title": "Equipment & Maintenance",
+          "route": "/gym/equipment",
+          "permission": "Manage Gym Equipment",
+          "body": "Track each machine's status: Active, Needs Repair or Under Maintenance. Log Maintenance records a service and sets the machine's status after that service. An Equipment Broken automation can notify a vendor contact once a machine has needed repair for a set number of days; it is checked once a day.",
+          "steps": [
+            "Add the machine and print its QR code.",
+            "When it is serviced, scan the QR with a phone or open the machine and choose Log Maintenance.",
+            "Record what was done and the machine's status afterwards, then save the log."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Store & Products",
+      "sections": [
+        {
+          "title": "Store & Products",
+          "route": "/gym/store",
+          "permission": "Manage Gym Store & Products",
+          "body": "List and sell supplements, merchandise and gear to your members. Each product has a price and a stock quantity and shows as In Stock or Out of Stock. Members browse the same catalog in the Store tab of their portal, where sold-out items show as Out of stock."
+        }
+      ]
+    },
+    {
+      "title": "The Member Portal",
+      "summary": "What your members see. Their login is the one-time link you send from their profile.",
+      "sections": [
+        {
+          "title": "Home, Store and Profile",
+          "route": "/portal/member",
+          "body": "Members land on Home with their Access QR (to show at the front desk), their membership card with days left or Expired, and Today's Workout & Diet from their trainer. Store shows your catalog. Profile holds their details and Log out. A member can only ever see their own records.",
+          "steps": [
+            "Open the member's profile and choose Send Portal Access.",
+            "Send them the link; it opens their portal without a password.",
+            "If it has expired or been used, send a new one - the old one stops working."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a gym",
+      "summary": "How to give each person exactly what they need.",
+      "sections": [
+        {
+          "title": "One switch per Gym screen",
+          "body": "Members & Leads and the Gym Dashboard follow Manage Clients (the dashboard also opens for Use Gym Check-in Desk). Gym Plans needs Manage Gym Plans (anyone who manages clients can still pick a plan when adding or renewing a member), the Check-in Desk needs Use Gym Check-in Desk, Trainer Commissions needs View Trainer Commissions, Equipment needs Manage Gym Equipment and the store catalog needs Manage Gym Store & Products. Money and messaging stay separate: Manage Invoices, Manage Sales, Manage Expenses, WhatsApp Templates, WhatsApp Campaigns, Conversations and the others can each be switched on or off independently."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or manager: Admin role.",
+            "Front desk: Staff with Manage Clients, Use Gym Check-in Desk, Manage Invoices, Conversations and Manage Reminders; leave Gym Plans, equipment, store and commissions off.",
+            "Trainer: Staff with Manage Clients and Conversations only; keep finance and campaign toggles off.",
+            "Maintenance: Staff with Manage Gym Equipment only.",
+            "Store keeper: Staff with Manage Gym Store & Products.",
+            "Marketing: Staff with WhatsApp Templates, WhatsApp Campaigns and Manage Marketing."
+          ]
+        },
+        {
+          "title": "Members are not staff",
+          "body": "Your members use the Member Portal through the one-time link and never get a staff seat or permissions."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Existing staff keep their current access until you edit them. For new invitations everything defaults on except View Trainer Commissions, so tick only what each person needs."
+      }
+    }
+  ]
+}

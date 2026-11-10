@@ -1,0 +1,190 @@
+{
+  "title": "Restaurant & Food Service - Setup and Modules Guide",
+  "subtitle": "Set up a restaurant, cafe or cloud kitchen from scratch, then run menu and recipes, reservations with AI booking, QR table ordering, sales and kitchen stock.",
+  "intro": "In a Restaurant workspace Contacts are called Guests, Service Records are called Reservations, and Inventory is called Menu & Ingredients, with a Menu tab of dishes and an Ingredients tab of stock. Two modules are specific to this business type and are gated by one permission, Manage QR Table Ordering: Tables & QR and Live orders. Deals are tucked away under More, for catering and private events.",
+  "chapters": [
+    {
+      "title": "Restaurant-specific setup",
+      "summary": "After the common workspace setup, build the restaurant in this order. Recipes need ingredients to exist, and QR ordering needs a menu, tables, taxes and a way to pay.",
+      "sections": [
+        {
+          "title": "1. Add your ingredients",
+          "route": "/inventory",
+          "permission": "Manage Menu & Ingredients",
+          "body": "Open Menu & Ingredients, Ingredients tab, and add every ingredient with its unit, cost price, opening quantity and a low-stock threshold, so you are warned before you run out mid-service."
+        },
+        {
+          "title": "2. Build the menu with recipes",
+          "route": "/inventory",
+          "permission": "Manage Menu & Ingredients",
+          "body": "On the Menu tab add each dish with its name and sell price, then list the ingredients and quantities needed for exactly one portion. NEXTOSA multiplies these when a dish is sold and decrements each ingredient's stock automatically; the menu list shows an estimated profit per dish.",
+          "steps": [
+            "Open the Menu tab and choose Add menu item.",
+            "Enter the dish name and sell price.",
+            "In the Recipe section add each ingredient and its quantity for one portion.",
+            "Save; repeat for every dish."
+          ]
+        },
+        {
+          "title": "3. Make dishes available and describe them (for QR ordering)",
+          "route": "/inventory",
+          "permission": "Manage Menu & Ingredients",
+          "body": "Guests ordering from a table QR see only dishes you have marked available, with their description, image and veg or non-veg flag. An unavailable dish cannot be ordered and refuses the order if it is in the basket."
+        },
+        {
+          "title": "4. Set up tax and a way to get paid",
+          "route": "/settings",
+          "permission": "Manage Invoicing & Billing, Manage Integrations",
+          "body": "QR orders use your default tax rates (for example CGST and SGST), snapshotted onto each order. Connect your own Razorpay account in Settings, Payment Integrations, for online payment, or allow Pay at counter instead."
+        },
+        {
+          "title": "5. Create your tables and print the QR codes",
+          "route": "/table-ordering",
+          "permission": "Manage QR Table Ordering",
+          "body": "Open Tables & QR, add each table by name and optional section, and print its unique QR code for the table. The Ordering setup card on that page lists exactly what is still missing before guests can order (chapter 4)."
+        },
+        {
+          "title": "6. Choose how table bookings are handled",
+          "route": "/settings",
+          "permission": "Manage Integrations",
+          "body": "In Settings, AI Booking Automation decides what the AI does with table requests that arrive on WhatsApp: Manual (the AI never books and you add every reservation), Half automated (the AI creates a pending reservation and tells the guest to wait; it is confirmed only when you click Approve) or Fully automated (the AI checks availability, books and confirms at once, and offers other times and a waitlist if the slot is full). It needs a connected WhatsApp number."
+        },
+        {
+          "title": "7. Invite your team",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite staff with the toggles each role needs (chapter 6). Manage QR Table Ordering is off by default for new members, so grant it deliberately."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Do steps 1 and 2 properly. A recipe is what keeps ingredient stock honest, and a dish with no recipe will not reduce any ingredient when it sells."
+      }
+    },
+    {
+      "title": "Guests, Reservations and Sales",
+      "sections": [
+        {
+          "title": "Guests",
+          "route": "/contacts",
+          "permission": "Manage Guests",
+          "body": "Every guest with contact details, visit history and notes. Add one manually or extract one from an uploaded document; a phone number is a guest's unique ID, so adding an existing number offers to update them."
+        },
+        {
+          "title": "Reservations",
+          "route": "/service-records",
+          "permission": "Manage Reservations",
+          "body": "A day-view grid grouped by table (not fixed hourly slots), listing each table's bookings in time order. Track party size and table assignment, and mark a reservation complete once the table has been served. Completing a reservation does not create a sale; log the bill separately.",
+          "steps": [
+            "Open Reservations and create a booking.",
+            "Choose the guest, party size, time and table.",
+            "Mark it complete after service.",
+            "Log the settled bill in Sales or generate an invoice."
+          ]
+        },
+        {
+          "title": "AI table bookings",
+          "body": "If AI Booking Automation is on, bookings made over WhatsApp appear here. In Half automated mode a pending request waits for your approval and a stale unapproved hold is released automatically."
+        },
+        {
+          "title": "Sales and Invoices",
+          "route": "/sales",
+          "permission": "Manage Sales, Manage Invoices",
+          "body": "Sales is the day-to-day log of settled orders, as a menu item, service or manual entry, marked Paid, Pending or Partial. Invoices are separate formal bills with PDF and WhatsApp delivery. Selling a menu item through the sales log uses the dish's recipe to reduce ingredient stock."
+        },
+        {
+          "title": "Deals",
+          "route": "/deals",
+          "permission": "Manage Deals",
+          "body": "A pipeline for larger opportunities such as catering orders and private events. Winning a deal does not create a sale; log that separately."
+        }
+      ]
+    },
+    {
+      "title": "Menu & Ingredients",
+      "sections": [
+        {
+          "title": "Menu tab and Ingredients tab",
+          "route": "/inventory",
+          "permission": "Manage Menu & Ingredients",
+          "body": "The Menu tab lists dishes with sell price and estimated profit; the Ingredients tab lists raw stock with live quantities and low-stock alerts. Adjust stock when deliveries arrive. Purchase Orders and Locations & Transfers (shared modules) work with ingredient stock."
+        }
+      ]
+    },
+    {
+      "title": "QR Table Ordering",
+      "summary": "Guests scan a table's QR code, order and pay from their phone; staff run a live board.",
+      "sections": [
+        {
+          "title": "How a guest orders",
+          "body": "A guest scans the table's QR code, browses the menu for that table, adds dishes, then verifies their WhatsApp number with a one-time code before checkout. They pay online through your Razorpay account or choose Pay at counter, then see their order and receipt on their phone. Prices always come from your menu; the guest cannot change them, and duplicate lines are merged."
+        },
+        {
+          "title": "Finish the Ordering setup",
+          "route": "/table-ordering",
+          "permission": "Manage QR Table Ordering",
+          "body": "The Ordering setup card on Tables & QR shows whether guests can order and what is missing: a connected WhatsApp number with an approved verification template (choose an existing approved one; the app cannot create authentication templates), at least one way to pay (Pay at counter, or Razorpay), and optionally WhatsApp receipts (a receipt template with a Document header and auto-send on). You can also set how long an unpaid order stays open.",
+          "steps": [
+            "Open Tables & QR and read the Ordering setup card.",
+            "Choose the verification template for the one-time code.",
+            "Turn on Pay at counter and connect Razorpay as needed.",
+            "Print each table's QR code and place it on the table."
+          ]
+        },
+        {
+          "title": "Pause, rotate and replace codes",
+          "body": "You can pause ordering at one table. A code that is paused, unknown or replaced looks identical to a guest: this table isn't taking orders."
+        },
+        {
+          "title": "Live orders board",
+          "route": "/table-orders",
+          "permission": "Manage QR Table Ordering",
+          "body": "Orders appear the moment they are paid online, or when you confirm a counter payment. Move each through its kitchen stages, confirm counter payments, and cancel an order. Online payment is confirmed by Razorpay itself, never by a button.",
+          "steps": [
+            "Watch the board for new orders.",
+            "Move each order through the kitchen stages.",
+            "For counter orders, confirm the payment when the guest pays.",
+            "Cancel an order if it cannot be served."
+          ]
+        },
+        {
+          "title": "Refunds, invoices and stock",
+          "body": "Every paid order creates the guest as a contact, a paid invoice and receipt, and deducts ingredient stock. Cancelling a paid online order refunds it through Razorpay automatically and issues a credit note, returning ingredients to stock if the kitchen had not started it; counter orders are refunded by hand. A payment that lands on an already-cancelled order is flagged for you to refund."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "The receipt reaches the guest on WhatsApp only with a receipt template that has a Document header and auto-send turned on. Otherwise the guest still sees it on their order page."
+      }
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a restaurant",
+      "sections": [
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Manage QR Table Ordering (tables, codes and the live board; off by default). The renamed shared ones are Manage Guests, Manage Reservations and Manage Menu & Ingredients. All are independent toggles."
+        },
+        {
+          "title": "Staff, payroll and attendance",
+          "body": "A Restaurant workspace has no staff roster, payroll or attendance screens and no permission switch for them: the HR module is not part of this business type. Team members you invite (Settings > Team) are logins with the permissions above, not employees on a payroll. Track salaries as an Expense (category Salaries) for now."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or manager: Admin role.",
+            "Head chef or kitchen lead: Staff with Manage Menu & Ingredients and Manage QR Table Ordering.",
+            "Captain or host: Staff with Manage Guests, Manage Reservations and Conversations.",
+            "Cashier: Staff with Manage Sales, Manage Invoices and Manage QR Table Ordering (to confirm counter payments).",
+            "Accounts: Staff with Manage Expenses, Manage Finance and View Financial Dashboard."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "None of these permissions is limited to one section or one person's tables; each is a workspace-wide switch."
+      }
+    }
+  ]
+}

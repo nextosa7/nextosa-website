@@ -1,0 +1,262 @@
+{
+  "title": "Salon & Spa - Setup and Modules Guide",
+  "subtitle": "Set up a salon or spa from scratch, then run staff, services, clients, bookings, checkout, stock, payroll and the client portal.",
+  "intro": "Salon workspaces replace the generic Contacts, Service Records, Inventory and Deals pages with their own: Staff Roster, Salon Clients, Services & Resources, Booking Calendar, Salon Inventory, Staff Payroll and AI Insights. There is no separate Billing page - checkout happens in the Booking Calendar. Each salon module has its own permission, so you can split the front desk from stock and payroll.",
+  "chapters": [
+    {
+      "title": "Salon-specific setup",
+      "summary": "After the common workspace setup, build the salon in this order. Each step feeds the next: a booking needs a service, a staff member, an open hour and (optionally) a client.",
+      "sections": [
+        {
+          "title": "1. Set the salon's business hours",
+          "route": "/settings",
+          "permission": "Manage Salon Staff Roster",
+          "body": "In Settings, Business, set the days and hours the salon is open. The client portal's booking wizard only offers a time when the salon is open AND the chosen staff member is working, so do this before staff shifts."
+        },
+        {
+          "title": "2. Build the Staff Roster",
+          "route": "/salon-staff",
+          "permission": "Manage Salon Staff Roster",
+          "body": "Add every stylist and therapist with their tier, contact details and working shifts. The tier decides tiered pricing and commission, so decide your tiers (for example Junior, Senior, Master) before you add people.",
+          "steps": [
+            "Open Staff Roster and add a staff member.",
+            "Choose their tier.",
+            "Open their shifts and set the hours they work each day.",
+            "Repeat for everyone who takes bookings."
+          ]
+        },
+        {
+          "title": "3. Set commission rates",
+          "route": "/salon-payroll",
+          "permission": "Manage Salon Payroll",
+          "body": "In Salon Commission set the commission rate for each tier. Commission is earned on money actually collected from invoices; payroll itself is run in HR (Staff & HR > Payroll)."
+        },
+        {
+          "title": "4. Create the service catalog and resources",
+          "route": "/salon-services",
+          "permission": "Manage Salon Services & Resources",
+          "body": "Add each service with a base price. Optionally override the price for specific staff tiers, list the rooms, stations or equipment it needs, and list the backbar products it consumes (its Bill of Materials). Stock is deducted automatically each time the service is completed.",
+          "steps": [
+            "Open Services & Resources and add a service with its base price.",
+            "Add tier overrides where a Master charges more than a Junior.",
+            "Add the rooms, stations or equipment the service requires.",
+            "Add the backbar supplies it uses, with quantities."
+          ]
+        },
+        {
+          "title": "5. Add retail and backbar stock",
+          "route": "/salon-inventory",
+          "permission": "Manage Salon Inventory",
+          "body": "Add retail products (sold to clients) and backbar supplies (used in services); they are tracked separately. Set a low-stock level on every item, especially backbar ones, because running out of a colour mid-service is the stockout that stops a booking."
+        },
+        {
+          "title": "6. Add clients and (optionally) give them portal access",
+          "route": "/salon-clients",
+          "permission": "Manage Salon Clients",
+          "body": "Add clients one by one or as they book. Turn on Portal Access for a client to let them sign in, see their wallet and loyalty balance, and book themselves (chapter 7)."
+        },
+        {
+          "title": "7. Turn on automatic appointment reminders",
+          "route": "/settings",
+          "permission": "Manage Reminders",
+          "body": "In Settings, Automation, turn on Auto Reminders to create a reminder ahead of each appointment (1 day, 3 days or a week). Sending WhatsApp reminders to clients needs an approved template (common setup, step 6)."
+        },
+        {
+          "title": "8. Make a test booking and checkout",
+          "route": "/salon-bookings",
+          "permission": "Manage Salon Bookings",
+          "body": "Create one booking for yourself, complete it and check out. Confirm the invoice, the stock deduction and the stylist's commission look right before real clients arrive."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Do not skip shifts. A staff member with no shifts is never offered to clients booking online and cannot be placed sensibly on the calendar."
+      }
+    },
+    {
+      "title": "Staff Roster and Payroll",
+      "sections": [
+        {
+          "title": "Staff Roster",
+          "route": "/salon-staff",
+          "permission": "Manage Salon Staff Roster",
+          "body": "Every stylist and therapist with their tier and contact details. Open a person's shifts to set when they work; the client portal's live availability only offers a staff member during hours that they are working and the salon is open."
+        },
+        {
+          "title": "Salon commission and payroll",
+          "route": "/salon-payroll",
+          "permission": "Manage Salon Payroll",
+          "body": "Per-tier commission rates, and what each stylist has earned on money actually collected from invoices in the selected range. Payroll is run in HR: when you process a stylist's month there, their collected-but-not-yet-paid commission is added to the payslip as a \"Salon commission\" line automatically, and is never paid twice (money collected later is paid in a later run).",
+          "steps": [
+            "Open Salon Commission and set or confirm each tier's commission rate.",
+            "Choose a date range to review what each stylist has earned.",
+            "Click Run payroll in HR and process the month: the commission appears on the payslip."
+          ]
+        },
+        {
+          "title": "Rate changes: adjusting payslips already paid",
+          "route": "/salon-payroll",
+          "permission": "Manage Salon Payroll",
+          "body": "If you change a tier's commission rate after payroll was already run, the Rate changes card on Salon Commission shows what each processed payslip would have paid at today's rates. A processed payslip is never edited: you create an adjustment and the difference goes into that stylist's next payroll run. Nothing happens by itself when a rate changes.",
+          "steps": [
+            "Open Salon Commission and scroll to Rate changes. Each row is one processed payslip with what was paid, the amount at current rates and the difference.",
+            "Tick the payslips you want to adjust (all are ticked by default; use Select all or Clear selection). The footer shows how many are selected and their total difference.",
+            "Click Create adjustments, give a reason of at least 5 characters and confirm. Only the ticked payslips get an adjustment; a payslip that already matches today's rates is refused.",
+            "Pending adjustments are listed below the table. In that stylist's next payroll run (Staff & HR > Payroll) a positive difference is added as a taxed earning and a negative one as a flat deduction, both on the line \"Salon commission adjustment (rate change)\".",
+            "A deduction is capped so the payslip never goes below zero: what the run cannot absorb stays pending and is taken in the following run.",
+            "Created one by mistake? Click Void next to a pending adjustment, give a reason, and it will not be included in any payroll. The payslip then shows in the table again and can be re-adjusted. An adjustment that a payslip has already included cannot be voided; create a new adjustment to offset it."
+          ]
+        },
+        {
+          "title": "Tip payouts to staff",
+          "route": "/salon-payroll",
+          "permission": "Manage Salon Payroll",
+          "body": "Tips collected at checkout are not revenue and are not commission: they are held for the stylist until you pay them out. The Staff tips section on Salon Commission shows, for each stylist, tips collected, paid out and still owed.",
+          "steps": [
+            "Click Pay out next to a stylist. The dialog lists their invoices with an unpaid tip; all are ticked, untick any you want to leave for later. The total updates as you choose.",
+            "Choose how to pay: Cash or Bank transfer (money leaves the till or bank now) or With payroll (the tip is paid together with their next salary).",
+            "A With-payroll payout shows as Pending payroll until that stylist's next payroll is processed in HR, then as Paid in payroll. The payslip shows it as a memo line \"Tips paid through payroll\"; it does not change gross pay, tax or net pay. The stylist needs an HR staff record for this.",
+            "Changed your mind? While a payout is still Pending payroll you can use Cancel on it, with a reason: the tips become owed again. Once payroll has paid it, it can no longer be cancelled.",
+            "An invoice whose tip has already been paid out cannot be cancelled."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Services & Resources",
+      "sections": [
+        {
+          "title": "Service catalog",
+          "route": "/salon-services",
+          "permission": "Manage Salon Services & Resources",
+          "body": "Your list of services with a base price. Each can carry tier overrides (a different price for specific staff tiers; with none, every tier charges the base price), required resources (rooms, stations or equipment the service needs before it can be booked) and a Bill of Materials (backbar supplies deducted from stock each time the service is completed)."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "The Bill of Materials is what keeps backbar stock honest. If a service does not list what it consumes, stock will not go down when it is completed."
+      }
+    },
+    {
+      "title": "Salon Clients",
+      "sections": [
+        {
+          "title": "Client records",
+          "route": "/salon-clients",
+          "permission": "Manage Salon Clients",
+          "body": "Every walk-in and regular client with contact details, preferences and visit history, kept separate from the generic Contacts module (which is hidden). Look up a client's full service history before their next appointment."
+        },
+        {
+          "title": "Wallet, loyalty and membership packages",
+          "body": "Each client carries a wallet balance and loyalty points, and any membership packages they have bought, all visible on their profile with no separate setup."
+        },
+        {
+          "title": "Portal Access",
+          "body": "In a client's Edit Client window turn on Portal Access, then set a portal login email and a password of at least 8 characters. Copy the portal link from the same window and send it. You can change the password or disable access at any time; re-enabling later does not touch their wallet or loyalty balance.",
+          "steps": [
+            "Open the client and choose Edit Client.",
+            "Switch on Portal Access and enter a login email and password.",
+            "Copy the portal link and send it to the client."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Booking Calendar and checkout",
+      "sections": [
+        {
+          "title": "Booking Calendar",
+          "route": "/salon-bookings",
+          "permission": "Manage Salon Bookings",
+          "body": "Every stylist and resource side by side. Create a booking from the calendar (a walk-in is just a booking for right now), assign the staff member, and drag a booking to reschedule it. With no staff on the roster the calendar asks you to add one first.",
+          "steps": [
+            "Open the Booking Calendar and start a new booking.",
+            "Choose the client and add every service they want in the same ticket.",
+            "Assign the staff member and any room or station.",
+            "Save; drag the booking later if the time changes."
+          ]
+        },
+        {
+          "title": "Multi-service tickets",
+          "body": "One visit can cover several services. Add them all to one booking rather than creating separate ones."
+        },
+        {
+          "title": "Checkout (POS)",
+          "body": "There is no separate Billing page. Open the booking in the calendar and choose Checkout: services and any retail products sold are billed in the same ticket, the result is a Salon Invoice you can look back on under Salon Invoices, backbar stock is deducted from each service's Bill of Materials, and the stylist's commission accrues.",
+          "steps": [
+            "Click the booking in the calendar when the service is done.",
+            "Choose Checkout and add any retail products the client is buying.",
+            "Pick a tax rate, use the client's wallet if they have a balance, and take payment if they are paying now (you cannot take more than is owed).",
+            "Find the invoice later under Salon Invoices, where you can record further payments, send it on WhatsApp or cancel it."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "alert",
+        "body": "Always confirm the assigned stylist before saving, especially for a walk-in; that is what keeps two bookings from landing on one stylist at once."
+      }
+    },
+    {
+      "title": "Salon Inventory",
+      "sections": [
+        {
+          "title": "Retail and backbar stock",
+          "route": "/salon-inventory",
+          "permission": "Manage Salon Inventory",
+          "body": "Retail products for sale and backbar supplies consumed in services, with live stock levels, a low-stock flag, and stock movements recording what came in, went out and why."
+        }
+      ]
+    },
+    {
+      "title": "The Client Portal",
+      "summary": "What your clients see once you give them Portal Access.",
+      "sections": [
+        {
+          "title": "Wallet, loyalty and booking",
+          "body": "A signed-in client sees their Wallet balance, Loyalty points and their own service and booking history, and can book their next appointment through the live availability wizard, which only offers times when the salon is open and the chosen staff member is working. A client can only see their own records."
+        }
+      ]
+    },
+    {
+      "title": "AI Insights",
+      "sections": [
+        {
+          "title": "Retention and staff performance",
+          "route": "/salon-ai-insights",
+          "permission": "View AI Insights",
+          "body": "A read-only dashboard of client churn and retention risk and staff performance signals, built from your own booking and client data. It is a fixed summary, not a chat; ask Business AI a follow-up question if you want to dig into a number."
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a salon",
+      "summary": "Each salon module has its own permission, all independent.",
+      "sections": [
+        {
+          "title": "The salon permissions",
+          "body": "Manage Salon Bookings (calendar and checkout), Manage Salon Clients, Manage Salon Services & Resources, Manage Salon Inventory, Manage Salon Staff Roster (roster, tiers, shifts and business hours), Manage Salon Payroll (commission rates and earnings) and View AI Insights. They are on by default for a new member, so switch off what a person should not have when you invite them."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or manager: Admin role.",
+            "Front desk: Staff with Manage Salon Bookings, Manage Salon Clients, Manage Invoices, Conversations and Communication Log.",
+            "Stylist: Staff with Manage Salon Bookings only if they should see the calendar.",
+            "Stock keeper: Staff with Manage Salon Inventory.",
+            "Accountant: Staff with Manage Salon Payroll and Manage Finance."
+          ]
+        },
+        {
+          "title": "Clients are not staff",
+          "body": "Clients use the Client Portal with their own login and never get a staff seat or any staff permission."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Manage Salon Bookings is salon-wide: a stylist who has it sees the whole shared calendar, not just their own appointments."
+      }
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "title": "Retail & Wholesale - Setup and Modules Guide",
+  "subtitle": "Set up a shop, distributor or wholesaler from scratch, then run customers and vendors, B2B inquiries, sales, stock across locations, purchasing, after-sales and billing.",
+  "intro": "Retail workspaces use the shared modules with retail names: Contacts are Customers & Vendors, Deals are B2B Inquiries, and Service Records are After-Sales & AMC. Every module is available, including Purchase Orders and Locations & Transfers. There are no retail-only modules, so this guide is about setting the shared ones up well.",
+  "chapters": [
+    {
+      "title": "Retail-specific setup",
+      "summary": "After the common workspace setup, build the shop in this order: stock first, then the people you trade with, then how you buy and sell.",
+      "sections": [
+        {
+          "title": "1. Add your products to Inventory",
+          "route": "/inventory",
+          "permission": "Manage Inventory",
+          "body": "Add each product with a name, optional SKU or code and category, its cost price (what you paid, different from what you sell it for), sell price, unit, starting quantity and a low-stock threshold. Set the threshold on every item: it flags the item before it runs out.",
+          "steps": [
+            "Open Inventory and choose Add item.",
+            "Enter name, SKU and category, then cost price and sell price.",
+            "Set the unit and the opening quantity.",
+            "Set the low-stock threshold and save."
+          ]
+        },
+        {
+          "title": "2. Set up locations if you stock in more than one place",
+          "route": "/settings",
+          "permission": "Manage Locations & Transfers",
+          "body": "In Settings, Business, define each store or warehouse. You can then move stock between them with a transfer. Skip this if you have a single location."
+        },
+        {
+          "title": "3. Add customers and vendors",
+          "route": "/contacts",
+          "permission": "Manage Customers & Vendors",
+          "body": "Customers & Vendors holds everyone you trade with: retail buyers, wholesale accounts and the suppliers you buy from. Add them by hand, or upload a document and let the AI fill the record. A phone number is the unique ID, so an existing number offers to update instead of duplicating."
+        },
+        {
+          "title": "4. Create your first purchase order",
+          "route": "/purchase-orders",
+          "permission": "Manage Purchase Orders",
+          "body": "Order stock from a vendor under Purchase Orders and receive it when it arrives so your inventory goes up. Cancel an order you will not take."
+        },
+        {
+          "title": "5. Set tax and invoice settings, then test an invoice",
+          "route": "/invoices",
+          "permission": "Manage Invoices",
+          "body": "With your tax rates and invoice prefix set (common setup, step 3), create one test invoice and download its PDF to check your logo, tax and numbering."
+        },
+        {
+          "title": "6. Prepare WhatsApp templates",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "Create approved templates for order confirmations, festive offers and after-sales follow-ups, so campaigns and messages are ready (common setup, step 6)."
+        },
+        {
+          "title": "7. Invite your team",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite stock, sales and billing staff with the toggles each needs (chapter 5). Several WhatsApp numbers? Limit each person to the numbers they should handle."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Enter opening stock accurately on day one. Every low-stock alert and profit figure builds on the quantity and cost price you set now."
+      }
+    },
+    {
+      "title": "Customers, vendors and B2B inquiries",
+      "sections": [
+        {
+          "title": "Customers & Vendors",
+          "route": "/contacts",
+          "permission": "Manage Customers & Vendors",
+          "body": "One record per person or company, with contact details, history and notes. Selling to an existing customer is one click from their profile."
+        },
+        {
+          "title": "B2B Inquiries",
+          "route": "/deals",
+          "permission": "Manage B2B Inquiries",
+          "body": "Track wholesale and bulk-purchase opportunities stage by stage on a pipeline board. Marking one Won automatically creates a linked Sale carrying the inquiry's value, with payment status Pending. That Sale is a manual entry: it does not deduct stock, so log the stock movement yourself if goods actually shipped.",
+          "steps": [
+            "Open B2B Inquiries and add one for a customer with its value.",
+            "Move it through the pipeline stages.",
+            "Mark it Won to create the Sale, then update the payment status when paid."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sales, After-Sales and billing",
+      "sections": [
+        {
+          "title": "Sales",
+          "route": "/sales",
+          "permission": "Manage Sales",
+          "body": "The day-to-day log of settled transactions: a Product (picked from Inventory), a Service or a Manual entry, marked Paid, Pending or Partial. Selling an inventory item reduces its stock automatically, and editing or deleting the sale puts it back. Filter by customer, status or date; the total for the filtered period shows at the bottom."
+        },
+        {
+          "title": "After-Sales & AMC",
+          "route": "/service-records",
+          "permission": "Manage After-Sales & AMC",
+          "body": "Track support cases, warranty claims and Annual Maintenance Contract visits through their own statuses, and mark one complete when resolved. Completing a case does not create a sale or invoice; log any charge for parts or labour separately."
+        },
+        {
+          "title": "Invoices and Expenses",
+          "route": "/invoices",
+          "permission": "Manage Invoices, Manage Expenses",
+          "body": "Invoices are formal bills with tax, Paid, Pending or Partial status, a PDF and WhatsApp delivery, separate from the Sales log. Expenses log business overhead such as restocking, rent and utilities."
+        },
+        {
+          "title": "Customer Tickets",
+          "route": "/customer-tickets",
+          "permission": "Manage Customer Tickets",
+          "body": "A support-ticket list for your own customers: create, reply to and resolve tickets."
+        }
+      ]
+    },
+    {
+      "title": "Stock, purchasing and locations",
+      "sections": [
+        {
+          "title": "Inventory",
+          "route": "/inventory",
+          "permission": "Manage Inventory",
+          "body": "Every product with cost versus sell price, live stock and a low-stock flag. Record stock movements for deliveries, adjustments and write-offs so the quantity stays right."
+        },
+        {
+          "title": "Purchase Orders",
+          "route": "/purchase-orders",
+          "permission": "Manage Purchase Orders",
+          "body": "Order from vendors, then receive the order when goods arrive so stock is added, or cancel it. There is no approval workflow on purchase orders, and the Approval Inbox only reviews AI-drafted WhatsApp replies."
+        },
+        {
+          "title": "Locations & Transfers",
+          "route": "/settings",
+          "permission": "Manage Locations & Transfers",
+          "body": "Define stores and warehouses and move stock between them with a transfer, so each location's quantity stays accurate."
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a retailer",
+      "sections": [
+        {
+          "title": "Permissions in this business type",
+          "body": "Retail has no retail-only permissions. The shared ones carry retail names: Manage Customers & Vendors, Manage B2B Inquiries and Manage After-Sales & AMC, alongside Manage Sales, Manage Invoices, Manage Expenses, Manage Inventory, Manage Purchase Orders, Manage Locations & Transfers and Manage Customer Tickets. Each is an independent toggle; most are on by default for a new member, so switch off what a person should not have."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or general manager: Admin role.",
+            "Warehouse or inventory manager: Staff with Manage Inventory, Manage Purchase Orders and Manage Locations & Transfers.",
+            "Sales executive or cashier: Staff with Manage Sales, Manage Invoices and a light Manage Customers & Vendors.",
+            "Wholesale desk: Staff with Manage B2B Inquiries and Manage Customers & Vendors.",
+            "Accounts: Staff with Manage Expenses, Manage Finance and View Financial Dashboard."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "No permission here is limited to one person's own customers or sales; each is a workspace-wide switch. If you run several WhatsApp numbers, you can limit a person to specific numbers."
+      }
+    }
+  ]
+}

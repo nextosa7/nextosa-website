@@ -1,0 +1,203 @@
+{
+  "title": "CA & Tax Firm - Setup and Modules Guide",
+  "subtitle": "Set up a chartered accountancy or tax practice from scratch, then run tax clients, compliance jobs with maker-checker review, the tax calendar, retainer billing and the client portal.",
+  "intro": "CA Firm workspaces replace the generic Contacts, Service Records, Sales, Inventory and Deals pages with five dedicated modules: Tax Clients, Job Board, Tax Calendar, Billing and AI Insights. Invoices and Expenses stay available alongside them. Staff are scoped by assignment: a staff member only ever sees the clients and jobs assigned to them.",
+  "chapters": [
+    {
+      "title": "Firm-specific setup",
+      "summary": "After the common workspace setup, build the practice in this order. The Job Board will not let you create a job until at least one client and one service exist.",
+      "sections": [
+        {
+          "title": "1. Confirm firm identity, tax IDs and invoice settings",
+          "route": "/settings",
+          "permission": "Manage Business Details, Manage Invoicing & Billing",
+          "body": "Enter your firm name, address, tax ID and logo (the logo appears on generated documents such as invoice PDFs). Set the invoice prefix and define the GST or other tax rates you charge, so they are ready the first time you bill."
+        },
+        {
+          "title": "2. Define your services (the engagement catalog)",
+          "route": "/tax-job-board",
+          "permission": "Manage Tax Clients & Jobs",
+          "body": "On the Job Board add the engagements you perform, each with a name and description (for example GST Return, ITR, Audit). Every job is created against one of these services, so build the list before you create jobs."
+        },
+        {
+          "title": "3. Invite your team before you add clients",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite partners as Admin and everyone else as Staff with Manage Tax Clients & Jobs, plus Documents and Reminders. Do this first, because each client and job has an Assigned to field that decides which staff member can see it. There is no separate Junior CA or Article Assistant role; it is the same Staff role with different assignments."
+        },
+        {
+          "title": "4. Add your tax clients and assign them",
+          "route": "/tax-clients",
+          "permission": "Manage Tax Clients & Jobs",
+          "body": "Add each client entity with its name, entity type, statutory identifiers, DSC expiry date and, if it belongs to a larger group, its parent company. Set Assigned to at the moment you create the client.",
+          "steps": [
+            "Open Tax Clients and click Add Client.",
+            "Enter the name (required) and choose the entity type: Individual, Corporate, LLP or Trust.",
+            "Enter PAN, GSTIN and TAN where applicable, and the DSC expiry date.",
+            "Set a parent company if this entity is part of a group.",
+            "Set Assigned to; an unassigned client is visible to Admins only."
+          ]
+        },
+        {
+          "title": "5. Load the Tax Calendar",
+          "route": "/tax-calendar",
+          "permission": "Manage Tax Calendar",
+          "body": "Add each statutory due date and compliance deadline to the shared calendar so the whole firm sees what is coming."
+        },
+        {
+          "title": "6. Create your first jobs",
+          "route": "/tax-job-board",
+          "permission": "Manage Tax Clients & Jobs",
+          "body": "Create a job for a client and service and assign it. Walk it through the board once to see the maker and checker steps work before real filings depend on it."
+        },
+        {
+          "title": "7. Prepare billing and communications",
+          "route": "/tax-billing",
+          "permission": "Manage Tax Billing",
+          "body": "Decide how you bill: Billing for ongoing engagement retainers and fees, Invoices for everything else. Create approved WhatsApp templates for due-date reminders and document requests (common setup, step 6)."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Set Assigned to the moment you create a client or job. A staff member does not see an unassigned record at all, even if you meant it for them."
+      }
+    },
+    {
+      "title": "Tax Clients",
+      "sections": [
+        {
+          "title": "Client entities",
+          "route": "/tax-clients",
+          "permission": "Manage Tax Clients & Jobs",
+          "body": "Every client entity (individual, corporate, LLP or trust) with its compliance details in one place. A client that has subsidiary clients cannot be deleted until those are reassigned or removed."
+        },
+        {
+          "title": "DSC expiry alerts",
+          "body": "The DSC (Digital Signature Certificate) expiry date you enter drives an alerts list of certificates expiring within the next 30 days or already expired, so a signing credential never lapses unnoticed."
+        },
+        {
+          "title": "Assignment and visibility",
+          "body": "A staff member with Manage Tax Clients & Jobs sees only the clients and jobs assigned to them. This is enforced by the server, not just hidden on screen. Admins see everything firm-wide."
+        },
+        {
+          "title": "Client documents",
+          "route": "/documents",
+          "permission": "View Client Documents",
+          "body": "Use the Client Documents tab (a separate permission from My Files) to upload and browse files scoped to one client, and to chat with the AI about them."
+        }
+      ]
+    },
+    {
+      "title": "Job Board and maker-checker",
+      "sections": [
+        {
+          "title": "Job Board",
+          "route": "/tax-job-board",
+          "permission": "Manage Tax Clients & Jobs",
+          "body": "Drag a compliance job (a return, an audit, a filing) through the maker-checker pipeline from data collection to filing. Each job is for one client and one service, and has an Assigned to field that is genuinely enforced: an assignee sees only their own jobs.",
+          "steps": [
+            "Add a job for a client and a service.",
+            "Assign it to the staff member who will do the work.",
+            "The assignee works the job and submits it as the Maker.",
+            "An Admin reviews it as the Checker and approves it, or sends it back for rework."
+          ]
+        },
+        {
+          "title": "Review in the Approval Inbox",
+          "body": "The review queue for these submissions is embedded in the Job Board itself, not a separate page. Only an Admin can act as Checker, and nobody can approve their own submission."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "The Approval Inbox here reviews jobs. It is not a document-approval tool, and AI-drafted WhatsApp replies are reviewed in the shared Approval Inbox page."
+      }
+    },
+    {
+      "title": "Tax Calendar",
+      "sections": [
+        {
+          "title": "Statutory due dates",
+          "route": "/tax-calendar",
+          "permission": "Manage Tax Calendar",
+          "body": "A shared, firm-wide calendar of due dates and compliance deadlines across all clients. It is a planning view: nothing here creates a Job Board entry, so create the actual job separately. It is not scoped per team member the way Tax Clients is."
+        }
+      ]
+    },
+    {
+      "title": "Billing and Invoices",
+      "sections": [
+        {
+          "title": "Tax Billing",
+          "route": "/tax-billing",
+          "permission": "Manage Tax Billing",
+          "body": "Retainer and fee billing built for tax engagements: track pending payments, retainers and out-of-pocket expenses for the whole firm, tied to a client relationship. It is separate from Invoices and has its own permission, so you can grant one without the other."
+        },
+        {
+          "title": "Invoices and Expenses",
+          "route": "/invoices",
+          "permission": "Manage Invoices, Manage Expenses",
+          "body": "Standard invoicing stays active alongside Billing: formal invoices with tax, Paid, Pending or Partial status, PDF download and WhatsApp delivery. Expenses log firm overhead separately from anything billed to a client. Finance gives you the chart of accounts, journal entries and statements."
+        }
+      ]
+    },
+    {
+      "title": "AI Insights",
+      "sections": [
+        {
+          "title": "Firm-wide dashboard",
+          "route": "/tax-ai-insights",
+          "permission": "View AI Insights",
+          "body": "A read-only, firm-wide dashboard of revenue trends, workload and risk signals across the practice. It is a fixed summary, not a chat; use Business AI when you have a specific question."
+        }
+      ]
+    },
+    {
+      "title": "The Client Portal",
+      "summary": "A separate login where your clients see their own documents and invoices.",
+      "sections": [
+        {
+          "title": "What clients see",
+          "route": "/tax-client-portal",
+          "body": "Clients sign in with email and password at the portal link your firm shares (it contains your workspace ID). They see My Documents (with Download), My Invoices with the amount, paid and outstanding figures, and their Payment History. They see only their own records."
+        },
+        {
+          "title": "Give a client access",
+          "body": "Open the client's record in Tax Clients, turn on portal access, set their login email and password, and send them the link. You can change the password or switch access off at any time.",
+          "steps": [
+            "Open the client in Tax Clients and edit it.",
+            "Switch on portal access and set a login email and password.",
+            "Send the portal link to the client."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a firm",
+      "sections": [
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Manage Tax Clients & Jobs (clients, the service catalog and the Job Board), Manage Tax Calendar, Manage Tax Billing and View AI Insights. Each is an independent toggle, and all are on by default for a new member."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Senior partner: Admin role (the only role that can act as Checker).",
+            "Junior CA or article assistant: Staff with Manage Tax Clients & Jobs, Documents and Reminders; assign them their clients and jobs.",
+            "Billing clerk: Staff with Manage Tax Billing and Manage Invoices.",
+            "Compliance coordinator: Staff with Manage Tax Calendar."
+          ]
+        },
+        {
+          "title": "Clients are not staff",
+          "body": "Clients use the Client Portal with their own login and never get a staff seat."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Assignment is the real access control. Giving someone Manage Tax Clients & Jobs shows them nothing until clients and jobs are assigned to them."
+      }
+    }
+  ]
+}

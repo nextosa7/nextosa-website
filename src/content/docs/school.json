@@ -1,0 +1,243 @@
+{
+  "title": "School & College - Setup and Modules Guide",
+  "subtitle": "Set up a school or college from scratch, then run admissions, students, fees, attendance, exams, homework, timetable, library, transport, staff and the teacher, parent and student portals.",
+  "intro": "School workspaces rename Contacts to Students and Service Records to Admissions, and add Student Records, Attendance, Exams & Results, Homework, Timetable, Transport, Library, Staff & HR, Fee Management, Assets and the Notice Board. Sales, Inventory and Deals are hidden. Teachers, parents and students each get their own portal that is locked to the data they need.",
+  "chapters": [
+    {
+      "title": "School-specific setup",
+      "summary": "After the common workspace setup, do these before you enrol a single student, so the first fee invoice already has the right class, fee components and due date.",
+      "sections": [
+        {
+          "title": "1. Set up classes and sections",
+          "route": "/settings",
+          "body": "In Settings, Academic Setup, create your Classes or Courses and, for each, its own Sections or Batches. Each class can have a completely different set of sections. Teachers are scoped by the grade and section text, so agree one format and use it everywhere (for example '5th - A'); '5-A' and 'Class 5 A' are read as different classes."
+        },
+        {
+          "title": "2. Create the subject catalog",
+          "route": "/settings",
+          "body": "In Settings, Subjects, build the school-wide list of subjects. Teachers can only pick from this list when adding a column to an exam; they cannot type a free-text subject name."
+        },
+        {
+          "title": "3. Set billing cycles and class fee components",
+          "route": "/fees",
+          "body": "Create your billing cycles (Quarterly, Monthly, Half-Yearly) with their default due dates, because Bulk Generate Invoices reads them to set each invoice's due date. Then set each class's fee components, and where a class has a late fee configured, overdue unpaid invoices get a Late Fee line automatically.",
+          "steps": [
+            "In Settings, add your fee schedules with their due dates.",
+            "Open Fee Management and set the fee components for each class.",
+            "Set a base tuition fee on each student's profile once they are enrolled."
+          ]
+        },
+        {
+          "title": "4. Switch on the automatic WhatsApp alerts you want",
+          "route": "/settings",
+          "body": "In Settings, Automation, choose which messages go to guardians: an absence alert when a student is marked absent, an alert when homework is posted, and overdue-fee reminders (re-sent at most once every few days while a fee stays unpaid). Library overdue reminders are sent manually by an admin from the Library page once enabled. All of them use the Guardian Phone Number on the student's profile and need an approved WhatsApp template."
+        },
+        {
+          "title": "5. Brand the report card and set library fines",
+          "route": "/settings",
+          "body": "Add your logo, name, address and a footer line (grading rules or a signature) to the printable marksheet. If you charge library fines, set the per-day late fee; it is calculated from how many days overdue a book is when it is returned."
+        },
+        {
+          "title": "6. Build the team: staff first, then portal invitations",
+          "route": "/hr",
+          "permission": "Manage Staff & HR",
+          "body": "Add teachers and other staff to the Staff & HR roster. To give a teacher a portal login, open their roster entry and use Invite to Portal; Class Teacher is offered only when the invitation comes from a staff member's own entry. Choose their Grade and Section. A Class Teacher is not a paid seat.",
+          "steps": [
+            "Open Staff & HR and add the staff member.",
+            "Choose Invite to Portal on their entry and pick Class Teacher.",
+            "Set their assigned Grade and Section.",
+            "Send the invitation; they appear as Pending until they accept."
+          ]
+        },
+        {
+          "title": "7. Build the timetable",
+          "route": "/timetable",
+          "permission": "Manage Timetable",
+          "body": "Add the weekly schedule slot by slot (subject, teacher and time). Students see their own week automatically on the Student Portal."
+        },
+        {
+          "title": "8. Start admissions and enrol students",
+          "route": "/service-records",
+          "permission": "Manage Service Records",
+          "body": "Open Admissions to move enquiries through your stages, then add confirmed students (chapter 2). Do not enrol anyone before steps 1 to 3 are done."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Class Teacher scoping matches the grade and section as plain text. Decide one spelling per class before you assign teachers or enrol students."
+      }
+    },
+    {
+      "title": "Admissions and Students",
+      "sections": [
+        {
+          "title": "Admissions",
+          "route": "/service-records",
+          "permission": "Manage Service Records",
+          "body": "A Kanban board that takes a prospective student through enquiry, form submitted, seat confirmed and so on, with notes and documents on each card. Open a card to run its workflow as tasks (collect documents, entrance assessment and interview, fee clearance, class and section allotment), each with an assignee, a due date and nested checklists; the card shows task progress, checklist progress, a red overdue chip and the people involved. Once a seat is confirmed, move straight to that student's first fee invoice."
+        },
+        {
+          "title": "Students and Student Records",
+          "route": "/student-records",
+          "permission": "Manage Clients",
+          "body": "Add a student one at a time or import the whole roster in bulk. A profile holds contact details, roll number, admission number, guardian details, the grade and section label, the base tuition fee, an optional transport route, and any custom fields. Admissions history, fee receipts, attendance and exam results all link back to the same record.",
+          "steps": [
+            "Open Students and add the student, or import a roster.",
+            "Enter roll number, admission number, guardian name and phone, and the grade and section.",
+            "Link a transport route if they use school transport; it feeds the transport fee line.",
+            "Invite the parent or guardian and, if appropriate, the student (chapter 6)."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Fees and finance",
+      "sections": [
+        {
+          "title": "Fee Management",
+          "route": "/fees",
+          "permission": "Manage Fee Management",
+          "body": "Generate fee invoices and record payments. Generate Invoice pre-fills a Tuition Fee line from the student's base fee and a Transport Fee line from their route, and you can add, remove or edit any line. Bulk generation uses your billing cycles. Record a payment, even a partial one; the status moves between Paid, Pending and Partial automatically and every payment stays logged against the receipt.",
+          "steps": [
+            "Open Fee Management and choose a student, or bulk-generate for a class.",
+            "Review the lines and generate the invoice.",
+            "Download the PDF or send it to the guardian over WhatsApp.",
+            "Record each payment as it arrives."
+          ]
+        },
+        {
+          "title": "Fee receipts, late fees and reminders",
+          "route": "/invoices",
+          "permission": "Manage Invoices",
+          "body": "Receipts are the documents the collection workflow produces, itemized by fee head, with a PDF and WhatsApp delivery. There is no installment scheduler: record what is actually paid. Overdue fees can trigger an automatic reminder and, for classes with a late fee set, a Late Fee line."
+        },
+        {
+          "title": "Expenses and Finance",
+          "route": "/expenses",
+          "permission": "Manage Expenses, Manage Finance",
+          "body": "Expenses log school overhead. Finance holds the chart of accounts, journal entries and statements."
+        }
+      ]
+    },
+    {
+      "title": "Teaching and daily operations",
+      "sections": [
+        {
+          "title": "Attendance",
+          "route": "/attendance",
+          "permission": "Manage Attendance",
+          "body": "Mark each student Present, Absent or Late in one grid per class. A Class Teacher can only mark their own assigned class. An entry shows on the parent's attendance summary straight away and can trigger an absence alert. Mark attendance first thing each day; the Dashboard's Today's Attendance Overview follows from it."
+        },
+        {
+          "title": "Exams & Results",
+          "route": "/exams",
+          "permission": "Manage Exams & Results",
+          "body": "Create an exam, add subject columns from the catalog, enter each student's marks, and generate report cards or marksheets from the results. Results publish instantly, visible on both the Student and Parent portals, with no separate publish step."
+        },
+        {
+          "title": "Homework",
+          "route": "/homework",
+          "permission": "Manage Homework",
+          "body": "Post an assignment for a class with a due date and description, optionally alerting guardians on WhatsApp at once. Each student sees their own class's homework automatically."
+        },
+        {
+          "title": "Timetable",
+          "route": "/timetable",
+          "permission": "Manage Timetable, Read Timetable",
+          "body": "The weekly schedule. Manage Timetable can edit; Read Timetable is view-only. Changes show immediately wherever the timetable appears."
+        },
+        {
+          "title": "Library",
+          "route": "/library",
+          "permission": "Manage Library",
+          "body": "Maintain the book catalog (title, author, copies), issue a book to a student and record its return. The Issued Books tab shows who has what, and overdue returns can carry a per-day fine and a manual reminder to the guardian."
+        },
+        {
+          "title": "Transport",
+          "route": "/transport",
+          "permission": "Manage Transport",
+          "body": "Set up routes, then assign vehicles and drivers to each one. A route linked to a student's profile feeds their transport fee."
+        },
+        {
+          "title": "Notice Board",
+          "route": "/announcements",
+          "permission": "Manage Notice Board",
+          "body": "Post an announcement to Everyone, Parents, Students or Staff, with a date so old notices fall out of view. People see notices meant for them the moment they open their portal."
+        },
+        {
+          "title": "Assets",
+          "route": "/assets",
+          "permission": "Manage Assets",
+          "body": "Track school assets, their stock movements and the issuances to staff."
+        }
+      ]
+    },
+    {
+      "title": "Staff & HR",
+      "sections": [
+        {
+          "title": "Roster, attendance, leave and payroll",
+          "route": "/hr",
+          "permission": "Manage Staff & HR",
+          "body": "The roster of teaching and non-teaching staff, staff attendance, leave requests (the same queue a Class Teacher's own leave applications land in), shift scheduling and payroll including salary components. It is off by default for new members."
+        }
+      ]
+    },
+    {
+      "title": "The Teacher, Parent and Student portals",
+      "summary": "Each person sees only their own slice of the school.",
+      "sections": [
+        {
+          "title": "Teacher Portal",
+          "route": "/teacher",
+          "permission": "Access Teacher Portal",
+          "body": "A Class Teacher lands on the Teacher Portal with quick actions for attendance, homework and exams for their own assigned class, plus Messages and the school's notices. Everything outside that allowlist (finance, billing, settings, team, campaigns and so on) is refused, whatever other toggles exist."
+        },
+        {
+          "title": "Parent Portal",
+          "route": "/parent",
+          "body": "A parent or guardian, linked to one or more students, sees each child's attendance, fee receipts with live status, results and notices, with a switcher between children, and can message the school."
+        },
+        {
+          "title": "Student Portal",
+          "route": "/student",
+          "body": "A student sees their own homework, weekly timetable, results and notices.",
+          "steps": [
+            "Open Settings, Workspace & Users and choose Invite User / Staff.",
+            "Pick Parent/Guardian and link the student, or Student and link their record.",
+            "Send the invitation; their access begins exactly as configured once they accept."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a school",
+      "sections": [
+        {
+          "title": "Roles",
+          "body": "Admin has everything. Class Teacher, Parent/Guardian and Student are portal-only roles that do not use a paid seat and are limited to their portal. Everyone else is Staff with the toggles you choose."
+        },
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Access Teacher Portal, Manage Attendance, Manage Exams & Results and Manage Homework (the last three on by default), and the off-by-default Read Timetable, Manage Timetable, Manage Transport, Manage Library, Manage Staff & HR, Manage Notice Board, Manage Assets and Manage Fee Management."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Principal or owner: Admin role.",
+            "Class teacher: the Class Teacher role from their staff entry, with their grade and section.",
+            "Fee clerk: Staff with only Manage Fee Management and Manage Invoices.",
+            "Librarian: Staff with only Manage Library.",
+            "Office staff: Staff with Manage Clients, Manage Service Records and Manage Notice Board."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "A Class Teacher is limited to their assigned grade and section and to the Teacher Portal's own pages; you never need to restrict anything else for them."
+      }
+    }
+  ]
+}

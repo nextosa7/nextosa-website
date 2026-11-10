@@ -1,0 +1,177 @@
+{
+  "title": "Professional Services - Setup and Modules Guide",
+  "subtitle": "Set up a consulting, agency or advisory firm from scratch, then run clients, deals, proposals, projects, timesheets, invoicing and the client portal.",
+  "intro": "In a Professional Services workspace the generic pages are renamed: Contacts become Clients, Service Records become Projects, and Sales become Proposals. Inventory is hidden because you sell time and expertise, not stock. Two modules are specific to this business type: Timesheets and the Service Catalog.",
+  "chapters": [
+    {
+      "title": "Firm-specific setup",
+      "summary": "After the common workspace setup, build the firm in this order so a proposal can be written and billed hours can become an invoice.",
+      "sections": [
+        {
+          "title": "1. Build your Service Catalog first",
+          "route": "/service-catalog",
+          "permission": "Manage Service Catalog",
+          "body": "The Service Catalog is your standing price list: a Service Name, a Description and a Base Price for each offering. It feeds the Add Item picker in both Proposals and Invoices, so a line is pre-filled with its label and price (both stay editable). Set it up before you write the first proposal.",
+          "steps": [
+            "Open Service Catalog and add an entry for each offering.",
+            "Give each a clear name, a description the client will understand, and a base price.",
+            "Mark an offering Inactive later to hide it from new documents without touching past ones."
+          ]
+        },
+        {
+          "title": "2. Add your clients",
+          "route": "/contacts",
+          "permission": "Manage Clients",
+          "body": "Open Clients and add each one with their contact details, or upload a document and let the AI fill the record. A client's phone number is their unique ID, so adding someone who already exists offers to update them instead of duplicating."
+        },
+        {
+          "title": "3. Invite your consultants and set their permissions",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite staff and give them Manage Timesheets so they can log their own hours, plus the module toggles their role needs (chapter 6, roles). Timesheets are the raw material for time-based invoices."
+        },
+        {
+          "title": "4. Open your first Project and log time",
+          "route": "/service-records",
+          "permission": "Manage Service Records",
+          "body": "Create a Project for a client with an estimated number of hours, then log time against it from Timesheets. This confirms the whole chain, from hours to invoice, before real engagements depend on it."
+        },
+        {
+          "title": "5. Prepare your communication",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "Create approved WhatsApp templates for proposal follow-ups, invoice reminders and meeting confirmations so they are ready when you need them (common setup, step 6)."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Keep Timesheets accurate as you go. There is no approval step: a billable hour is eligible for invoicing the moment it is saved."
+      }
+    },
+    {
+      "title": "Clients and Deals",
+      "sections": [
+        {
+          "title": "Clients",
+          "route": "/contacts",
+          "permission": "Manage Clients",
+          "body": "Every client with their details, history and notes. From a client's own profile you can start a proposal or open their documents and conversation."
+        },
+        {
+          "title": "Deals (your sales pipeline)",
+          "route": "/deals",
+          "permission": "Manage Deals",
+          "body": "Track a prospect from first contact to close, stage by stage, on a pipeline board. Winning a deal does not automatically create a proposal or a project; those are separate records you create yourself for the same client.",
+          "steps": [
+            "Open Deals and add a deal for a client with a title and estimated value.",
+            "Move it through the stages as the conversation progresses.",
+            "When it closes, create the Proposal and the Project yourself."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Service Catalog and Proposals",
+      "sections": [
+        {
+          "title": "Service Catalog",
+          "route": "/service-catalog",
+          "permission": "Manage Service Catalog",
+          "body": "Your list of standard offerings with a base price. Picking an entry while adding a line to a proposal or invoice pre-fills its label and price; both can still be edited. Inactive entries are hidden from new documents."
+        },
+        {
+          "title": "Proposals",
+          "route": "/sales",
+          "permission": "Manage Sales",
+          "body": "This is the Sales page, renamed. Build a proposal for a client from priced Service Catalog entries or lines you type, with no physical stock involved. Track it Paid, Pending or Partial, filter and total your proposals, and edit or remove one. You can send a proposal to the client as a PDF over WhatsApp, or download it to share another way.",
+          "steps": [
+            "Open Proposals and start a new one for a client.",
+            "Use Add Item to pick Service Catalog entries, or type a line.",
+            "Save, then send it as a PDF over WhatsApp or download it.",
+            "Update its status as the client responds."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Projects, Timesheets and invoicing",
+      "sections": [
+        {
+          "title": "Projects",
+          "route": "/service-records",
+          "permission": "Manage Service Records",
+          "body": "Service Records, renamed Projects. Each carries its status, notes and an estimated-hours figure alongside the hours actually logged, so you can see delivery against estimate. There is no one-click convert from a deal; create the project for the same client when the work starts, and mark it complete when delivery wraps up."
+        },
+        {
+          "title": "Timesheets",
+          "route": "/timesheets",
+          "permission": "Manage Timesheets",
+          "body": "Log time against a Project, and optionally a Task within it, with the date, the duration and a billable or non-billable flag.",
+          "steps": [
+            "Open Timesheets and add an entry.",
+            "Choose the project (and task), the date and the duration.",
+            "Mark it billable or non-billable and save."
+          ]
+        },
+        {
+          "title": "Invoice from billable hours",
+          "route": "/invoices",
+          "permission": "Manage Invoices",
+          "body": "From a Project, roll its unbilled billable hours into an invoice at the hourly rate you enter. The result is an ordinary invoice: set payment status Paid, Pending or Partial, download a PDF or send it over WhatsApp."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Time entries are not approved before invoicing, and Manage Timesheets is not limited to a person's own hours: anyone with it can see and log time against any project."
+      }
+    },
+    {
+      "title": "The Client Portal",
+      "summary": "A separate login where your clients see their own work.",
+      "sections": [
+        {
+          "title": "What clients see",
+          "route": "/professional-services-client-portal",
+          "body": "Clients sign in with their email and password at the portal link your firm shares (it contains your workspace ID). They see three tabs: My Projects, with how many of the estimated hours have been logged; My Invoices, with the amount due on each; and Shared Documents. They see only their own records."
+        },
+        {
+          "title": "Give a client access",
+          "body": "Open the client's record, edit it, turn on Portal Access and set their login email and password, then send them the link. You can change the password or switch access off at any time.",
+          "steps": [
+            "Open the client and choose Edit.",
+            "Switch on Portal Access and set a login email and password.",
+            "Send the portal link to the client."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for a firm",
+      "sections": [
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Manage Timesheets (view, log, edit and delete time entries) and Manage Service Catalog (add, edit and remove standard offerings). The rest are the shared ones: Manage Clients, Manage Deals, Manage Sales (Proposals), Manage Service Records (Projects), Manage Invoices and so on. All are independent toggles."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Partner or owner: Admin role.",
+            "Consultant: Staff with Manage Timesheets and Manage Service Records, plus Documents and Reminders.",
+            "Business development: Staff with Manage Clients, Manage Deals, Manage Sales and Manage Service Catalog.",
+            "Finance: Staff with Manage Invoices, Manage Expenses, Manage Finance and View Financial Dashboard."
+          ]
+        },
+        {
+          "title": "Clients are not staff",
+          "body": "Clients use the Client Portal with their own login and never get a staff seat."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "No permission here is limited to a person's own clients or projects; each is a module-wide switch."
+      }
+    }
+  ]
+}

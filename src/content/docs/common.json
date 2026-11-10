@@ -1,0 +1,185 @@
+{
+  "setup": {
+    "title": "Set up your workspace",
+    "summary": "The steps every business type does first, in the order that avoids rework. Your business-specific setup follows in the next chapter.",
+    "sections": [
+      {
+        "title": "1. Create the workspace and choose your business type",
+        "body": "After you sign up, pick a plan (or start the free trial) and create your workspace. The business type you choose decides which modules appear in the sidebar and what things are called (for example Patients, Guests, Students or Members instead of Clients). Create one workspace per separate business or branch; the workspace switcher in the top-left moves between them.",
+        "steps": [
+          "Choose your plan on the pricing page, or start the trial.",
+          "Click Create workspace, give it a name and select the business type that matches how you operate.",
+          "Take the short welcome tour once, then open Settings."
+        ]
+      },
+      {
+        "title": "2. Fill in your business details",
+        "route": "/settings",
+        "permission": "Manage Business Details",
+        "body": "Open Settings, Business. Enter your company name, logo, address and tax or GST ID. These appear on invoices, receipts and PDFs, so complete them before you issue anything."
+      },
+      {
+        "title": "3. Set currency, invoice numbering, timezone and taxes",
+        "route": "/settings",
+        "permission": "Manage Invoicing & Billing",
+        "body": "In Settings, set your currency, the invoice number prefix, the business timezone and your tax rate catalog (with a default rate if most of your sales use one). The timezone matters: reminders, rosters, expiry dates and 'today' figures all follow it.",
+        "steps": [
+          "Pick the currency you invoice in.",
+          "Choose an invoice prefix so numbers are generated for you automatically.",
+          "Set the timezone of the location you operate from.",
+          "Add your tax rates and mark the default one."
+        ]
+      },
+      {
+        "title": "4. Connect WhatsApp",
+        "route": "/settings",
+        "permission": "Manage Integrations",
+        "body": "In Settings, Integrations, connect your WhatsApp Business account using the credentials from your Meta WhatsApp Business setup. You can connect more than one number; one is the primary. Each number has its own mode: Auto lets the AI reply immediately, Approval holds every AI draft in the Approval Inbox until a person sends it. Start in Approval mode until you trust the replies.",
+        "steps": [
+          "Open Settings, Integrations and choose WhatsApp.",
+          "Give the number a label, then enter its Meta phone number ID and access token (and the business account ID if you are asked for it).",
+          "Mark the primary number and choose Auto or Approval for each.",
+          "Optionally assign an agent to a number, or limit staff to specific numbers when you invite them."
+        ]
+      },
+      {
+        "title": "5. Teach the AI how to answer",
+        "route": "/settings",
+        "permission": "Manage Integrations",
+        "body": "Still under Integrations, write the AI instructions (who you are, your hours, prices you may quote, what it must never promise), set Away mode for holidays, and add Auto-Reply templates for questions you want answered the same way every time. The AI uses these for WhatsApp replies and for Gmail replies once you turn those on."
+      },
+      {
+        "title": "6. Create and submit WhatsApp templates",
+        "route": "/templates",
+        "permission": "WhatsApp Templates",
+        "body": "A message you start (a reminder, receipt or campaign) must use a template Meta has approved. Create it under Templates, submit it, and watch its status move Draft, Pending, then Approved or Rejected. Do this early - approval takes time and several features (reminders, campaigns, receipts) wait for an approved template."
+      },
+      {
+        "title": "7. Invite your team and set their access",
+        "route": "/settings",
+        "permission": "Admin",
+        "body": "Open Settings, Workspace & Users, then Invite User / Staff. Choose Admin for full access, or Staff and switch on only the permission toggles the job needs; all toggles are independent. Portal roles (such as Class Teacher, Parent/Guardian, Student or Distributor where your business type has them) do not use a paid seat. Where you have several WhatsApp numbers, tick 'Limit to specific WhatsApp numbers' to confine a person to those.",
+        "steps": [
+          "Click Invite User / Staff and enter their email.",
+          "Choose Admin or Staff (or a portal role if offered).",
+          "For Staff, tick the permissions for their job; leave everything else off.",
+          "Send the invitation; you can change their toggles later from the same list."
+        ]
+      },
+      {
+        "title": "8. Add your first data",
+        "body": "Add your first records by hand, or upload a document (an invoice, receipt or a photo of one) and let the AI read it into the form. If you want to explore first, load the demo data from Settings and clear it from the banner when you are done - it is clearly labelled and cannot be used for real transactions."
+      },
+      {
+        "title": "9. Optional: payments, Gmail, Instagram and websites",
+        "route": "/settings",
+        "permission": "Manage Integrations",
+        "body": "Payment Integrations connects your own Razorpay account for payment links and online payments. Integrations also holds Gmail (send mail, and optionally let the AI answer your inbox), Instagram, Slack, Shopify and outgoing webhooks, and Connected Websites has its own page in the sidebar. None are required to start; add each when you need it."
+      },
+      {
+        "title": "10. Language, theme and security",
+        "route": "/settings",
+        "body": "In Settings, General, choose English or Hindi and a light or dark theme. Workspace & Users also holds the Security Vault. Sensitive actions (deleting a workspace, cancelling the subscription, disconnecting WhatsApp or payment connections) ask you to re-enter your password."
+      }
+    ],
+    "callout": {
+      "type": "tip",
+      "body": "Finish steps 2 to 6 before you invite staff or send anything to customers. Details, currency and templates are the three things that are hardest to fix after the first invoices and campaigns have gone out."
+    }
+  },
+  "modules": [
+    {
+      "title": "Shared modules (every business type)",
+      "summary": "These work the same in every workspace. A module only shows in your sidebar if your business type uses it and your role has its permission.",
+      "sections": [
+        {
+          "title": "Dashboard and Reports",
+          "route": "/",
+          "permission": "View Dashboard, View Financial Dashboard, Export Data & Reports",
+          "body": "The Dashboard is your at-a-glance snapshot with live tiles, recent activity and your WhatsApp connection state. Reports lets you pick any date range (this week, month, year or custom) and see revenue, expenses, profitability and customer sections, and export the whole report as PDF or Excel. Revenue and profit figures are hidden from anyone without View Financial Dashboard."
+        },
+        {
+          "title": "Reminders, Tasks and Notes",
+          "route": "/reminders",
+          "permission": "Manage Reminders, Manage Tasks, Manage Notes",
+          "body": "Reminders are follow-ups, optionally linked to a record, filtered Upcoming, Overdue or Done. Tasks hold work items, including ones the AI or an automation creates for you. Notes are a general scratchpad, with up to 4 images per note, not tied to any one record."
+        },
+        {
+          "title": "Conversations, Communication Log and the Approval Inbox",
+          "route": "/conversations",
+          "permission": "Conversations, Communication Log, Approval Inbox",
+          "body": "Conversations is your live inbox: a person list beside the message thread, updating in real time, with a separate thread for each WhatsApp number and an Email channel when Gmail is connected. The Communication Log is a read-only history of everything sent and received with delivery status. In Approval mode every AI-drafted reply waits in the Approval Inbox, where you approve and send, edit, or reject it; an unreviewed draft expires after 24 hours."
+        },
+        {
+          "title": "Campaigns and Marketing",
+          "route": "/campaigns",
+          "permission": "WhatsApp Campaigns, Manage Marketing",
+          "body": "Campaigns sends a bulk WhatsApp message: pick an approved template and an audience (everyone, by tag, by recent activity, a custom list, or people who have been inactive since a date), then send now or schedule. People who opted out are always excluded. Status moves Draft, Scheduled, Running, Completed, Failed or Cancelled. Marketing configures the AI Marketing Agent (posting, ads and broadcasts) and keeps its history; broadcasts it proposes are only ever drafts for a person to review.",
+          "steps": [
+            "Create or pick an approved WhatsApp template.",
+            "Open Campaigns, choose New campaign, and select the template and audience.",
+            "Send immediately or set a schedule.",
+            "Watch the live status and per-recipient results."
+          ]
+        },
+        {
+          "title": "Templates",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "Two kinds: Auto-Reply templates (canned answers the AI may use) and WhatsApp templates (submitted to Meta and tracked Draft, Pending, Approved, Rejected). You can send an approved template straight from here."
+        },
+        {
+          "title": "Documents and AI chat",
+          "route": "/documents",
+          "permission": "View My Files, View Client Documents, Manage Documents",
+          "body": "Upload files to 'My Files' (business-wide) or to a person's own documents, then chat with an AI assistant about what you uploaded. The two scopes have separate view permissions so access can be split. In a hospital workspace patient files are not sent to AI; they go to Clinical records instead."
+        },
+        {
+          "title": "Business AI, AI Command Center and AI Agents",
+          "route": "/business-ai",
+          "permission": "Business AI Chat, AI Command Center",
+          "body": "Business AI is a full chat grounded in your own data (revenue, customers, stock); you can turn an answer into a saved file. The AI Command Center is the floating AI icon: type or speak in English or Hindi to add a record, jump to a page, set a reminder, send an approved template or find a colleague. AI Agents is where you shape the AI persona used for customer conversations."
+        },
+        {
+          "title": "Automations and Connected Websites",
+          "route": "/automations",
+          "permission": "Manage Integrations",
+          "body": "Automations is a visual workflow builder: pick a trigger (an inbound message, a new contact, a schedule, an incoming webhook), then chain steps such as waiting, sending an AI reply, creating a deal or calling another service. Connected Websites links an outside site so its bookings and enquiries arrive as Booking Requests inside NEXTOSA."
+        },
+        {
+          "title": "Purchase Orders and Locations & Transfers",
+          "route": "/purchase-orders",
+          "permission": "Manage Purchase Orders, Manage Locations & Transfers",
+          "body": "Purchase Orders records what you order from vendors; receive the order when the goods arrive so stock is added, or cancel it. Locations lets you define more than one stock location (Settings, Business) and move stock between them with a transfer."
+        },
+        {
+          "title": "Customer Tickets",
+          "route": "/customer-tickets",
+          "permission": "Manage Customer Tickets",
+          "body": "Support tickets for your own customers: create, reply to and resolve them from one list."
+        },
+        {
+          "title": "Finance, Payments and Invoices",
+          "route": "/finance/accounts",
+          "permission": "Manage Finance, Manage Invoices, Manage Expenses",
+          "body": "Finance holds your Chart of Accounts (live balances from posted entries), Journal Entries (Draft or Posted) and statements: Trial Balance, Profit & Loss and Balance Sheet for any date. Invoices are formal bills with tax, PDF download and WhatsApp delivery; mark them Paid, Pending or Partial. Where the app itself refunds a payment (a QR table order, or a hospital insurance disallowance) it issues a credit note and never edits the invoice. Expenses log overhead and roll into Reports."
+        },
+        {
+          "title": "Training, Recycle Bin and Audit",
+          "route": "/training",
+          "permission": "Manage Training Courses",
+          "body": "Training is an employee learning portal (anyone can take courses; Manage Training Courses lets you build and publish them). The Recycle Bin holds deleted records so you can restore one after a mistake. Where your business type has it, Audit Logs show who changed what."
+        },
+        {
+          "title": "Workspace, billing and account",
+          "route": "/settings",
+          "body": "Settings groups General, Business, Billing & Tax, Payment Integrations, Automation, Data & Operations, Workspace & Users, Integrations and the Danger Zone. Billing & Plan shows your plan and usage (messages, tokens, documents, seats). If a plan lapses the workspace becomes read-only: you can still view and export, but changes are refused until you renew."
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "Permissions are checked by the server on every request, so a button that is hidden for someone is also refused if they try it another way. If a colleague says they cannot see a module, check their permission toggles first."
+      }
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "title": "Real Estate - Setup and Modules Guide",
+  "subtitle": "Set up a developer, broker or leasing business from scratch, then run property inventory, leads and site visits, bookings, collections and post-sale documents.",
+  "intro": "Real Estate workspaces replace the generic Contacts, Service Records, Sales, Inventory and Deals pages with five modules: Property Inventory, Agent Dashboard (leads), Bookings, Finance Ledger and Audit Logs. A buyer's record lives as an Applicant on a Booking, and your deal is a Booking. Be aware of two limits up front: there is no buyer-facing portal (a buyer cannot log in to NEXTOSA), and leads and bookings are not restricted to the agent they are assigned to.",
+  "chapters": [
+    {
+      "title": "Real Estate-specific setup",
+      "summary": "After the common workspace setup, build in this order. Each level of the inventory can only be added once its parent exists.",
+      "sections": [
+        {
+          "title": "1. Build the Property Inventory: Project, Tower, Unit",
+          "route": "/property-inventory",
+          "permission": "Manage Property Inventory",
+          "body": "Property Inventory is a three-level hierarchy. 'Projects' is simply its top level, not a separate module. Add a project, then a tower, then each unit.",
+          "steps": [
+            "Open Property Inventory and click Add project; enter the name (required), location and description.",
+            "Select the project and click Add tower; give it a name or number.",
+            "Select the tower and click Add unit; enter the unit number (required), BHK type (free text such as 2BHK), carpet area, super built-up area and facing.",
+            "Set the unit's Status: Available, Token Received, Sold or Blocked. Edit the unit whenever it changes.",
+            "Once a unit is saved, add its parking slots (a slot number and a type: Open, Covered, Stilt or Stack)."
+          ]
+        },
+        {
+          "title": "2. Add your channel partners",
+          "route": "/bookings",
+          "permission": "Manage Bookings",
+          "body": "Add the external brokers you work with and set each one's commission, either a percentage or a flat amount, on their profile. A booking takes a snapshot of that rate when it is created, so set the right rate before the partner's first booking."
+        },
+        {
+          "title": "3. Define payment milestone templates",
+          "route": "/finance-ledger",
+          "permission": "Manage Finance Ledger",
+          "body": "In the Finance Ledger create Payment Milestone templates that describe how a project is collected, for example 10% on booking and 20% on foundation. Demand letters and the collection schedule follow from them."
+        },
+        {
+          "title": "4. Invite your sales team and set permissions",
+          "route": "/settings",
+          "permission": "Admin",
+          "body": "Invite agents as Staff with Manage Agent Dashboard (leads), and add Manage Bookings, Manage Property Inventory and Manage Finance Ledger only for the people who need them. There is no Real-Estate role preset."
+        },
+        {
+          "title": "5. Start capturing leads",
+          "route": "/agent-dashboard",
+          "permission": "Manage Agent Dashboard",
+          "body": "Open the Agent Dashboard and add every enquiry as a lead, so follow-ups and site visits are tracked from the first call (chapter 3)."
+        },
+        {
+          "title": "6. Prepare documents and communication",
+          "route": "/templates",
+          "permission": "WhatsApp Templates",
+          "body": "Create approved WhatsApp templates for site-visit confirmations, demand-letter reminders and follow-ups (common setup, step 6). Allotment letters and agreements are generated per booking (chapter 4)."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "body": "Property types such as 2BHK or 3BHK are not a configurable list; they are typed as free text on each unit. Agree a naming convention with your team so reports stay consistent."
+      }
+    },
+    {
+      "title": "Property Inventory",
+      "sections": [
+        {
+          "title": "Projects, towers, units and parking",
+          "route": "/property-inventory",
+          "permission": "Manage Property Inventory",
+          "body": "Track every project, tower, unit and parking slot, and each unit's status (Available, Token Received, Sold or Blocked) so the team always knows what is left to sell. Units and parking can also carry brochures and floor plans."
+        }
+      ]
+    },
+    {
+      "title": "Leads, follow-ups and site visits",
+      "sections": [
+        {
+          "title": "Agent Dashboard",
+          "route": "/agent-dashboard",
+          "permission": "Manage Agent Dashboard",
+          "body": "Your lead pipeline. Capture a lead as an enquiry comes in, and log every call, WhatsApp message or visit against it so its history stays in one place. Today's scheduled site visits and pending follow-ups surface on this page.",
+          "steps": [
+            "Open the Agent Dashboard and add a lead.",
+            "Log each call, message or visit against the lead.",
+            "Schedule a site visit from inside the lead; it then appears on that day's list.",
+            "Add a one-line note after every real site visit while it is fresh."
+          ]
+        },
+        {
+          "title": "Assignment and visibility",
+          "body": "A lead can be assigned to an agent and that is shown on the record, but NEXTOSA does not restrict who can see a lead by it: anyone with Manage Agent Dashboard sees every lead in the workspace."
+        },
+        {
+          "title": "Site visits",
+          "body": "There is no standalone Site Visits page. A visit is scheduled from the lead it is for."
+        }
+      ]
+    },
+    {
+      "title": "Bookings, applicants and post-sale documents",
+      "sections": [
+        {
+          "title": "Bookings (your deal)",
+          "route": "/bookings",
+          "permission": "Manage Bookings",
+          "body": "Track every booking from token to sale. There is no one-click convert from a lead; create a booking once a prospect commits. A booking holds the applicants and their KYC details, demand letters and home-loan details in one record.",
+          "steps": [
+            "Open Bookings and create a booking for the unit.",
+            "Add each applicant with their KYC details.",
+            "Choose the channel partner, if any; the commission is fixed at that moment.",
+            "Raise demand letters and record loan details from the same booking."
+          ]
+        },
+        {
+          "title": "Post-Sales section",
+          "body": "From a booking's Post-Sales section generate the Allotment Letter and the Builder-Buyer Agreement, upload and manage them, and log post-sale snag tickets (with a photo if useful). These are for your team to send to the buyer yourselves, outside the app."
+        },
+        {
+          "title": "Cancelling or deleting a booking",
+          "body": "Deleting a booking permanently deletes its demand letters, payments and related records. You choose whether to keep the applicant as a client record (the unit becomes available again) or delete the applicant's details too, which is only for test or junk entries."
+        },
+        {
+          "title": "Channel partners and commission",
+          "body": "A partner's commission rate is a percentage or flat amount set on their profile. It is snapshotted onto each booking's commission figure when the booking is created and does not change later if you edit the partner's rate. There is no separate Brokerage page."
+        }
+      ]
+    },
+    {
+      "title": "Finance Ledger and collections",
+      "sections": [
+        {
+          "title": "Finance Ledger",
+          "route": "/finance-ledger",
+          "permission": "Manage Finance Ledger",
+          "body": "A collection ledger built around your bookings: every booking's collection status, what has been paid, the outstanding balance and its loan details, with payment milestones, demand letters and payments. It is not a double-entry chart of accounts; the generic Finance module is not used here, but Invoices and Expenses are still available."
+        },
+        {
+          "title": "Dashboard figures",
+          "route": "/",
+          "body": "The main Dashboard shows Real Estate's total revenue, open receivables and units directly. The older Boss Dashboard tab is retired and no longer linked."
+        }
+      ]
+    },
+    {
+      "title": "Audit Logs",
+      "sections": [
+        {
+          "title": "Who changed what",
+          "route": "/audit-logs",
+          "permission": "View Audit Logs",
+          "body": "A full, system-wide activity trail of who changed what and when. It is off by default for new members, so grant it to the owner or compliance lead only."
+        }
+      ]
+    },
+    {
+      "title": "Buyers and the portal",
+      "sections": [
+        {
+          "title": "No buyer portal",
+          "body": "A buyer cannot log in to NEXTOSA. Share documents by generating them from the booking's Post-Sales section and sending them yourself. A buyer's details live as an Applicant on their booking, and a prospect who has not booked yet lives as a lead; the generic Contacts page is hidden."
+        }
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "title": "Roles and permissions for real estate",
+      "sections": [
+        {
+          "title": "Permissions specific to this business type",
+          "body": "Manage Property Inventory, Manage Agent Dashboard, Manage Bookings (bookings, applicant KYC and channel partners), Manage Finance Ledger (milestones, demand letters, payments and home loans), View Boss Dashboard (the retired dashboard) and View Audit Logs. The first four are on by default for a new member; View Audit Logs is off."
+        },
+        {
+          "title": "Suggested set-ups",
+          "steps": [
+            "Owner or sales head: Admin role.",
+            "Sales agent: Staff with Manage Agent Dashboard and Conversations.",
+            "Sales coordinator: Staff with Manage Bookings and Manage Property Inventory.",
+            "Accounts: Staff with Manage Finance Ledger and Manage Invoices."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "important",
+        "body": "A restricted account here means restricted to a set of modules, not to a subset of records. There is no wall around one agent's own leads or bookings."
+      }
+    }
+  ]
+}
