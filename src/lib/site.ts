@@ -31,6 +31,7 @@ export const siteConfig = {
       { href: "/platform/integrations", label: "Integrations" },
       { href: "/#pricing", label: "Pricing" },
       { href: "/ai-tokens", label: "AI tokens" },
+      { href: "/plan-limits", label: "Plan limits" },
     ],
     industries: [
       { href: "/industries/healthcare", label: "Healthcare" },

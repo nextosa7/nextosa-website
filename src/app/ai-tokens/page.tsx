@@ -86,7 +86,8 @@ export default function AiTokensPage() {
           <Badge>AI tokens</Badge>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Know exactly where your AI tokens go</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Every paid plan includes a monthly AI token allowance. Here is what uses it, what never does, and what happens when you need more. See the plans on the{" "}
+            Every paid plan includes a monthly AI token allowance. Here is what uses it, what never does, and what happens when you need more. For messages, seats and storage see{" "}
+            <Link href="/plan-limits" className="font-medium text-accent-300 hover:underline">plan limits</Link>, and the plans are in the{" "}
             <Link href="/#pricing" className="font-medium text-accent-300 hover:underline">pricing section</Link>.
           </p>
         </Container>

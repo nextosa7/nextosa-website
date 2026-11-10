@@ -297,7 +297,7 @@ export default function Pricing() {
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-slate-600">
             One-time packs that never expire and are used automatically after
-            your plan&apos;s monthly allowance runs out. <a href="/ai-tokens" className="font-medium text-accent-600 hover:underline">See where tokens are used</a>.
+            your plan&apos;s monthly allowance runs out. <a href="/ai-tokens" className="font-medium text-accent-600 hover:underline">See where tokens are used</a> or <a href="/plan-limits" className="font-medium text-accent-600 hover:underline">all plan limits</a>.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {topUps.map((pack) => (
