@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
 import Button from "../Button";
+import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 import { siteConfig } from "@/lib/site";
 
 type Cycle = "monthly" | "quarterly" | "yearly";
@@ -114,36 +116,44 @@ export default function Pricing() {
   return (
     <section id="pricing" className="bg-slate-50 py-24 sm:py-32">
       <Container>
+        <Reveal>
         <SectionHeading
           eyebrow="Pricing"
           title="Simple pricing that scales with your business"
           description="Start free for 3 days. No credit card required. Upgrade, downgrade, or cancel anytime."
         />
+        </Reveal>
 
-        <div className="mt-10 flex justify-center">
+        <Reveal className="mt-10 flex justify-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
             {cycles.map((c) => (
               <button
                 key={c.id}
                 type="button"
                 onClick={() => setCycle(c.id)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
-                  cycle === c.id
-                    ? "bg-navy-900 text-white shadow"
-                    : "text-slate-600 hover:text-navy-900"
+                className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+                  cycle === c.id ? "text-white" : "text-slate-600 hover:text-navy-900"
                 }`}
               >
-                {c.label}
+                {cycle === c.id && (
+                  <motion.span
+                    layoutId="pricing-cycle-pill"
+                    className="absolute inset-0 rounded-full bg-navy-900 shadow"
+                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                  />
+                )}
+                <span className="relative">{c.label}</span>
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <Stagger className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3" gap={0.12}>
           {plans.map((plan) => {
             const { perMonth, billedNote } = plan.pricing[cycle];
             return (
-              <div
+              <StaggerItem
+                lift
                 key={plan.name}
                 className={`relative flex flex-col rounded-2xl p-8 ${
                   plan.highlighted
@@ -286,12 +296,12 @@ export default function Pricing() {
                 >
                   {plan.cta}
                 </Button>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
-        <div className="mt-16 rounded-2xl border border-slate-200 bg-white p-8">
+        <Reveal className="mt-16 rounded-2xl border border-slate-200 bg-white p-8">
           <h3 className="text-center text-lg font-semibold text-navy-900">
             Need more AI tokens? Top up any time
           </h3>
@@ -299,18 +309,18 @@ export default function Pricing() {
             One-time packs that never expire and are used automatically after
             your plan&apos;s monthly allowance runs out. <a href="/ai-tokens" className="font-medium text-accent-600 hover:underline">See where tokens are used</a> or <a href="/plan-limits" className="font-medium text-accent-600 hover:underline">all plan limits</a>.
           </p>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <Stagger className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3" gap={0.08}>
             {topUps.map((pack) => (
-              <div key={pack.tokens} className="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center">
+              <StaggerItem lift key={pack.tokens} className="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center">
                 <p className="text-2xl font-bold text-navy-900">{pack.tokens}</p>
                 <p className="text-xs text-slate-500">AI tokens</p>
                 <p className="mt-2 text-xl font-semibold text-accent-600">{pack.price}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </Stagger>
+        </Reveal>
 
-        <div className="mt-14 flex justify-center">
+        <Reveal className="mt-14 flex justify-center">
           <Button
             href={siteConfig.signupUrl}
             variant="secondary"
@@ -319,7 +329,7 @@ export default function Pricing() {
           >
             Start your free 3-day trial
           </Button>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

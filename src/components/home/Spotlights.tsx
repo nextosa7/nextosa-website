@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { Reveal } from "../motion/primitives";
 import BrowserFrame from "../BrowserFrame";
 import { leadShot, platformBySlug } from "@/lib/content";
 
@@ -36,7 +37,7 @@ export default function Spotlights() {
           <section key={sp.slug} className={`${dark ? "bg-navy-900" : "bg-white"} py-24 sm:py-28`}>
             <Container>
               <div className="grid items-center gap-12 lg:grid-cols-2">
-                <div className={dark ? "lg:order-2" : ""}>
+                <Reveal className={dark ? "lg:order-2" : ""}>
                   <SectionHeading eyebrow={sp.eyebrow} title={sp.title} center={false} dark={dark} />
                   <p className={`mt-5 text-base leading-7 ${dark ? "text-slate-300" : "text-slate-600"}`}>{sp.text}</p>
                   <ul className="mt-6 space-y-3">
@@ -52,10 +53,10 @@ export default function Spotlights() {
                   <Link href={`/platform/${sp.slug}`} className={`mt-8 inline-flex items-center gap-2 text-sm font-semibold ${dark ? "text-accent-400 hover:text-accent-300" : "text-accent-600 hover:text-accent-700"}`}>
                     Learn more <span aria-hidden>→</span>
                   </Link>
-                </div>
-                <div className={dark ? "lg:order-1" : ""}>
+                </Reveal>
+                <Reveal delay={0.12} className={dark ? "lg:order-1" : ""}>
                   <BrowserFrame shot={(page.modules[sp.shotIndex].shot ?? leadShot(page))} />
-                </div>
+                </Reveal>
               </div>
             </Container>
           </section>

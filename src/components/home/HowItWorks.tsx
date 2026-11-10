@@ -1,5 +1,6 @@
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 
 const steps = [
   {
@@ -36,16 +37,18 @@ export default function HowItWorks() {
     >
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
       <Container className="relative">
+        <Reveal>
         <SectionHeading
           eyebrow="How It Works"
           title="From sign-up to AI-run follow-ups in four steps"
           description="No developers needed — NEXTOSA is built for business owners to set up themselves."
           dark
         />
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" gap={0.12}>
           {steps.map((step, i) => (
-            <div key={step.number} className="relative">
+            <StaggerItem lift key={step.number} className="relative">
               <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-navy-800/60 p-6 backdrop-blur">
                 <span className="text-4xl font-black text-accent-500/40">
                   {step.number}
@@ -60,9 +63,9 @@ export default function HowItWorks() {
               {i < steps.length - 1 && (
                 <div className="absolute right-0 top-1/2 hidden h-px w-8 -translate-y-1/2 translate-x-full bg-gradient-to-r from-accent-500/60 to-transparent lg:block" />
               )}
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

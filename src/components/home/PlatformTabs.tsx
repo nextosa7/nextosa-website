@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
 import BrowserFrame from "../BrowserFrame";
+import { EASE, Reveal } from "../motion/primitives";
 import { leadShot, platformPages } from "@/lib/content";
 
 // Zoho-style tabbed suite: pick a part of the platform, see the real screen and what it does.
@@ -16,11 +18,13 @@ export default function PlatformTabs() {
   return (
     <section id="features" className="bg-white py-24 sm:py-32">
       <Container>
+        <Reveal>
         <SectionHeading
           eyebrow="The platform"
           title="CRM, ERP, finance and training, on one connected platform"
           description="Every module shares the same customers, catalog and ledger, so nothing is entered twice."
         />
+        </Reveal>
 
         <div role="tablist" className="mt-12 flex flex-wrap justify-center gap-2">
           {platformPages.map((p) => (
@@ -29,16 +33,30 @@ export default function PlatformTabs() {
               role="tab"
               aria-selected={p.slug === active}
               onClick={() => setActive(p.slug)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                p.slug === active ? "bg-navy-900 text-white shadow" : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-navy-900"
+              className={`relative rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                p.slug === active ? "text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-navy-900"
               }`}
             >
-              {p.name}
+              {p.slug === active && (
+                <motion.span
+                  layoutId="platform-tab-pill"
+                  className="absolute inset-0 rounded-full bg-navy-900 shadow"
+                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                />
+              )}
+              <span className="relative">{p.name}</span>
             </button>
           ))}
         </div>
 
-        <div className="mt-14 grid items-center gap-12 lg:grid-cols-5">
+        <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } }}
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
+          className="mt-14 grid items-center gap-12 lg:grid-cols-5"
+        >
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">{page.headline}</h3>
             <p className="mt-4 text-base leading-7 text-slate-600">{page.intro}</p>
@@ -60,7 +78,8 @@ export default function PlatformTabs() {
           <div className="lg:col-span-3">
             <BrowserFrame shot={first.shot ?? leadShot(page)} showCaption />
           </div>
-        </div>
+        </motion.div>
+        </AnimatePresence>
       </Container>
     </section>
   );

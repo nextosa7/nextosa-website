@@ -1,5 +1,6 @@
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 
 // Mirrors the three AI agents in the NEXTOSA app (/ai-agents): Sales, Support, Marketing.
 const agents = [
@@ -40,16 +41,18 @@ export default function AiAgents() {
     <section id="ai-agents" className="relative overflow-hidden bg-navy-900 py-24 sm:py-32">
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
       <Container className="relative">
+        <Reveal>
         <SectionHeading
           eyebrow="AI Agents"
           title="A sales, support and marketing team that never sleeps"
           description="Three AI agents trained on your own catalog, documents and rules. You stay in control: every agent has safety limits, and a person can take over any conversation."
           dark
         />
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Stagger className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {agents.map((agent) => (
-            <div key={agent.name} className="flex flex-col rounded-2xl border border-white/10 bg-navy-800/60 p-8 backdrop-blur">
+            <StaggerItem lift key={agent.name} className="flex flex-col rounded-2xl border border-white/10 bg-navy-800/60 p-8 backdrop-blur">
               <h3 className="text-xl font-semibold text-white">{agent.name}</h3>
               <p className="mt-1 text-sm font-medium text-accent-400">{agent.tagline}</p>
               <ul className="mt-6 space-y-3">
@@ -62,9 +65,9 @@ export default function AiAgents() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

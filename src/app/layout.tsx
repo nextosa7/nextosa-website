@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import BackBar from "@/components/BackBar";
 import ClickTracker from "@/components/ClickTracker";
 import { Analytics } from "@vercel/analytics/next";
+import { MotionProvider } from "@/components/motion/primitives";
 import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
@@ -60,12 +61,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-white text-navy-900">
-        <div className="sticky top-0 z-50">
-          <Navbar />
-          <BackBar />
-        </div>
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <div className="sticky top-0 z-50">
+            <Navbar />
+            <BackBar />
+          </div>
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MotionProvider>
         <Analytics />
         <ClickTracker />
       </body>

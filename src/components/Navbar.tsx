@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 import Button from "./Button";
@@ -86,8 +87,16 @@ export default function Navbar() {
       </Container>
 
       {/* Desktop mega menu */}
+      <AnimatePresence>
       {menu && (
-        <div className="absolute inset-x-0 top-full hidden border-b border-white/10 bg-navy-900 shadow-2xl shadow-black/40 lg:block">
+        <motion.div
+          key="mega"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-x-0 top-full hidden border-b border-white/10 bg-navy-900 shadow-2xl shadow-black/40 lg:block"
+        >
           <Container className="py-8">
             {menu === "platform" ? (
               <div className="grid grid-cols-4 gap-x-8 gap-y-6">
@@ -109,12 +118,21 @@ export default function Navbar() {
               </div>
             )}
           </Container>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
 
       {/* Mobile menu */}
+      <AnimatePresence initial={false}>
       {open && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-white/10 bg-navy-900 lg:hidden">
+        <motion.div
+          key="mobile"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="max-h-[80vh] overflow-y-auto border-t border-white/10 bg-navy-900 lg:hidden"
+        >
           <Container className="flex flex-col gap-1 py-4">
             <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Platform</p>
             {platformPages.map((p) => (
@@ -133,8 +151,9 @@ export default function Navbar() {
               <Button href={siteConfig.signupUrl} size="md" className="w-full">Start free trial</Button>
             </div>
           </Container>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 }

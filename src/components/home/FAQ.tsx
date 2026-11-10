@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { EASE, Reveal } from "../motion/primitives";
 
 const faqs = [
   {
@@ -63,13 +65,15 @@ export default function FAQ() {
   return (
     <section className="bg-slate-50 py-24 sm:py-32">
       <Container className="max-w-4xl">
+        <Reveal>
         <SectionHeading
           eyebrow="FAQ"
           title="Frequently asked questions"
           description="Everything you need to know about NEXTOSA — from running your business operations to how WhatsApp automation fits in."
         />
+        </Reveal>
 
-        <div className="mt-14 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+        <Reveal className="mt-14 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -99,15 +103,25 @@ export default function FAQ() {
                     />
                   </svg>
                 </button>
-                {isOpen && (
-                  <p className="pb-5 text-sm leading-6 text-slate-600 sm:text-base">
-                    {faq.answer}
-                  </p>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: EASE }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pb-5 text-sm leading-6 text-slate-600 sm:text-base">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

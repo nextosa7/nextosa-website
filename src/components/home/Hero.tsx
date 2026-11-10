@@ -3,6 +3,7 @@ import Container from "../Container";
 import Badge from "../Badge";
 import BrowserFrame from "../BrowserFrame";
 import { siteConfig } from "@/lib/site";
+import { LoadItem, LoadReveal, LoadStagger, Reveal } from "../motion/primitives";
 
 const trustPoints = ["No credit card required", "3-day free trial", "Set up in minutes"];
 
@@ -20,19 +21,26 @@ export default function Hero() {
       <div className="absolute inset-0 bg-radial-glow" />
 
       <Container className="relative pt-24 sm:pt-28">
-        <div className="mx-auto max-w-4xl text-center animate-fade-up">
-          <Badge>The business operating system</Badge>
+        <LoadStagger className="mx-auto max-w-4xl text-center">
+          <LoadItem>
+            <Badge>The business operating system</Badge>
+          </LoadItem>
+          <LoadItem>
           <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
             One platform to run{" "}
             <span className="bg-gradient-to-r from-accent-400 to-cyan-400 bg-clip-text text-transparent">
               your entire business
             </span>
           </h1>
+          </LoadItem>
+          <LoadItem>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             CRM, ERP, finance and training in one connected platform, with AI Sales, Support and Marketing agents on
             WhatsApp, email and your website. Ready-made modules for 10 industries, from clinics and schools to
             restaurants and gyms.
           </p>
+          </LoadItem>
+          <LoadItem>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Button href={siteConfig.signupUrl} size="lg">
               Start free trial
@@ -44,6 +52,8 @@ export default function Hero() {
               Explore industries
             </Button>
           </div>
+          </LoadItem>
+          <LoadItem>
           <dl className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
             {trustPoints.map((point) => (
               <div key={point} className="flex items-center gap-2">
@@ -54,17 +64,19 @@ export default function Hero() {
               </div>
             ))}
           </dl>
-        </div>
+          </LoadItem>
+        </LoadStagger>
 
-        <div className="relative mx-auto mt-16 max-w-6xl animate-fade-up [animation-delay:150ms]">
+        <LoadReveal className="relative mx-auto mt-16 max-w-6xl">
           <div className="absolute -inset-x-10 -top-10 bottom-0 bg-radial-glow opacity-60" />
           <BrowserFrame
             priority
             shot={{ src: "/screens/platform/dashboard.jpg", caption: "NEXTOSA dashboard", url: "app.nextosa.com/dashboard" }}
           />
-        </div>
+        </LoadReveal>
 
-        <dl className="relative mx-auto mt-16 grid max-w-5xl grid-cols-2 gap-6 border-t border-white/10 py-10 sm:grid-cols-4">
+        <Reveal className="relative mx-auto mt-16 max-w-5xl border-t border-white/10">
+        <dl className="grid grid-cols-2 gap-6 py-10 sm:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
               <dt className="text-3xl font-extrabold text-white">{s.value}</dt>
@@ -72,6 +84,7 @@ export default function Hero() {
             </div>
           ))}
         </dl>
+        </Reveal>
       </Container>
     </section>
   );

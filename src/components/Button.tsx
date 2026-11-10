@@ -1,5 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
+
+const MotionLink = motion.create(Link);
+const hover = { scale: 1.03, y: -1, transition: { type: "spring", stiffness: 100, damping: 20 } } as const;
+const tap = { scale: 0.98, transition: { type: "spring", stiffness: 100, damping: 20 } } as const;
 
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
@@ -39,19 +46,26 @@ export default function Button({
   type = "button",
   disabled = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-[background-color,box-shadow,color] duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <MotionLink href={href} className={classes} whileHover={hover} whileTap={tap}>
         {children}
-      </Link>
+      </MotionLink>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
+    <motion.button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={classes}
+      whileHover={disabled ? undefined : hover}
+      whileTap={disabled ? undefined : tap}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 }

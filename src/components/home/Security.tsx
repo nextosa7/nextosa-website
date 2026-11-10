@@ -1,5 +1,6 @@
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 
 // Statements here mirror controls that exist in the app; no certifications are claimed.
 const items = [
@@ -16,15 +17,17 @@ export default function Security() {
     <section id="security" className="relative overflow-hidden bg-navy-900 py-24 sm:py-28">
       <div className="absolute inset-0 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
       <Container className="relative">
+        <Reveal>
         <SectionHeading eyebrow="Trust" title="Built to keep your business data safe" description="Security is designed into the product, not added on." dark />
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        </Reveal>
+        <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((i) => (
-            <div key={i.title} className="rounded-2xl border border-white/10 bg-navy-800/60 p-7">
+            <StaggerItem lift key={i.title} className="rounded-2xl border border-white/10 bg-navy-800/60 p-7">
               <h3 className="text-base font-semibold text-white">{i.title}</h3>
               <p className="mt-2 text-sm leading-6 text-slate-400">{i.text}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

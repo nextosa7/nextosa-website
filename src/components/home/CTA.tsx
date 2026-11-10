@@ -1,6 +1,7 @@
 import Container from "../Container";
 import Button from "../Button";
 import { siteConfig } from "@/lib/site";
+import { Reveal } from "../motion/primitives";
 
 export default function CTA() {
   return (
@@ -8,6 +9,7 @@ export default function CTA() {
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute inset-0 bg-grid opacity-30" />
       <Container className="relative text-center">
+        <Reveal>
         <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Ready to run your entire business on one platform?
         </h2>
@@ -24,6 +26,7 @@ export default function CTA() {
             Learn More About Us
           </Button>
         </div>
+        </Reveal>
       </Container>
     </section>
   );

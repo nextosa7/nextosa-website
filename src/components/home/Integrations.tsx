@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 
 // Only integrations that exist in the NEXTOSA app today.
 const items = [
@@ -22,15 +23,17 @@ export default function Integrations() {
   return (
     <section id="integrations" className="bg-slate-50 py-24 sm:py-28">
       <Container>
+        <Reveal>
         <SectionHeading eyebrow="Integrations" title="Plays well with the tools you already use" description="Built-in connections for messaging, payments and storage, plus webhooks and an API for everything else." />
-        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        </Reveal>
+        <Stagger className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" gap={0.05}>
           {items.map((i) => (
-            <div key={i.name} className="rounded-xl border border-slate-200 bg-white p-5">
+            <StaggerItem lift key={i.name} className="rounded-xl border border-slate-200 bg-white p-5">
               <p className="text-sm font-semibold text-navy-900">{i.name}</p>
               <p className="mt-1 text-xs leading-5 text-slate-500">{i.note}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
         <p className="mt-8 text-center text-sm">
           <Link href="/platform/integrations" className="font-semibold text-accent-600 hover:text-accent-700">See all integrations →</Link>
         </p>
