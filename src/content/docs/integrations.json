@@ -13,13 +13,14 @@
       "sections": [
         {
           "title": "What you need from Meta first",
-          "body": "NEXTOSA uses the official WhatsApp Business Platform, so you need a Meta Business account with a WhatsApp Business Account and a phone number added to it. From Meta's developer console you collect: a permanent access token (create it for a system user so it does not expire), the Phone Number ID of the number you want to connect, the WhatsApp Business Account ID (WABA ID), and optionally your Meta App ID.",
+          "body": "NEXTOSA uses the official WhatsApp Business Platform, so you need a Meta Business account with a WhatsApp Business Account and a phone number added to it. From Meta's developer console you collect: a permanent access token (create it for a system user so it does not expire), the Phone Number ID of the number you want to connect, the WhatsApp Business Account ID (WABA ID), and optionally your Meta App ID and your Meta App Secret.",
           "steps": [
             "Create or open your Meta Business account and your app in Meta's developer console.",
             "Add the WhatsApp product and a phone number to your WhatsApp Business Account.",
             "Create a permanent access token for a system user with WhatsApp permissions and copy it.",
             "Copy the Phone Number ID and the WhatsApp Business Account ID from the WhatsApp section of the console.",
-            "Copy the Meta App ID from the app dashboard if you plan to use templates with an image, video or document header."
+            "Copy the Meta App ID from the app dashboard if you plan to use templates with an image, video or document header.",
+            "Copy the App Secret from App settings, Basic in the same console if you want NEXTOSA to verify that incoming messages really come from Meta (recommended)."
           ]
         },
         {
@@ -31,6 +32,7 @@
             "Give the number a label such as Sales or Support. The label is what your team sees on conversation tags and number pickers.",
             "Paste the permanent token, the Phone Number ID and the WhatsApp Business Account ID.",
             "Add the Meta App ID if you want media-header templates.",
+            "Paste the Meta App Secret if you have it (optional, recommended). It is stored encrypted, never shown again, and used only to check the signature on incoming messages.",
             "Choose the mode (Auto or Approval, explained below) and save."
           ]
         },
@@ -61,8 +63,12 @@
           ]
         },
         {
+          "title": "Verifying that messages really come from Meta",
+          "body": "Meta signs every message it sends to the webhook with the App Secret of your Meta app. When you save that secret on the number, NEXTOSA checks the signature on each incoming message and refuses anything that does not match, so nobody who learns the callback address can invent customer messages. The connection card shows whether the check is on. Numbers without a secret keep working for now, but we recommend adding it to every number. You can replace the secret at any time by choosing Update credentials; leaving the field blank keeps the existing one."
+        },
+        {
           "title": "If messages do not arrive",
-          "body": "Check these in order. First, the number is connected in NEXTOSA and its Phone Number ID matches the number you are texting. Second, the webhook shows as verified in Meta and the messages field is subscribed. Third, the callback address is typed exactly, including https and the full path. Fourth, the verify token matches exactly. A token that was changed on the server stops Meta from re-verifying, so if it was changed, update it in Meta as well. Customer messages sent to you do not count against your monthly message allowance."
+          "body": "Check these in order. First, the number is connected in NEXTOSA and its Phone Number ID matches the number you are texting. Second, the webhook shows as verified in Meta and the messages field is subscribed. Third, the callback address is typed exactly, including https and the full path. Fourth, the verify token matches exactly. A token that was changed on the server stops Meta from re-verifying, so if it was changed, update it in Meta as well. If you added an App Secret, make sure it is the secret of the same Meta app that owns the webhook: a wrong secret makes NEXTOSA refuse every incoming message as unsigned. Customer messages sent to you do not count against your monthly message allowance."
         },
         {
           "title": "Templates and the 24-hour window",
