@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import {
-  LegalHero,
-  LegalTOC,
-  LegalSection,
-  LegalPage,
-} from "@/components/legal/LegalLayout";
+import Link from "next/link";
+import Container from "@/components/Container";
+import Badge from "@/components/Badge";
+import { MobilePolicyTOC, PolicyTOC, PrintButton, ReadingProgress, type TocItem } from "@/components/legal/PolicyNav";
+import { GlanceCards, PolicyList, PolicySection, icons } from "@/components/legal/PolicyBlocks";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,9 +12,9 @@ export const metadata: Metadata = {
     "NEXTOSA Terms of Service: the rules and conditions governing your use of the NEXTOSA AI CRM and WhatsApp automation platform.",
 };
 
-const LAST_UPDATED = "July 3, 2026";
+const LAST_UPDATED = "November 10, 2026";
 
-const toc = [
+const toc: TocItem[] = [
   { id: "acceptance", label: "1. Acceptance of Terms" },
   { id: "description", label: "2. Description of Service" },
   { id: "eligibility", label: "3. Eligibility & Registration" },
@@ -40,26 +39,58 @@ const toc = [
 export default function TermsPage() {
   return (
     <>
-      <LegalHero title="Terms of Service" lastUpdated={LAST_UPDATED} />
-      <LegalPage>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[280px_1fr]">
-          <div className="hidden lg:block">
-            <LegalTOC items={toc} />
+      <ReadingProgress />
+
+      <section className="relative overflow-hidden bg-navy-900 pb-20 pt-20 sm:pb-24 sm:pt-24">
+        <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-radial-glow" />
+        <Container className="relative text-center">
+          <Badge>Legal</Badge>
+          <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-6xl">Terms of Service</h1>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            The rules for using NEXTOSA: your account, subscriptions, acceptable use, WhatsApp compliance, your content and how either side can end the agreement.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-slate-300">Last updated: {LAST_UPDATED}</span>
+            <PrintButton />
           </div>
+        </Container>
+      </section>
 
-          <div className="space-y-10 lg:max-w-3xl">
-            <p className="text-sm leading-7 text-slate-600">
-              These Terms of Service (&ldquo;Terms&rdquo;) govern your access
-              to and use of NEXTOSA&apos;s website, application, and
-              AI-powered CRM and WhatsApp automation services (collectively,
-              the &ldquo;Service&rdquo;), operated by NEXTOSA
-              (&ldquo;NEXTOSA,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
-              &ldquo;our&rdquo;). By accessing or using the Service, you agree
-              to be bound by these Terms. If you do not agree, do not use the
-              Service.
-            </p>
+      <section className="border-b border-slate-200 bg-slate-50 py-14">
+        <Container>
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-600">Key points</p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">The main things these Terms say</h2>
+          <p className="mt-2 max-w-2xl text-sm text-slate-600">A quick summary. The full Terms below are what apply.</p>
+          <div className="mt-8">
+            <GlanceCards
+              items={[
+                { title: "You own your content", text: "Your data, documents and client information stay yours. We use them only to provide and improve the Service.", icon: icons.person },
+                { title: "Billed in advance", text: "Subscriptions are billed ahead of each cycle, renew automatically and can be cancelled before the renewal date.", icon: icons.download },
+                { title: "Messaging rules apply", text: "You need opt-in from the people you message on WhatsApp and must follow Meta’s policies.", icon: icons.shield },
+                { title: "AI needs your review", text: "AI replies can be wrong. You are responsible for reviewing what is sent to your clients.", icon: icons.spark },
+                { title: "No spam or misuse", text: "Unsolicited bulk messages, illegal content and attempts to break the Service are not allowed.", icon: icons.noSale },
+                { title: "Leave any time", text: "Cancel from your account settings. Cancellation takes effect at the end of the billing period.", icon: icons.lock },
+              ]}
+            />
+          </div>
+        </Container>
+      </section>
 
-            <LegalSection id="acceptance" title="1. Acceptance of Terms">
+      <section className="bg-white pb-20 pt-10 sm:pt-14">
+        <Container>
+          <MobilePolicyTOC items={toc} />
+          <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-0 lg:grid-cols-[290px_1fr]">
+            <div className="hidden lg:block">
+              <PolicyTOC items={toc} />
+            </div>
+
+            <div className="min-w-0 space-y-6 lg:max-w-3xl">
+              <div className="rounded-2xl border border-accent-200 bg-accent-50 p-5 text-[15px] leading-7 text-accent-900 sm:p-6">
+                These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of NEXTOSA&apos;s website, application, and AI-powered CRM and WhatsApp automation services (collectively, the &ldquo;Service&rdquo;), operated by NEXTOSA (&ldquo;NEXTOSA,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.
+              </div>
+
+              <PolicySection id="acceptance" number={1} title="Acceptance of Terms">
               <p>
                 By creating an account, accessing, or using NEXTOSA, you
                 confirm that you have read, understood, and agree to these
@@ -67,9 +98,9 @@ export default function TermsPage() {
                 behalf of a business or organization, you represent that you
                 have the authority to bind that entity to these Terms.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="description" title="2. Description of Service">
+            <PolicySection id="description" number={2} title="Description of Service">
               <p>
                 NEXTOSA provides a software-as-a-service platform combining a
                 customer relationship management (CRM) system with WhatsApp
@@ -85,62 +116,32 @@ export default function TermsPage() {
                 any time, with reasonable notice where the change materially
                 affects your use of the Service.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="eligibility" title="3. Eligibility & Registration">
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  You must be at least 18 years old and capable of forming a
-                  binding contract to use the Service.
-                </li>
-                <li>
-                  You must provide accurate, current, and complete
-                  information when creating an account and keep it updated.
-                </li>
-                <li>
-                  You are responsible for maintaining the confidentiality of
-                  your account credentials and for all activity that occurs
-                  under your account.
-                </li>
-                <li>
-                  You must notify us immediately of any unauthorized use of
-                  your account.
-                </li>
-              </ul>
-            </LegalSection>
+            <PolicySection id="eligibility" number={3} title="Eligibility & Registration">
+              <PolicyList
+                  items={[
+                    <span key="0">You must be at least 18 years old and capable of forming a binding contract to use the Service.</span>,
+                    <span key="1">You must provide accurate, current, and complete information when creating an account and keep it updated.</span>,
+                    <span key="2">You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</span>,
+                    <span key="3">You must notify us immediately of any unauthorized use of your account.</span>,
+                  ]}
+                />
+            </PolicySection>
 
-            <LegalSection
-              id="subscriptions"
-              title="4. Subscriptions, Fees & Payment"
-            >
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  NEXTOSA is offered under subscription plans as described on
-                  our Pricing page. Fees are billed in advance on a recurring
-                  basis (monthly or annually) unless otherwise stated.
-                </li>
-                <li>
-                  All fees are exclusive of applicable taxes unless stated
-                  otherwise. You are responsible for any taxes associated
-                  with your subscription.
-                </li>
-                <li>
-                  Subscriptions automatically renew at the end of each
-                  billing cycle unless canceled before the renewal date.
-                </li>
-                <li>
-                  Fees are non-refundable except where required by law or as
-                  explicitly stated in these Terms.
-                </li>
-                <li>
-                  We may change our pricing with at least 30 days&apos;
-                  notice; continued use of the Service after a price change
-                  takes effect constitutes acceptance of the new pricing.
-                </li>
-              </ul>
-            </LegalSection>
+            <PolicySection id="subscriptions" number={4} title="Subscriptions, Fees & Payment">
+              <PolicyList
+                  items={[
+                    <span key="0">NEXTOSA is offered under subscription plans as described on our Pricing page. Fees are billed in advance on a recurring basis (monthly or annually) unless otherwise stated.</span>,
+                    <span key="1">All fees are exclusive of applicable taxes unless stated otherwise. You are responsible for any taxes associated with your subscription.</span>,
+                    <span key="2">Subscriptions automatically renew at the end of each billing cycle unless canceled before the renewal date.</span>,
+                    <span key="3">Fees are non-refundable except where required by law or as explicitly stated in these Terms.</span>,
+                    <span key="4">We may change our pricing with at least 30 days&apos; notice; continued use of the Service after a price change takes effect constitutes acceptance of the new pricing.</span>,
+                  ]}
+                />
+            </PolicySection>
 
-            <LegalSection id="trial" title="5. Free Trial">
+            <PolicySection id="trial" number={5} title="Free Trial">
               <p>
                 We may offer a free trial period for new Customers. At the
                 end of the trial, your account may automatically convert to a
@@ -148,76 +149,42 @@ export default function TermsPage() {
                 reserve the right to modify or terminate free trial offers at
                 any time.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="acceptable-use" title="6. Acceptable Use Policy">
+            <PolicySection id="acceptable-use" number={6} title="Acceptable Use Policy">
               <p>You agree not to use the Service to:</p>
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  Send unsolicited, spam, or bulk messages to individuals who
-                  have not opted in to receive communications from you
-                </li>
-                <li>
-                  Transmit content that is illegal, fraudulent, defamatory,
-                  obscene, harassing, or infringes on the rights of others
-                </li>
-                <li>
-                  Impersonate any person or entity, or misrepresent your
-                  affiliation with any person or entity
-                </li>
-                <li>
-                  Upload malicious code, attempt to breach security, or
-                  interfere with the integrity or performance of the Service
-                </li>
-                <li>
-                  Use the Service to violate any applicable law, regulation,
-                  or third-party rights, including data protection and
-                  anti-spam laws
-                </li>
-                <li>
-                  Reverse-engineer, decompile, or attempt to extract the
-                  source code of the Service, except as permitted by law
-                </li>
-              </ul>
+              <PolicyList
+                  items={[
+                    <span key="0">Send unsolicited, spam, or bulk messages to individuals who have not opted in to receive communications from you</span>,
+                    <span key="1">Transmit content that is illegal, fraudulent, defamatory, obscene, harassing, or infringes on the rights of others</span>,
+                    <span key="2">Impersonate any person or entity, or misrepresent your affiliation with any person or entity</span>,
+                    <span key="3">Upload malicious code, attempt to breach security, or interfere with the integrity or performance of the Service</span>,
+                    <span key="4">Use the Service to violate any applicable law, regulation, or third-party rights, including data protection and anti-spam laws</span>,
+                    <span key="5">Reverse-engineer, decompile, or attempt to extract the source code of the Service, except as permitted by law</span>,
+                  ]}
+                />
               <p>
                 We reserve the right to suspend or terminate accounts that
                 violate this Acceptable Use Policy.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection
-              id="whatsapp-compliance"
-              title="7. WhatsApp Platform Compliance"
-            >
+            <PolicySection id="whatsapp-compliance" number={7} title="WhatsApp Platform Compliance">
               <p>
                 Because NEXTOSA sends and receives messages through the
                 WhatsApp Business Platform, you agree to comply with
                 Meta&apos;s WhatsApp Business Messaging Policy and related
                 platform terms, including:
               </p>
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  Obtaining valid opt-in consent from End Users before
-                  messaging them on WhatsApp
-                </li>
-                <li>
-                  Only using approved message templates for outbound,
-                  business-initiated conversations as required by WhatsApp
-                </li>
-                <li>
-                  Not sending prohibited content categories under
-                  WhatsApp&apos;s Commerce and Business Policies (including
-                  content related to illegal products, deceptive practices,
-                  or restricted goods and services)
-                </li>
-                <li>
-                  Honoring opt-out requests from End Users promptly
-                </li>
-                <li>
-                  Maintaining accurate business information on your WhatsApp
-                  Business profile
-                </li>
-              </ul>
+              <PolicyList
+                  items={[
+                    <span key="0">Obtaining valid opt-in consent from End Users before messaging them on WhatsApp</span>,
+                    <span key="1">Only using approved message templates for outbound, business-initiated conversations as required by WhatsApp</span>,
+                    <span key="2">Not sending prohibited content categories under WhatsApp&apos;s Commerce and Business Policies (including content related to illegal products, deceptive practices, or restricted goods and services)</span>,
+                    <span key="3">Honoring opt-out requests from End Users promptly</span>,
+                    <span key="4">Maintaining accurate business information on your WhatsApp Business profile</span>,
+                  ]}
+                />
               <p>
                 You are solely responsible for your compliance with
                 Meta&apos;s policies. NEXTOSA may suspend WhatsApp
@@ -226,9 +193,9 @@ export default function TermsPage() {
                 for actions taken by Meta against your WhatsApp Business
                 account.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="content-ownership" title="8. Your Content & Data">
+            <PolicySection id="content-ownership" number={8} title="Your Content & Data">
               <p>
                 You retain ownership of all data, documents, client
                 information, and content you upload or generate through the
@@ -242,9 +209,9 @@ export default function TermsPage() {
                 Content, including personal data of your End Users, in
                 compliance with applicable data protection laws.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="ai-disclaimer" title="9. AI-Generated Content">
+            <PolicySection id="ai-disclaimer" number={9} title="AI-Generated Content">
               <p>
                 NEXTOSA uses artificial intelligence to generate automated
                 responses, summaries, and suggestions based on the data and
@@ -252,23 +219,15 @@ export default function TermsPage() {
                 be inaccurate, incomplete, or inappropriate for a specific
                 context.
               </p>
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  You are responsible for reviewing and, where appropriate,
-                  approving AI-generated communications sent to your clients.
-                </li>
-                <li>
-                  NEXTOSA does not guarantee the accuracy or completeness of
-                  AI-generated responses and disclaims liability for
-                  decisions made based on such content.
-                </li>
-              </ul>
-            </LegalSection>
+              <PolicyList
+                  items={[
+                    <span key="0">You are responsible for reviewing and, where appropriate, approving AI-generated communications sent to your clients.</span>,
+                    <span key="1">NEXTOSA does not guarantee the accuracy or completeness of AI-generated responses and disclaims liability for decisions made based on such content.</span>,
+                  ]}
+                />
+            </PolicySection>
 
-            <LegalSection
-              id="intellectual-property"
-              title="10. Intellectual Property"
-            >
+            <PolicySection id="intellectual-property" number={10} title="Intellectual Property">
               <p>
                 The Service, including its software, design, branding, and
                 underlying technology, is owned by NEXTOSA and protected by
@@ -278,12 +237,9 @@ export default function TermsPage() {
                 derivative works from the Service without our prior written
                 consent.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection
-              id="third-party-services"
-              title="11. Third-Party Services"
-            >
+            <PolicySection id="third-party-services" number={11} title="Third-Party Services">
               <p>
                 The Service relies on and integrates with third-party
                 services, including the Meta/WhatsApp Business Platform,
@@ -294,9 +250,9 @@ export default function TermsPage() {
                 practices of third-party services beyond our reasonable
                 control.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="confidentiality" title="12. Confidentiality">
+            <PolicySection id="confidentiality" number={12} title="Confidentiality">
               <p>
                 Each party agrees to protect the other&apos;s confidential
                 information with the same degree of care it uses to protect
@@ -304,9 +260,9 @@ export default function TermsPage() {
                 third parties except as necessary to perform obligations
                 under these Terms or as required by law.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="disclaimers" title="13. Disclaimers & Warranties">
+            <PolicySection id="disclaimers" number={13} title="Disclaimers & Warranties">
               <p>
                 THE SERVICE IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS
                 AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, WHETHER
@@ -316,9 +272,9 @@ export default function TermsPage() {
                 WARRANT THAT THE SERVICE WILL MEET YOUR REQUIREMENTS OR THAT
                 DEFECTS WILL BE CORRECTED.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="liability" title="14. Limitation of Liability">
+            <PolicySection id="liability" number={14} title="Limitation of Liability">
               <p>
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW, NEXTOSA AND ITS
                 OWNERS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY
@@ -329,9 +285,9 @@ export default function TermsPage() {
                 EXCEED THE AMOUNT YOU PAID TO NEXTOSA IN THE TWELVE (12)
                 MONTHS PRECEDING THE CLAIM.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="indemnification" title="15. Indemnification">
+            <PolicySection id="indemnification" number={15} title="Indemnification">
               <p>
                 You agree to indemnify and hold harmless NEXTOSA and its
                 owners, employees, and affiliates from any claims, damages,
@@ -341,30 +297,19 @@ export default function TermsPage() {
                 right, including WhatsApp messaging and data protection
                 obligations.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="termination" title="16. Termination">
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  You may cancel your subscription at any time through your
-                  account settings; cancellation will take effect at the end
-                  of the current billing period.
-                </li>
-                <li>
-                  We may suspend or terminate your access to the Service, with
-                  or without notice, if you violate these Terms, fail to pay
-                  applicable fees, or engage in conduct that harms NEXTOSA,
-                  other users, or third parties.
-                </li>
-                <li>
-                  Upon termination, your right to use the Service will cease,
-                  and we may delete your data after a reasonable retention
-                  period, except where retention is required by law.
-                </li>
-              </ul>
-            </LegalSection>
+            <PolicySection id="termination" number={16} title="Termination">
+              <PolicyList
+                  items={[
+                    <span key="0">You may cancel your subscription at any time through your account settings; cancellation will take effect at the end of the current billing period.</span>,
+                    <span key="1">We may suspend or terminate your access to the Service, with or without notice, if you violate these Terms, fail to pay applicable fees, or engage in conduct that harms NEXTOSA, other users, or third parties.</span>,
+                    <span key="2">Upon termination, your right to use the Service will cease, and we may delete your data after a reasonable retention period, except where retention is required by law. The Privacy Policy explains the 30-day read-only grace period after a plan ends.</span>,
+                  ]}
+                />
+            </PolicySection>
 
-            <LegalSection id="governing-law" title="17. Governing Law">
+            <PolicySection id="governing-law" number={17} title="Governing Law">
               <p>
                 These Terms are governed by and construed in accordance with
                 applicable law, without regard to conflict of law principles.
@@ -373,9 +318,9 @@ export default function TermsPage() {
                 through the courts or arbitration bodies of competent
                 jurisdiction.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="changes" title="18. Changes to These Terms">
+            <PolicySection id="changes" number={18} title="Changes to These Terms">
               <p>
                 We may update these Terms from time to time. We will post the
                 revised Terms on this page with an updated &ldquo;Last
@@ -384,31 +329,30 @@ export default function TermsPage() {
                 of the Service after changes take effect constitutes
                 acceptance of the revised Terms.
               </p>
-            </LegalSection>
+            </PolicySection>
 
-            <LegalSection id="contact" title="19. Contact Us">
+            <PolicySection id="contact" number={19} title="Contact Us">
               <p>
                 If you have any questions about these Terms, please contact
                 us:
               </p>
-              <ul className="list-disc space-y-2 pl-6">
-                <li>
-                  Email:{" "}
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="text-accent-600 hover:underline"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </li>
-                <li>
-                  Attn: {siteConfig.founder}, {siteConfig.name}
-                </li>
-              </ul>
-            </LegalSection>
+              <PolicyList
+                  items={[
+                    <span key="0">Email:{" "} <a href={`mailto:${siteConfig.email}`} className="text-accent-600 hover:underline" > {siteConfig.email} </a></span>,
+                    <span key="1">Attn: {siteConfig.founder}, {siteConfig.name}</span>,
+                  ]}
+                />
+            </PolicySection>
+              <div className="flex flex-wrap gap-3 pt-2 text-sm">
+                <Link href="/privacy" className="rounded-full border border-slate-200 px-4 py-2 font-medium text-navy-900 hover:border-accent-400 hover:text-accent-700">Privacy Policy</Link>
+                <Link href="/security" className="rounded-full border border-slate-200 px-4 py-2 font-medium text-navy-900 hover:border-accent-400 hover:text-accent-700">Security</Link>
+                <Link href="/plan-limits" className="rounded-full border border-slate-200 px-4 py-2 font-medium text-navy-900 hover:border-accent-400 hover:text-accent-700">Plan limits</Link>
+                <Link href="/contact" className="rounded-full bg-navy-900 px-4 py-2 font-medium text-white hover:bg-navy-800">Contact us</Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </LegalPage>
+        </Container>
+      </section>
     </>
   );
 }
