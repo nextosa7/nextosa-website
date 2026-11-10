@@ -132,7 +132,7 @@ export default function TermsPage() {
             <PolicySection id="subscriptions" number={4} title="Subscriptions, Fees & Payment">
               <PolicyList
                   items={[
-                    <span key="0">NEXTOSA is offered under subscription plans as described on our Pricing page. Fees are billed in advance on a recurring basis (monthly or annually) unless otherwise stated.</span>,
+                    <span key="0">NEXTOSA is offered under subscription plans as described on our Pricing page. Fees are billed in advance on a recurring basis (monthly, quarterly or yearly, as you choose at checkout) unless otherwise stated.</span>,
                     <span key="1">All fees are exclusive of applicable taxes unless stated otherwise. You are responsible for any taxes associated with your subscription.</span>,
                     <span key="2">Subscriptions automatically renew at the end of each billing cycle unless canceled before the renewal date.</span>,
                     <span key="3">Fees are non-refundable except where required by law or as explicitly stated in these Terms.</span>,
@@ -143,11 +143,7 @@ export default function TermsPage() {
 
             <PolicySection id="trial" number={5} title="Free Trial">
               <p>
-                We may offer a free trial period for new Customers. At the
-                end of the trial, your account may automatically convert to a
-                paid subscription unless you cancel before the trial ends. We
-                reserve the right to modify or terminate free trial offers at
-                any time.
+                We may offer a free trial for new Customers, currently 3 days. A trial starts only when you choose to start it, and it does not charge you or convert to a paid subscription automatically. When the trial ends, active services pause unless you choose a paid plan; the Privacy Policy explains the 30-day read-only period that follows. Trial limits are lower than paid plans, and we reserve the right to change or end trial offers at any time.
               </p>
             </PolicySection>
 
@@ -310,14 +306,14 @@ export default function TermsPage() {
             </PolicySection>
 
             <PolicySection id="governing-law" number={17} title="Governing Law">
-              <p>
-                These Terms are governed by and construed in accordance with
-                applicable law, without regard to conflict of law principles.
-                Any disputes arising from these Terms or the Service shall be
-                resolved through good-faith negotiation, and if unresolved,
-                through the courts or arbitration bodies of competent
-                jurisdiction.
-              </p>
+              <PolicyList
+                items={[
+                  <span key="0"><strong className="text-navy-900">Governing law.</strong> These Terms are governed by the laws of India, without regard to conflict of law principles.</span>,
+                  <span key="1"><strong className="text-navy-900">Negotiation first.</strong> Any dispute arising from these Terms or the Service must first be addressed through good-faith negotiation for 30 days from the date one party notifies the other of the dispute.</span>,
+                  <span key="2"><strong className="text-navy-900">Arbitration.</strong> If the dispute is not resolved within those 30 days, it shall be settled by binding arbitration in Jaipur, Rajasthan, under the Arbitration and Conciliation Act, 1996.</span>,
+                  <span key="3"><strong className="text-navy-900">Courts.</strong> The competent courts in Jaipur, Rajasthan have exclusive jurisdiction for any court proceedings, including those to support or enforce arbitration.</span>,
+                ]}
+              />
             </PolicySection>
 
             <PolicySection id="changes" number={18} title="Changes to These Terms">
