@@ -48,8 +48,21 @@
           ]
         },
         {
-          "title": "Receiving customer messages",
-          "body": "Incoming messages reach NEXTOSA through Meta's webhook for your app. After you connect a number, send it a test message from a personal phone. If nothing appears in Conversations, the webhook delivery in your Meta app is not pointed at NEXTOSA yet: contact the NEXTOSA team through the Contact page and we will give you the exact callback address and verification token for your account. Customer messages sent to you do not count against your monthly message allowance."
+          "title": "Receiving customer messages: the webhook",
+          "body": "Incoming messages reach NEXTOSA through a webhook that you register once in your Meta app. You give Meta two things: a callback address and a verify token. Meta calls the address to confirm the token matches, and from then on sends every incoming message and delivery status to it. The values below are examples: use the real callback address and verify token that belong to your NEXTOSA account (ask the NEXTOSA team through the Contact page if you do not have them), and never publish the real token anywhere public.",
+          "steps": [
+            "In Meta's developer console open your app, then WhatsApp, then Configuration.",
+            "In the Webhook section choose Edit.",
+            "Callback URL: https://your-server.com/api/whatsapp/webhook (replace it with the callback address for your account; the path always ends in /api/whatsapp/webhook).",
+            "Verify token: YOUR_SECURE_TOKEN (replace it with the real verify token for your account, exactly as given, with no spaces).",
+            "Choose Verify and save. If Meta says it could not verify, the address or the token does not match what NEXTOSA expects.",
+            "Under Webhook fields, subscribe to the messages field, so incoming messages and message statuses are delivered.",
+            "Send a test message from a personal phone to your connected number and confirm it appears in Conversations."
+          ]
+        },
+        {
+          "title": "If messages do not arrive",
+          "body": "Check these in order. First, the number is connected in NEXTOSA and its Phone Number ID matches the number you are texting. Second, the webhook shows as verified in Meta and the messages field is subscribed. Third, the callback address is typed exactly, including https and the full path. Fourth, the verify token matches exactly. A token that was changed on the server stops Meta from re-verifying, so if it was changed, update it in Meta as well. Customer messages sent to you do not count against your monthly message allowance."
         },
         {
           "title": "Templates and the 24-hour window",
