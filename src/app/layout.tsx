@@ -60,6 +60,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <head>
+        {/* Content must be readable without JavaScript: scroll/load animations start hidden, so undo that here. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        {/* Same for a script that fails to load: if React has not taken over after 4s, show everything. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `setTimeout(function(){var d=document.documentElement;if(!d.dataset.hydrated)d.classList.add("motion-failsafe")},4000)`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-white text-navy-900">
         <MotionProvider>
           <div className="sticky top-0 z-50">

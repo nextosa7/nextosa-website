@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, MotionConfig, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 // Shared motion language for the marketing site: calm, short, no overshoot.
 // Reveals use an ease-out curve; hover uses a critically damped spring (stiffness 100, damping 20).
@@ -11,6 +11,10 @@ const VIEWPORT = { once: true, amount: 0.15, margin: "0px 0px -60px 0px" } as co
 
 // Honours the visitor's "reduce motion" setting: transforms are skipped, opacity still fades.
 export function MotionProvider({ children }: { children: ReactNode }) {
+  // Tells the failsafe script in the layout that React took over; if this never runs, the content is forced visible.
+  useEffect(() => {
+    document.documentElement.dataset.hydrated = "1";
+  }, []);
   return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }
 
@@ -30,6 +34,7 @@ const hoverLift = {
 export function Reveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
+      data-reveal=""
       className={className}
       variants={revealVariants}
       initial="hidden"
@@ -46,6 +51,7 @@ export function Reveal({ children, className, delay = 0 }: { children: ReactNode
 export function Stagger({ children, className, gap = 0.08 }: { children: ReactNode; className?: string; gap?: number }) {
   return (
     <motion.div
+      data-reveal=""
       className={className}
       initial="hidden"
       whileInView="show"
@@ -60,7 +66,7 @@ export function Stagger({ children, className, gap = 0.08 }: { children: ReactNo
 // `lift` adds the spring hover (small scale-up, rise and deeper shadow) for cards.
 export function StaggerItem({ children, className, lift = false }: { children: ReactNode; className?: string; lift?: boolean }) {
   return (
-    <motion.div className={className} variants={revealVariants} whileHover={lift ? hoverLift : undefined}>
+    <motion.div data-reveal="" className={className} variants={revealVariants} whileHover={lift ? hoverLift : undefined}>
       {children}
     </motion.div>
   );
@@ -70,6 +76,7 @@ export function StaggerItem({ children, className, lift = false }: { children: R
 export function LoadStagger({ children, className, gap = 0.09, delay = 0.05 }: { children: ReactNode; className?: string; gap?: number; delay?: number }) {
   return (
     <motion.div
+      data-reveal=""
       className={className}
       initial="hidden"
       animate="show"
@@ -82,7 +89,7 @@ export function LoadStagger({ children, className, gap = 0.09, delay = 0.05 }: {
 
 export function LoadItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <motion.div className={className} variants={revealVariants}>
+    <motion.div data-reveal="" className={className} variants={revealVariants}>
       {children}
     </motion.div>
   );
@@ -101,6 +108,7 @@ export function HoverCard({ children, className }: { children: ReactNode; classN
 export function LoadReveal({ children, className, delay = 0.5 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
+      data-reveal=""
       className={className}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}

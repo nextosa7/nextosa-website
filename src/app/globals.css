@@ -102,3 +102,8 @@ body {
   background: var(--color-accent-500);
   color: white;
 }
+
+html.motion-failsafe [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
