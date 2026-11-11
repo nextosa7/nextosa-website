@@ -327,6 +327,13 @@ export const platformPages: PlatformPage[] = [
           "Export data, switch light and dark mode, and hand a question to Business AI",
           "Asks you to confirm before actions that change important things",
         ],
+        shot: s("platform", "command-center", "AI Command Center", "/dashboard"),
+      },
+      {
+        title: "One identity, everywhere",
+        description: "Ask who it is and it answers the same way on every page: Nextosa Copilot, NEXTOSA's own business assistant.",
+        bullets: ["Same assistant in Business AI and the Command Center", "Speaks for your workspace, not a third-party chatbot", "Type, or tap the mic and speak"],
+        shot: s("platform", "command-center-answer", "Nextosa Copilot in the Command Center", "/dashboard"),
       },
     ],
     capabilities: [
