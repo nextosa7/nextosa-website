@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { MobilePolicyTOC, PolicyTOC, PrintButton, ReadingProgress, type TocItem 
 import { GlanceCards, PolicyCallout, PolicyList, PolicySection, PolicyTable, icons } from "@/components/legal/PolicyBlocks";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description:
     "How NEXTOSA collects, uses, stores and protects data: account and workspace data, WhatsApp and email data, AI processing, health data in hospital mode, service providers, retention and your rights.",
-};
+  path: "/privacy",
+});
 
 const LAST_UPDATED = "November 10, 2026";
 

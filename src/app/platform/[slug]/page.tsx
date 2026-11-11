@@ -9,6 +9,8 @@ import CTA from "@/components/home/CTA";
 import { leadShot, platformBySlug, platformPages } from "@/lib/content";
 import { DetailGrid, FaqList } from "@/components/DepthBlocks";
 import { platformDepth } from "@/lib/depth";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbLd, buildMetadata, faqLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return platformPages.map((p) => ({ slug: p.slug }));
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = platformBySlug(slug);
   if (!page) return {};
-  return { title: `${page.name} — ${page.short}`, description: page.intro };
+  return buildMetadata({ title: `${page.name}: ${page.short}`, description: page.intro, path: `/platform/${page.slug}`, defaultImage: false });
 }
 
 export default async function PlatformPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,6 +31,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <JsonLd data={[breadcrumbLd([{ name: "Platform", path: "/platform/crm" }, { name: page.name, path: `/platform/${page.slug}` }]), ...(depth?.faqs?.length ? [faqLd(depth.faqs)] : [])]} />
       <PageHero eyebrow={page.name} title={page.headline} intro={page.intro} shot={leadShot(page)} stats={page.stats} />
       <ModuleRows modules={page.modules} />
       {depth && <DetailGrid eyebrow="In depth" title={`How ${page.name} really works`} items={depth.details} tone="white" />}

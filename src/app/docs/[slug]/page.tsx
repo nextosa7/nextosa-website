@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = getDocPage(slug);
   if (!page) return {};
-  return { title: page.title, description: page.subtitle };
+  return buildMetadata({ title: page.title, description: page.subtitle, path: `/docs/${page.slug}` });
 }
 
 const calloutStyle: Record<string, { label: string; box: string }> = {

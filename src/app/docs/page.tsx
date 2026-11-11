@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
 import CTA from "@/components/home/CTA";
 import { docPages } from "@/lib/docs";
 
-export const metadata: Metadata = {
-  title: "Documentation",
+export const metadata: Metadata = buildMetadata({
+  title: "Documentation: Setup & Usage Guides",
   description:
     "Step-by-step NEXTOSA setup and usage guides for every business type, plus detailed guides for WhatsApp, Razorpay payments, Gmail, Instagram, connected websites and webhooks.",
-};
+  path: "/docs",
+});
 
 export default function DocsIndexPage() {
   const start = docPages.filter((p) => p.kind !== "industry");

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata: Metadata = buildMetadata({
+  title: "About NEXTOSA: the AI Business Platform",
   description:
     "Learn about NEXTOSA's mission to give every business an AI-powered operating system — covering billing, staff management, compliance, and WhatsApp automation across 10 industries.",
-};
+  path: "/about",
+});
 
 const values = [
   {

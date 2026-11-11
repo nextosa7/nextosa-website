@@ -10,6 +10,8 @@ import SectionHeading from "@/components/SectionHeading";
 import CTA from "@/components/home/CTA";
 import { industryDepth } from "@/lib/portals";
 import { industryExtra } from "@/lib/depth";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbLd, buildMetadata, faqLd } from "@/lib/seo";
 import { FaqList, SetupSteps } from "@/components/DepthBlocks";
 import { industryBySlug, industryPages, leadShot, type ModuleBlock } from "@/lib/content";
 
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = industryBySlug(slug);
   if (!page) return {};
-  return { title: `${page.name} software`, description: page.intro };
+  return buildMetadata({ title: `${page.name} Software: CRM, Billing & WhatsApp`, description: page.intro, path: `/industries/${page.slug}`, defaultImage: false });
 }
 
 export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -46,6 +48,12 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbLd([{ name: "Industries", path: "/#industries" }, { name: page.name, path: `/industries/${page.slug}` }]),
+          ...(extra?.faqs?.length ? [faqLd(extra.faqs)] : []),
+        ]}
+      />
       <PageHero eyebrow={page.name} title={page.headline} intro={page.intro} shot={leadShot(page)} />
 
       <section className="bg-white py-16 sm:py-20">

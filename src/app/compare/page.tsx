@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Badge from "@/components/Badge";
 import CTA from "@/components/home/CTA";
 
-export const metadata: Metadata = {
-  title: "Why NEXTOSA",
+export const metadata: Metadata = buildMetadata({
+  title: "NEXTOSA vs ERP Suites: One Connected Platform",
   description:
     "How NEXTOSA compares with traditional ERP suites and app-bundle suites: one connected platform, set up in minutes, with AI agents and industry modules built in.",
-};
+  path: "/compare",
+});
 
 // Deliberately generic: compares approaches, not named vendors, so nothing here depends on a competitor's current
 // pricing or feature list.

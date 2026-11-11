@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { DetailGrid, FaqList } from "@/components/DepthBlocks";
 import CTA from "@/components/home/CTA";
 import type { Detail, Faq } from "@/lib/depth";
 
-export const metadata: Metadata = {
-  title: "Roles and permissions",
+export const metadata: Metadata = buildMetadata({
+  title: "Roles & Permissions for Teams",
   description:
     "Owner, Admin and team roles, a permission switch for every screen, WhatsApp number restrictions, care-team scoping and portal-only seats in NEXTOSA.",
-};
+  path: "/roles-and-permissions",
+});
 
 const roles: Detail[] = [
   { title: "Owner, Admin and Agent", text: "Every user belongs to one organization with a role. Admins manage settings and team, and everyone else works within the permissions they are given." },

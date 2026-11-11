@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { MobilePolicyTOC, PolicyTOC, PrintButton, ReadingProgress, type TocItem 
 import { GlanceCards, PolicyList, PolicySection, icons } from "@/components/legal/PolicyBlocks";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Terms of Service",
   description:
     "NEXTOSA Terms of Service: the rules and conditions governing your use of the NEXTOSA AI CRM and WhatsApp automation platform.",
-};
+  path: "/terms",
+});
 
 const LAST_UPDATED = "November 10, 2026";
 

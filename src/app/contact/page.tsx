@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
 import ContactForm from "@/components/contact/ContactForm";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
+export const metadata: Metadata = buildMetadata({
+  title: "Contact Sales & Book a Demo",
   description:
-    "Talk to the NEXTOSA team about a demo, pricing or the module for your industry.",
-};
+    "Talk to the NEXTOSA team about a demo, pricing or the CRM, WhatsApp automation and AI agent module for your industry.",
+  path: "/contact",
+});
 
 const contactPoints = [
   {

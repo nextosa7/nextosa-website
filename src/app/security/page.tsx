@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { DetailGrid, FaqList } from "@/components/DepthBlocks";
 import CTA from "@/components/home/CTA";
 import type { Detail, Faq } from "@/lib/depth";
 
-export const metadata: Metadata = {
-  title: "Security and trust",
+export const metadata: Metadata = buildMetadata({
+  title: "Security & Trust",
   description:
     "How NEXTOSA keeps each workspace separate, controls who can see what, protects patient and customer data, and keeps a tamper-evident record of access.",
-};
+  path: "/security",
+});
 
 const platform: Detail[] = [
   { title: "Every workspace is separate", text: "Each piece of data belongs to one organization, and every request is scoped to the signed-in user's organization on the server. Sockets join only their own organization's room." },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { DetailGrid, FaqList } from "@/components/DepthBlocks";
 import CTA from "@/components/home/CTA";
 import type { Detail, Faq } from "@/lib/depth";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "AI tokens explained",
   description:
     "What an AI token is, where NEXTOSA uses tokens, what never costs tokens, how much each plan includes and what happens when you run out.",
-};
+  path: "/ai-tokens",
+});
 
 const plans: { name: string; tokens: string; price: string }[] = [
   { name: "Free Trial", tokens: "100,000", price: "Free for 3 days" },

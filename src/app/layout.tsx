@@ -8,6 +8,8 @@ import ClickTracker from "@/components/ClickTracker";
 import { Analytics } from "@vercel/analytics/next";
 import { MotionProvider } from "@/components/motion/primitives";
 import { siteConfig } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { SEO_DEFAULT_DESCRIPTION, SEO_DEFAULT_TITLE, SEO_KEYWORDS, organizationLd, softwareLd, websiteLd } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,35 +20,29 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: SEO_DEFAULT_TITLE,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
-  keywords: [
-    "business operating system",
-    "AI business management software",
-    "industry-specific business software",
-    "billing and invoicing software",
-    "staff management software",
-    "compliance calendar software",
-    "WhatsApp automation",
-    "WhatsApp Business API",
-    "AI customer support",
-    "client management software",
-    "NEXTOSA",
-  ],
+  description: SEO_DEFAULT_DESCRIPTION,
+  keywords: SEO_KEYWORDS,
+  applicationName: siteConfig.name,
   authors: [{ name: siteConfig.founder }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: { canonical: siteConfig.url },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    title: SEO_DEFAULT_TITLE,
+    description: SEO_DEFAULT_DESCRIPTION,
     siteName: siteConfig.name,
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    title: SEO_DEFAULT_TITLE,
+    description: SEO_DEFAULT_DESCRIPTION,
   },
   icons: {
     icon: "/favicon.ico",
@@ -81,6 +77,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </MotionProvider>
+        <JsonLd data={[organizationLd(), websiteLd(), softwareLd()]} />
         <Analytics />
         <ClickTracker />
       </body>

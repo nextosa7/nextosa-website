@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
@@ -6,11 +7,12 @@ import { DetailGrid, FaqList } from "@/components/DepthBlocks";
 import CTA from "@/components/home/CTA";
 import type { Detail, Faq } from "@/lib/depth";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Plan limits explained",
   description:
     "What each NEXTOSA plan includes: WhatsApp messages, team members, WhatsApp numbers, site connections, documents and storage, what counts toward each limit and what happens when you reach it.",
-};
+  path: "/plan-limits",
+});
 
 const rows: { label: string; trial: string; starter: string; growth: string; enterprise: string }[] = [
   { label: "Price", trial: "Free for 3 days", starter: "₹1,499/mo", growth: "₹3,999/mo", enterprise: "₹8,999/mo" },
