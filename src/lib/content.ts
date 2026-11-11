@@ -286,12 +286,58 @@ export const platformPages: PlatformPage[] = [
       {
         title: "Business AI",
         description: "Ask about your revenue, clients, stock and tasks in plain language.",
-        bullets: ["Answers from your own workspace data", "Respects each user's permissions", "Summaries and next actions", "Command centre for quick actions"],
+        bullets: ["Answers from your own workspace data", "Respects each user's permissions", "Summaries and next actions", "Hand-off to the AI Command Center for quick actions"],
         shot: s("platform", "business-ai", "Business AI", "/business-ai"),
       },
     ],
     capabilities: ["Action Toolbox you control", "Safety rules the model cannot override", "Plan and per-agent token limits", "Knowledge-base articles as the only source", "No patient data to AI in hospital mode unless explicitly allowed", "Playground to test before going live"],
-    related: ["whatsapp", "crm", "automations"],
+    related: ["business-ai", "whatsapp", "crm"],
+  },
+  {
+    slug: "business-ai",
+    name: "Business AI & Command Center",
+    short: "Ask about your business, or tell it what to do",
+    headline: "Nextosa Copilot: ask your business questions, then get things done",
+    intro:
+      "Nextosa Copilot is the AI built into NEXTOSA. Business AI answers questions about your own workspace in plain language. The AI Command Center is a pop-up you can type or speak to, to open pages, add contacts, set reminders and more. Both work only within what each person is allowed to see and do.",
+    stats: [
+      { value: "Your data", label: "answers from your workspace" },
+      { value: "Per user", label: "permissions applied on every message" },
+      { value: "Type or speak", label: "in the Command Center" },
+    ],
+    modules: [
+      {
+        title: "Business AI",
+        description: "A chat page where you ask about your revenue, clients, stock, tasks and more, and get answers from your real data.",
+        bullets: [
+          "Looks things up in your workspace instead of guessing",
+          "Reads each person's permissions fresh on every message, so a change takes effect at once",
+          "Staff limited to certain WhatsApp numbers only see data from those numbers",
+          "Past chats are saved so you can pick up where you left off",
+        ],
+        shot: s("platform", "business-ai", "Business AI", "/business-ai"),
+      },
+      {
+        title: "AI Command Center",
+        description: "A pop-up assistant available on every page that carries out actions for you, by text or voice.",
+        bullets: [
+          "Open any page or switch a tab you have access to",
+          "Add or update a contact, create a reminder or a service record",
+          "Create a campaign or send an approved WhatsApp template",
+          "Export data, switch light and dark mode, and hand a question to Business AI",
+          "Asks you to confirm before actions that change important things",
+        ],
+      },
+    ],
+    capabilities: [
+      "Same identity everywhere: Nextosa Copilot",
+      "Only the tools each user has permission for",
+      "Voice input in the Command Center",
+      "Confirmation step before sensitive actions",
+      "Counts toward your plan's AI token allowance",
+      "No patient data to AI in hospital mode unless explicitly allowed",
+    ],
+    related: ["ai-agents", "crm", "automations"],
   },
   {
     slug: "integrations",

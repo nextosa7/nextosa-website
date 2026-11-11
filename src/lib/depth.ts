@@ -29,6 +29,21 @@ export const platformDepth: Record<string, { details: Detail[]; faqs: Faq[] }> =
       { question: "Which agent answers my Gmail inbox?", answer: "You can assign either a Support Agent or a Sales Agent to the inbox, never both. Inbound email also needs the Gmail inbound switch turned on." },
     ],
   },
+  "business-ai": {
+    details: [
+      { title: "One assistant, one identity", text: "Whether you chat on the Business AI page or in the Command Center pop-up, it is always Nextosa Copilot, NEXTOSA's own business assistant." },
+      { title: "Permissions follow the person", text: "Each message is checked against that user's current permissions. Someone who cannot open Invoices cannot get invoice figures out of the assistant either." },
+      { title: "Number restrictions respected", text: "Staff limited to specific WhatsApp numbers only get answers from conversations and data on those numbers." },
+      { title: "Actions you can see", text: "The Command Center performs a fixed set of actions, such as opening a page, adding a contact or creating a reminder, and asks you to confirm before ones that change important settings." },
+      { title: "Speak instead of type", text: "The Command Center accepts voice input, which is turned into text before it is processed." },
+      { title: "Counted in your tokens", text: "Every message and lookup uses your plan's AI token allowance. When it is reached, the assistant asks you to upgrade instead of failing silently." },
+    ],
+    faqs: [
+      { question: "Is Business AI the same as the AI agents?", answer: "No. The Sales, Support and Marketing agents talk to your customers. Business AI and the Command Center are for your own team, working inside your workspace." },
+      { question: "Can the assistant do things I have not allowed?", answer: "No. It only has the tools your role and permissions allow, and it checks them on every message." },
+      { question: "Does it see patient data in hospital mode?", answer: "Only if the platform operator has confirmed zero data retention and your workspace has switched AI clinical processing on, and then only de-identified text. Patient files are never sent to AI." },
+    ],
+  },
   whatsapp: {
     details: [
       { title: "Routed by the number, not by guesswork", text: "An inbound message is routed by the WhatsApp phone number it arrived on, and the reply always leaves from that same number." },

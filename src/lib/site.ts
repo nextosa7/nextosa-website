@@ -28,6 +28,7 @@ export const siteConfig = {
       { href: "/platform/whatsapp", label: "WhatsApp" },
       { href: "/platform/email", label: "Email" },
       { href: "/platform/ai-agents", label: "AI Agents" },
+      { href: "/platform/business-ai", label: "Business AI & Command Center" },
       { href: "/platform/integrations", label: "Integrations" },
       { href: "/#pricing", label: "Pricing" },
       { href: "/docs", label: "Documentation" },
