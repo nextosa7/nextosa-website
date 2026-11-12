@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ModuleRows from "@/components/ModuleRows";
 import SectionHeading from "@/components/SectionHeading";
+import DemoVideos from "@/components/DemoVideos";
 import CTA from "@/components/home/CTA";
 import { leadShot, platformBySlug, platformPages } from "@/lib/content";
 import { DetailGrid, FaqList } from "@/components/DepthBlocks";
@@ -34,6 +35,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ slug:
       <JsonLd data={[breadcrumbLd([{ name: "Platform", path: "/platform/crm" }, { name: page.name, path: `/platform/${page.slug}` }]), ...(depth?.faqs?.length ? [faqLd(depth.faqs)] : [])]} />
       <PageHero eyebrow={page.name} title={page.headline} intro={page.intro} shot={leadShot(page)} stats={page.stats} />
       <ModuleRows modules={page.modules} />
+      {page.slug === "business-ai" && <DemoVideos names={["command-center", "business-ai"]} />}
       {depth && <DetailGrid eyebrow="In depth" title={`How ${page.name} really works`} items={depth.details} tone="white" />}
 
       <section className="bg-slate-50 py-20 sm:py-24">

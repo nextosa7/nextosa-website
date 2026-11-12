@@ -8,6 +8,7 @@ import Security from "@/components/home/Security";
 import HowItWorks from "@/components/home/HowItWorks";
 import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
+import DemoVideos from "@/components/DemoVideos";
 import CTA from "@/components/home/CTA";
 import JsonLd from "@/components/JsonLd";
 import { faqLd } from "@/lib/seo";
@@ -19,6 +20,7 @@ export default function Home() {
       <JsonLd data={faqLd(homeFaqs)} />
       <Hero />
       <PlatformTabs />
+      <DemoVideos names={["platform-tour", "command-center", "business-ai"]} />
       <IndustryShowcase />
       <AiAgents />
       <Spotlights />
