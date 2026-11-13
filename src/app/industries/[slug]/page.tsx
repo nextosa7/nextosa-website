@@ -11,6 +11,7 @@ import CTA from "@/components/home/CTA";
 import { industryDepth } from "@/lib/portals";
 import { industryExtra } from "@/lib/depth";
 import JsonLd from "@/components/JsonLd";
+import IndustryVideos from "@/components/IndustryVideos";
 import { breadcrumbLd, buildMetadata, faqLd } from "@/lib/seo";
 import { FaqList, SetupSteps } from "@/components/DepthBlocks";
 import { industryBySlug, industryPages, leadShot, type ModuleBlock } from "@/lib/content";
@@ -55,6 +56,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         ]}
       />
       <PageHero eyebrow={page.name} title={page.headline} intro={page.intro} shot={leadShot(page)} />
+
+      <IndustryVideos slug={page.slug} name={page.name} />
 
       <section className="bg-white py-16 sm:py-20">
         <Container>
