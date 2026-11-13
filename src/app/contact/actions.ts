@@ -34,18 +34,22 @@ function optional(value: FormDataEntryValue | null): string | undefined {
 type Outcome = "ok" | "failed" | "unconfigured";
 
 async function postInquiryToApi(payload: Record<string, string | undefined>): Promise<Outcome> {
-  const base = process.env.NEXTOSA_API_URL;
-  const secret = process.env.WEBSITE_INQUIRY_SECRET;
-  if (!base || !secret) return "unconfigured";
+  const rawBase = process.env.NEXTOSA_API_URL?.trim();
+  const secret = process.env.WEBSITE_INQUIRY_SECRET?.trim();
+  if (!rawBase || !secret) return "unconfigured";
+  // The API lives under /api; tolerate a base URL that was pasted without it.
+  const trimmed = rawBase.replace(/\/+$/, "");
+  const base = /\/api$/i.test(trimmed) ? trimmed : `${trimmed}/api`;
   try {
-    const response = await fetch(`${base.replace(/\/+$/, "")}/public/website-inquiries`, {
+    const response = await fetch(`${base}/public/website-inquiries`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-website-secret": secret },
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(10_000),
     });
     if (!response.ok) {
-      console.error(`[contact-form] inquiry API answered ${response.status}`);
+      const detail = (await response.text().catch(() => "")).slice(0, 200);
+      console.error(`[contact-form] inquiry API answered ${response.status} for ${base}/public/website-inquiries: ${detail}`);
       return "failed";
     }
     return "ok";
