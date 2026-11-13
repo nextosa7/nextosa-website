@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description: SEO_DEFAULT_DESCRIPTION,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }, { url: "/favicon.ico", sizes: "any" }],
   },
 };
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "./Container";
+import Logo from "./Logo";
 import { siteConfig } from "@/lib/site";
 
 export default function Footer() {
@@ -10,14 +11,8 @@ export default function Footer() {
       <Container className="py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-white"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-400 to-accent-600 text-sm font-black text-white">
-                N
-              </span>
-              NEXTOSA
+            <Link href="/" aria-label="NEXTOSA home">
+              <Logo />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">
               {siteConfig.description}

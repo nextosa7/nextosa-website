@@ -21,8 +21,8 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ width: 52, height: 52, borderRadius: 14, background: "linear-gradient(135deg,#2dd4bf,#0f766e)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 30, fontWeight: 900 }}>N</div>
-          <div style={{ fontSize: 34, fontWeight: 800 }}>NEXTOSA</div>
+          <svg width="50" height="57" viewBox="92 30 116 132"><path d="M112 142V50L188 142V50" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /><circle cx="112" cy="142" r="15" fill="#e11d2e" /><circle cx="112" cy="50" r="15" fill="#e11d2e" /><circle cx="188" cy="142" r="15" fill="#e11d2e" /><circle cx="188" cy="50" r="15" fill="#e11d2e" /></svg>
+          <div style={{ display: "flex", fontSize: 34, fontWeight: 800, letterSpacing: 4 }}><span>NEXT</span><span style={{ color: "#e11d2e" }}>OSA</span></div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div style={{ fontSize: 26, fontWeight: 700, color: "#5eead4", textTransform: "uppercase", letterSpacing: 3 }}>{eyebrow}</div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
+import Logo from "./Logo";
 import Button from "./Button";
 import { siteConfig } from "@/lib/site";
 import { industryPages, platformPages } from "@/lib/content";
@@ -56,9 +57,8 @@ export default function Navbar() {
     <header ref={ref} className="sticky top-0 z-50 border-b border-white/10 bg-navy-900/90 backdrop-blur-lg" onMouseLeave={() => setMenu(null)}>
       <Container>
         <nav className="flex h-18 items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-white" onClick={close}>
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-400 to-accent-600 text-sm font-black text-white">N</span>
-            NEXTOSA
+          <Link href="/" aria-label="NEXTOSA home" onClick={close} className="mr-6 shrink-0">
+            <Logo />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
