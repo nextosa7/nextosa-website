@@ -1,3 +1,4 @@
+import { GlassChip, GlowOrbs, IconTile } from "../Decor";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
 import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
@@ -6,6 +7,7 @@ import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
 const agents = [
   {
     name: "AI Sales Agent",
+    icon: "chart" as const,
     tagline: "Turns enquiries into deals",
     points: [
       "Answers on WhatsApp, email and your website chat",
@@ -16,6 +18,7 @@ const agents = [
   },
   {
     name: "AI Support Agent",
+    icon: "chat" as const,
     tagline: "Answers from your own knowledge base",
     points: [
       "Replies only from the articles you publish — no guessing",
@@ -26,6 +29,7 @@ const agents = [
   },
   {
     name: "AI Marketing Agent",
+    icon: "megaphone" as const,
     tagline: "Plans and publishes your content",
     points: [
       "Turn a weekly or monthly plan into scheduled posts",
@@ -40,6 +44,7 @@ export default function AiAgents() {
   return (
     <section id="ai-agents" className="relative overflow-hidden theme-light py-24 sm:py-32">
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
+      <GlowOrbs layout="split" />
       <Container className="relative">
         <Reveal>
         <SectionHeading
@@ -53,7 +58,11 @@ export default function AiAgents() {
         <Stagger className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {agents.map((agent) => (
             <StaggerItem lift key={agent.name} className="flex flex-col rounded-2xl border border-white/10 bg-navy-800/60 p-8 backdrop-blur">
-              <h3 className="text-xl font-semibold text-white">{agent.name}</h3>
+              <div className="flex items-center justify-between">
+                <IconTile name={agent.icon} />
+                <GlassChip icon="spark">AI</GlassChip>
+              </div>
+              <h3 className="mt-5 text-xl font-semibold text-white">{agent.name}</h3>
               <p className="mt-1 text-sm font-medium text-accent-400">{agent.tagline}</p>
               <ul className="mt-6 space-y-3">
                 {agent.points.map((point) => (

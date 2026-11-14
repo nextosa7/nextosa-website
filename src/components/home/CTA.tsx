@@ -1,3 +1,4 @@
+import { GlassChip, GlowOrbs } from "../Decor";
 import Container from "../Container";
 import Button from "../Button";
 import { siteConfig } from "@/lib/site";
@@ -8,8 +9,14 @@ export default function CTA() {
     <section className="relative overflow-hidden theme-light py-24">
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute inset-0 bg-grid opacity-30" />
+      <GlowOrbs layout="center" />
       <Container className="relative text-center">
         <Reveal>
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+          <GlassChip icon="spark">AI agents</GlassChip>
+          <GlassChip icon="shield" tone="blue">Encrypted credentials</GlassChip>
+          <GlassChip icon="chart" tone="blue">Live reports</GlassChip>
+        </div>
         <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Ready to run your entire business on one platform?
         </h2>

@@ -1,3 +1,4 @@
+import { GlowOrbs } from "../Decor";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
 import { Reveal, Stagger, StaggerItem } from "../motion/primitives";
@@ -36,6 +37,7 @@ export default function HowItWorks() {
       className="relative overflow-hidden theme-light py-24 sm:py-32"
     >
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
+      <GlowOrbs layout="left" />
       <Container className="relative">
         <Reveal>
         <SectionHeading

@@ -1,3 +1,4 @@
+import { FloatingChip, GlowOrbs } from "../Decor";
 import Button from "../Button";
 import Container from "../Container";
 import Badge from "../Badge";
@@ -19,8 +20,13 @@ export default function Hero() {
     <section className="relative overflow-hidden theme-light">
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
       <div className="absolute inset-0 bg-radial-glow" />
+      <GlowOrbs layout="hero" />
 
       <Container className="relative pt-24 sm:pt-28">
+        <FloatingChip icon="spark" className="left-8 top-40">AI agents</FloatingChip>
+        <FloatingChip icon="shield" tone="blue" className="right-8 top-32" delay={1.5}>Encrypted</FloatingChip>
+        <FloatingChip icon="chart" tone="blue" className="left-14 top-[21rem]" delay={3}>Live reports</FloatingChip>
+        <FloatingChip icon="layers" className="right-12 top-[19rem]" delay={4.5}>10 industries</FloatingChip>
         <LoadStagger className="mx-auto max-w-4xl text-center">
           <LoadItem>
             <Badge>The business operating system</Badge>
