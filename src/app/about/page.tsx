@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
+import OurStory from "@/components/about/OurStory";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -136,6 +137,8 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+
+      <OurStory />
 
       <section className="bg-slate-50 py-20 sm:py-24">
         <Container>
