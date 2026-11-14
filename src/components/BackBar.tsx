@@ -11,6 +11,7 @@ const STATIC_LABELS: Record<string, string> = {
   compare: "Why NEXTOSA",
   security: "Security",
   "roles-and-permissions": "Roles & permissions",
+  automations: "Automations guide",
   privacy: "Privacy Policy",
   terms: "Terms of Service",
 };

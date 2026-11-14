@@ -51,6 +51,7 @@ export const siteConfig = {
       { href: "/about", label: "About Us" },
       { href: "/security", label: "Security" },
       { href: "/roles-and-permissions", label: "Roles & permissions" },
+      { href: "/automations", label: "Automations guide" },
       { href: "/compare", label: "Why NEXTOSA" },
       { href: "/contact", label: "Contact" },
     ],

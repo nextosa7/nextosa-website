@@ -143,7 +143,7 @@ export default function Navbar() {
               <Link key={p.slug} href={`/industries/${p.slug}`} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">{p.name}</Link>
             ))}
             <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Company</p>
-            {[["/#pricing", "Pricing"], ["/docs", "Documentation"], ["/ai-tokens", "AI tokens"], ["/plan-limits", "Plan limits"], ["/security", "Security"], ["/roles-and-permissions", "Roles & permissions"], ["/compare", "Why NEXTOSA"], ["/about", "About"], ["/contact", "Contact"]].map(([href, label]) => (
+            {[["/#pricing", "Pricing"], ["/docs", "Documentation"], ["/ai-tokens", "AI tokens"], ["/plan-limits", "Plan limits"], ["/security", "Security"], ["/roles-and-permissions", "Roles & permissions"], ["/automations", "Automations guide"], ["/compare", "Why NEXTOSA"], ["/about", "About"], ["/contact", "Contact"]].map(([href, label]) => (
               <Link key={href} href={href} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">{label}</Link>
             ))}
             <Link href={siteConfig.loginUrl} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">Login</Link>
