@@ -3,10 +3,14 @@ import { Reveal } from "@/components/motion/primitives";
 import { siteConfig } from "@/lib/site";
 
 const paragraphs = [
-  "Growing up in Rajasthan, our founder, Harsh Soni, watched incredibly talented local business owners—from clinic practitioners to school administrators—pour their hearts into their work. But there was a hidden, exhausting cost. After closing their doors for the day, they weren't resting. They were drowning in manual WhatsApp follow-ups, overdue invoices, and disconnected software that refused to talk to each other. Enterprise tools were too expensive, and cheap tools simply didn't work.",
-  "Determined to bridge this gap, Harsh set out to build a unified system from scratch. It was a grueling journey. There were countless sleepless nights spent architecting a platform that could seamlessly blend complex CRM logic, automated WhatsApp routing, and AI. Building an enterprise-grade ecosystem that could adapt to 10 different industries was a massive technical mountain to climb. Through failed prototypes, complex API hurdles, and sheer exhaustion, the easiest choice would have been to give up.",
-  "But when you are building something to give hardworking people their lives back, quitting isn't an option. Today, NEXTOSA stands as the result of that relentless drive. It has grown into a powerful, intelligent AI operating system that replaces fragmented tools with a single, elegant hub. We went through the struggle so that our clients never have to.",
+  "Growing up in Rajasthan, our founder, Harsh Soni, saw something that never left him. Clinic doctors, school principals, shop owners, restaurant families, CA firms, salon artists: incredibly talented people who gave everything to their work. But when the shutters came down, their day was not over. It was just changing shifts. Late at night they were still chasing WhatsApp messages, matching ledgers, hunting for overdue payments and switching between five different tools that refused to talk to each other. Big enterprise software was priced for companies they would never be. Cheap tools broke the moment real life got complicated.",
+  "Harsh made a decision: build the system these people deserved, from scratch, and build all of it. Not just a CRM. Not just a WhatsApp bot. One connected platform where customers, billing, accounting, inventory, teams, training and AI agents work as a single brain. The kind of platform that a clinic, a school, a restaurant and a real estate firm could all run on, each with modules that speak its own language.",
+  "Nobody tells you how heavy that mountain is. There were nights that turned into mornings with the code still open. Prototypes that failed after weeks of work. APIs that refused to behave, systems that broke at the exact moment they were supposed to work, and days when exhaustion was louder than motivation. More than once the easiest answer was to stop, to settle for something smaller, to tell himself that a platform this big was too big to be built by a founder starting out in Rajasthan.",
+  "He fell. He got back up. He fell again, and he learned something every single time. Every failed prototype became a lesson, every broken integration became a stronger foundation, and every sleepless night became another brick in a platform that would not be shaken. Because he kept remembering who he was building it for: the doctor who deserved to go home to her family, the teacher who should not be doing fee reminders at midnight, the owner who started a business to live a life, not to drown in admin.",
+  "That relentless refusal to quit is why NEXTOSA exists today. What began as an answer to messy WhatsApp follow-ups has grown into a complete AI operating system: CRM, ERP, finance and accounting, training, and AI Sales, Support and Marketing agents working across WhatsApp, email and your website, with purpose-built modules for 10 industries. It runs the busywork of a business end to end, so owners can finally focus on the work they love.",
+  "And this is only the beginning. We know exactly how hard the road is, because we walked it first. We went through the struggle, the doubt and the sleepless nights so that our clients never have to. Every feature we ship carries that promise: your business deserves a system as determined as you are.",
 ];
+
 
 export default function OurStory() {
   return (
@@ -56,10 +60,15 @@ export default function OurStory() {
 
             <div className="mt-10 space-y-6 border-l-2 border-accent-200 pl-6 sm:pl-8">
               <p className="text-xl font-medium leading-9 text-slate-800">{paragraphs[0]}</p>
-              {paragraphs.slice(1).map((p) => (
-                <p key={p.slice(0, 24)} className="text-lg leading-8 text-slate-600">
-                  {p}
-                </p>
+              {paragraphs.slice(1).map((p, i) => (
+                <div key={p.slice(0, 24)} className="space-y-6">
+                  {i === 3 && (
+                    <blockquote className="my-2 rounded-2xl bg-white p-7 text-2xl font-semibold leading-snug tracking-tight text-navy-900 shadow-[0_1px_2px_rgba(10,46,34,0.05),0_18px_40px_-24px_rgba(10,46,34,0.25)] ring-1 ring-accent-200">
+                      <span className="text-accent-600">&ldquo;</span>He fell. He got back up. He never once gave up on the people he was building this for.<span className="text-accent-600">&rdquo;</span>
+                    </blockquote>
+                  )}
+                  <p className="text-lg leading-8 text-slate-600">{p}</p>
+                </div>
               ))}
             </div>
 
