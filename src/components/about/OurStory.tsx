@@ -215,7 +215,7 @@ export default function OurStory() {
   return (
     <>
       {/* Intro */}
-      <section className="bg-[#FAFAFA] pt-24 sm:pt-28" aria-labelledby="our-story-heading">
+      <section id="our-story" className="scroll-mt-20 bg-[#FAFAFA] pt-24 sm:pt-28" aria-labelledby="our-story-heading">
         <Container className="text-center">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-700">Our story</p>

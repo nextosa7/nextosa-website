@@ -6,6 +6,7 @@ import Spotlights from "@/components/home/Spotlights";
 import Integrations from "@/components/home/Integrations";
 import Security from "@/components/home/Security";
 import HowItWorks from "@/components/home/HowItWorks";
+import StoryTeaser from "@/components/home/StoryTeaser";
 import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
 import DemoVideos from "@/components/DemoVideos";
@@ -26,6 +27,7 @@ export default function Home() {
       <Spotlights />
       <Integrations />
       <Security />
+      <StoryTeaser />
       <HowItWorks />
       <Pricing />
       <FAQ />
