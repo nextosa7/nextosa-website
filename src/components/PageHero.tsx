@@ -1,4 +1,3 @@
-import { FloatingChip, GlowOrbs } from "./Decor";
 import Container from "./Container";
 import Badge from "./Badge";
 import Button from "./Button";
@@ -24,10 +23,7 @@ export default function PageHero({
     <section className="relative overflow-hidden theme-light pt-20 sm:pt-24">
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
       <div className="absolute inset-0 bg-radial-glow" />
-      <GlowOrbs layout="hero" />
       <Container className="relative">
-        <FloatingChip icon="spark" className="left-10 top-16">AI built in</FloatingChip>
-        <FloatingChip icon="shield" tone="blue" className="right-10 top-28" delay={2}>Role-based access</FloatingChip>
         <div className="mx-auto max-w-3xl text-center">
           <Badge>{eyebrow}</Badge>
           <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{title}</h1>

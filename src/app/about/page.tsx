@@ -5,7 +5,6 @@ import SectionHeading from "@/components/SectionHeading";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import OurStory from "@/components/about/OurStory";
-import { FloatingChip, GlowOrbs } from "@/components/Decor";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -72,10 +71,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden theme-light py-24 sm:py-28">
         <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
         <div className="absolute inset-0 bg-radial-glow" />
-        <GlowOrbs layout="hero" />
         <Container className="relative text-center">
-          <FloatingChip icon="layers" className="left-10 top-6">One platform</FloatingChip>
-          <FloatingChip icon="spark" tone="blue" className="right-10 top-20" delay={2}>AI agents</FloatingChip>
           <Badge>About NEXTOSA</Badge>
           <h1 className="mx-auto mt-6 max-w-2xl text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             One connected platform for how your business actually runs
@@ -89,9 +85,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
-        <GlowOrbs layout="split" />
-        <Container className="relative">
+      <section className="bg-white py-24 sm:py-32">
+        <Container>
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <Badge>Our Mission</Badge>

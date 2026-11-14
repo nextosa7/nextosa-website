@@ -80,13 +80,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Decorative floating chips stay still for people who ask for less motion. */
-@media (prefers-reduced-motion: reduce) {
-  .animate-float {
-    animation: none;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);

@@ -1,4 +1,3 @@
-import { GlowOrbs } from "../Decor";
 import Link from "next/link";
 import Container from "../Container";
 import SectionHeading from "../SectionHeading";
@@ -22,9 +21,8 @@ const items = [
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="relative overflow-hidden bg-slate-50 py-24 sm:py-28">
-      <GlowOrbs layout="split" />
-      <Container className="relative">
+    <section id="integrations" className="bg-slate-50 py-24 sm:py-28">
+      <Container>
         <Reveal>
         <SectionHeading eyebrow="Integrations" title="Plays well with the tools you already use" description="Built-in connections for messaging, payments and storage, plus webhooks and an API for everything else." />
         </Reveal>
