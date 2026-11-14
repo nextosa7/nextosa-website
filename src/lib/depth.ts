@@ -53,7 +53,7 @@ export const platformDepth: Record<string, { details: Detail[]; faqs: Faq[] }> =
       { title: "Inbound that survives a restart", text: "Inbound messages and campaign sends run through a durable queue. A restart loses at most the one message in flight." },
       { title: "Templates tied to the right account", text: "Template sends are limited to numbers in the template's own WhatsApp Business account, and review status is tracked from draft to approved." },
       { title: "Opt-outs are always respected", text: "Contacts who opted out of marketing are excluded from every campaign segment, whichever filter you pick." },
-      { title: "Monthly allowance per plan", text: "Each plan includes a monthly WhatsApp message allowance, with usage shown in Settings." },
+      { title: "Monthly allowance per plan", text: "Each plan includes a monthly WhatsApp template message allowance, with usage shown in Settings." },
     ],
     faqs: [
       { question: "Do I need the official WhatsApp Business API?", answer: "Yes. NEXTOSA uses the official Meta WhatsApp Business Platform. You connect a WhatsApp Business account and number, and the number count depends on your plan." },

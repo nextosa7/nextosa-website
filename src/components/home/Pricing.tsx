@@ -27,7 +27,7 @@ const plans = [
     },
     features: [
       "3 team members",
-      "100 WhatsApp messages/mo",
+      "100 WhatsApp template messages/mo",
       "1 WhatsApp number",
       "1 site connection",
       "500,000 AI tokens/mo",
@@ -50,7 +50,7 @@ const plans = [
     },
     features: [
       "5 team members",
-      "1,000 WhatsApp messages/mo",
+      "1,000 WhatsApp template messages/mo",
       "3 WhatsApp numbers",
       "2 site connections",
       "2,000,000 AI tokens/mo",
@@ -74,7 +74,7 @@ const plans = [
     },
     features: [
       "15 team members",
-      "3,000 WhatsApp messages/mo",
+      "3,000 WhatsApp template messages/mo",
       "10 WhatsApp numbers",
       "5 site connections",
       "5,000,000 AI tokens/mo",

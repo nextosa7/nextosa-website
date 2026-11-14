@@ -16,8 +16,8 @@ export const metadata: Metadata = buildMetadata({
 
 const rows: { label: string; trial: string; starter: string; growth: string; enterprise: string }[] = [
   { label: "Price", trial: "Free for 3 days", starter: "₹1,499/mo", growth: "₹3,999/mo", enterprise: "₹8,999/mo" },
-  { label: "WhatsApp messages / month", trial: "50", starter: "100", growth: "1,000", enterprise: "3,000" },
-  { label: "Team members", trial: "1", starter: "3", growth: "5", enterprise: "15" },
+  { label: "WhatsApp template messages / month", trial: "50", starter: "100", growth: "1,000", enterprise: "3,000" },
+  { label: "Team members", trial: "5", starter: "3", growth: "5", enterprise: "15" },
   { label: "WhatsApp numbers", trial: "1", starter: "1", growth: "3", enterprise: "10" },
   { label: "Site connections", trial: "1", starter: "1", growth: "2", enterprise: "5" },
   { label: "Documents", trial: "20", starter: "50", growth: "500", enterprise: "2,000" },
@@ -26,8 +26,8 @@ const rows: { label: string; trial: string; starter: string; growth: string; ent
 ];
 
 const whatsapp: Detail[] = [
-  { title: "What counts", text: "Every message your workspace successfully sends on WhatsApp counts as one: a reply you type, an AI reply, a template, a campaign message, a reminder, an invoice or receipt, a booking confirmation or an automation message." },
-  { title: "What does not count", text: "Messages your customers send to you are not counted. A message that failed to send is not counted either." },
+  { title: "What counts", text: "Only template messages count: the approved WhatsApp templates your workspace sends, such as invoices, receipts, reminders, campaign messages and automation templates. These are the messages Meta bills for." },
+  { title: "What does not count", text: "Replies inside the 24-hour window (a reply you type, an AI reply, a Sales or Support agent reply) do not count and are never blocked by this limit. Messages your customers send to you are not counted, and neither is a send that failed." },
   { title: "Resets every month", text: "The count starts again at zero with your billing month. Unused messages do not carry over." },
   { title: "Per workspace", text: "Each workspace has its own monthly count and gets the plan's full allowance. They are not pooled across workspaces." },
   { title: "Checked before a send starts", text: "A single message, a bulk template send or a campaign is checked once, up front. If you are already at the limit it is refused outright, so a big send never stops halfway for the wrong reason." },
@@ -54,9 +54,9 @@ const behaviour: Detail[] = [
 const faqs: Faq[] = [
   { question: "Is the WhatsApp limit per number or per workspace?", answer: "Per workspace. All your WhatsApp numbers share the workspace's monthly message allowance." },
   { question: "Do incoming customer messages use my allowance?", answer: "No. Only messages your workspace sends count." },
-  { question: "Does an AI reply count as a message?", answer: "Yes, it is a WhatsApp message like any other. It also uses AI tokens, because the AI wrote it." },
+  { question: "Does an AI reply count toward the WhatsApp limit?", answer: "No. An AI reply inside the 24-hour window is a session reply, so it does not use your template allowance. It does use AI tokens, because the AI wrote it." },
   { question: "Do unused messages roll over?", answer: "No. The count resets each month." },
-  { question: "Can I buy extra WhatsApp messages?", answer: "Not as a separate pack today. You can move to a higher plan. AI tokens can be topped up separately." },
+  { question: "Can I buy extra WhatsApp template messages?", answer: "Not as a separate pack today. You can move to a higher plan. AI tokens can be topped up separately." },
   { question: "I run several businesses. Do the limits add up?", answer: "Each workspace has its own full allowance for messages and tokens. They are never combined." },
 ];
 
@@ -110,7 +110,7 @@ export default function PlanLimitsPage() {
         </Container>
       </section>
 
-      <DetailGrid eyebrow="WhatsApp messages" title="How the monthly message limit works" items={whatsapp} />
+      <DetailGrid eyebrow="WhatsApp templates" title="How the monthly template-message limit works" items={whatsapp} />
       <DetailGrid eyebrow="Everything else" title="The other limits, one by one" items={other} tone="white" />
       <DetailGrid eyebrow="At the limit" title="What happens when you reach one" items={behaviour} />
       <FaqList faqs={faqs} tone="white" />

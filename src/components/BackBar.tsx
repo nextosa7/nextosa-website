@@ -14,6 +14,13 @@ const STATIC_LABELS: Record<string, string> = {
   automations: "Automations guide",
   "email-and-gmail": "Email & Gmail",
   "whatsapp-connect": "Connect WhatsApp",
+  "hospital-mode": "Hospital mode",
+  "portals": "Portals",
+  "campaigns": "Campaigns",
+  "payments": "Payments",
+  "getting-started": "Getting started",
+  "whatsapp-templates": "WhatsApp templates",
+  "ai-agents-setup": "AI agents setup",
   privacy: "Privacy Policy",
   terms: "Terms of Service",
 };
