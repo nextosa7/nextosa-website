@@ -2,6 +2,7 @@
 
 import { useActionState, useRef, useEffect } from "react";
 import Button from "../Button";
+import PhoneField from "./PhoneField";
 import { submitLeadToNextosa, type ContactFormState } from "@/app/contact/actions";
 
 const initialState: ContactFormState = { status: "idle", message: "" };
@@ -69,14 +70,7 @@ export default function ContactForm() {
           >
             Phone Number
           </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            placeholder="+1 555 123 4567"
-            className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-navy-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
-          />
+          <PhoneField id="phone" name="phone" />
         </div>
         <div>
           <label
