@@ -12,6 +12,7 @@ const STATIC_LABELS: Record<string, string> = {
   security: "Security",
   "roles-and-permissions": "Roles & permissions",
   automations: "Automations guide",
+  "email-and-gmail": "Email & Gmail",
   privacy: "Privacy Policy",
   terms: "Terms of Service",
 };
