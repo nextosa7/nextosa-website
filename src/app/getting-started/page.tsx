@@ -18,7 +18,7 @@ const steps: Detail[] = [
   { title: "Tell us about your business", text: "Choose your business type. NEXTOSA sets up the right screens, terms and permissions for it." },
   { title: "Start your free trial", text: "Agree to the trial terms and begin. No payment is taken to start." },
   { title: "Connect a channel", text: "Connect WhatsApp, Gmail or both. You do not need WhatsApp to use NEXTOSA." },
-  { title: "Add your clients", text: "Add your clients. A demo-data option is available if you want to explore first." },
+  { title: "Add your clients", text: "Add your clients one by one, or import a CSV or Excel (.xlsx) file: you map the columns, review the rows, and any row with a problem is listed with the reason while the good rows are imported. A demo-data option is available if you want to explore first." },
   { title: "Switch on automations", text: "In Settings, then Automation, turn on invoice and receipt sending and the reminders you want." },
   { title: "Invite your team", text: "Invite people and give each one only the permission switches their job needs." },
 ];

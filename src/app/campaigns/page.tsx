@@ -47,7 +47,7 @@ const related: Detail[] = [
 const faqs: Faq[] = [
   { question: "Can I message people who have not opted in?", answer: "Marketing messages on WhatsApp must follow Meta's rules and your local law. NEXTOSA excludes anyone marked as opted out, but obtaining consent is your responsibility." },
   { question: "Why must I use a template?", answer: "WhatsApp only allows a business to start a conversation with a template that Meta has approved." },
-  { question: "Can I cancel a running campaign?", answer: "A campaign has a Cancelled state. Check the campaign page for what it does to messages still waiting." },
+  { question: "Can I cancel a running campaign?", answer: "Yes. Cancelling a scheduled or running campaign stops every message that has not been sent yet. Only a message that was mid-send at that exact moment can still go out, and messages already sent cannot be recalled. A cancelled campaign cannot be restarted." },
   { question: "Does a campaign use AI tokens?", answer: "No. Sending a template costs no tokens. It uses your WhatsApp template allowance." },
 ];
 
