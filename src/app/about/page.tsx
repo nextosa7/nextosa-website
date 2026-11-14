@@ -67,7 +67,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-navy-900 py-24 sm:py-28">
+      <section className="relative overflow-hidden theme-light py-24 sm:py-28">
         <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
         <div className="absolute inset-0 bg-radial-glow" />
         <Container className="relative text-center">
@@ -221,7 +221,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-navy-900 py-20">
+      <section className="relative overflow-hidden theme-light py-20">
         <div className="absolute inset-0 bg-radial-glow" />
         <Container className="relative text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">

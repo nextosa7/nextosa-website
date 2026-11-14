@@ -14,7 +14,7 @@ const items = [
 
 export default function Security() {
   return (
-    <section id="security" className="relative overflow-hidden bg-navy-900 py-24 sm:py-28">
+    <section id="security" className="relative overflow-hidden theme-light py-24 sm:py-28">
       <div className="absolute inset-0 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
       <Container className="relative">
         <Reveal>

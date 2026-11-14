@@ -33,7 +33,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden bg-navy-900 py-24 sm:py-32"
+      className="relative overflow-hidden theme-light py-24 sm:py-32"
     >
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_100%)]" />
       <Container className="relative">

@@ -18,7 +18,7 @@ export default function DocsIndexPage() {
   const industries = docPages.filter((p) => p.kind === "industry");
   return (
     <>
-      <section className="relative overflow-hidden bg-navy-900 py-24">
+      <section className="relative overflow-hidden theme-light py-24">
         <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
         <div className="absolute inset-0 bg-radial-glow" />
         <Container className="relative text-center">

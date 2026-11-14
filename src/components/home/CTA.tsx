@@ -5,7 +5,7 @@ import { Reveal } from "../motion/primitives";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden bg-navy-900 py-24">
+    <section className="relative overflow-hidden theme-light py-24">
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute inset-0 bg-grid opacity-30" />
       <Container className="relative text-center">

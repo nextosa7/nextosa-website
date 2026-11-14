@@ -54,7 +54,7 @@ export default function Navbar() {
   );
 
   return (
-    <header ref={ref} className="sticky top-0 z-50 border-b border-white/10 bg-navy-900/90 backdrop-blur-lg" onMouseLeave={() => setMenu(null)}>
+    <header ref={ref} className="sticky top-0 z-50 border-b border-white/10 theme-light-glass backdrop-blur-lg" onMouseLeave={() => setMenu(null)}>
       <Container>
         <nav className="flex h-18 items-center justify-between py-4">
           <Link href="/" aria-label="NEXTOSA home" onClick={close} className="mr-6 shrink-0">
@@ -95,7 +95,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -4 }}
           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-x-0 top-full hidden border-b border-white/10 bg-navy-900 shadow-2xl shadow-black/40 lg:block"
+          className="absolute inset-x-0 top-full hidden border-b border-white/10 theme-light shadow-2xl shadow-black/40 lg:block"
         >
           <Container className="py-8">
             {menu === "platform" ? (
@@ -131,7 +131,7 @@ export default function Navbar() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="max-h-[80vh] overflow-y-auto border-t border-white/10 bg-navy-900 lg:hidden"
+          className="max-h-[80vh] overflow-y-auto border-t border-white/10 theme-light lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Platform</p>

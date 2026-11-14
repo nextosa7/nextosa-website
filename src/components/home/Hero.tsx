@@ -16,7 +16,7 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy-900">
+    <section className="relative overflow-hidden theme-light">
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black_40%,transparent_100%)]" />
       <div className="absolute inset-0 bg-radial-glow" />
 
@@ -28,7 +28,7 @@ export default function Hero() {
           <LoadItem>
           <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
             One platform to run{" "}
-            <span className="bg-gradient-to-r from-accent-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent-700 via-accent-600 to-accent-500 bg-clip-text text-transparent">
               your entire business
             </span>
           </h1>

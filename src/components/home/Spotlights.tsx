@@ -34,7 +34,7 @@ export default function Spotlights() {
         const page = platformBySlug(sp.slug)!;
         const dark = sp.dark;
         return (
-          <section key={sp.slug} className={`${dark ? "bg-navy-900" : "bg-white"} py-24 sm:py-28`}>
+          <section key={sp.slug} className={`${dark ? "theme-light" : "bg-white"} py-24 sm:py-28`}>
             <Container>
               <div className="grid items-center gap-12 lg:grid-cols-2">
                 <Reveal className={dark ? "lg:order-2" : ""}>

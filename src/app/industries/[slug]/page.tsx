@@ -80,7 +80,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </div>
       <ModuleRows modules={modules} />
 
-      <section className="relative overflow-hidden bg-navy-900 py-20 sm:py-24">
+      <section className="relative overflow-hidden theme-light py-20 sm:py-24">
         <div className="absolute inset-0 bg-grid opacity-30" />
         <Container className="relative">
           <SectionHeading eyebrow="Workflow" title="How a day looks" dark />

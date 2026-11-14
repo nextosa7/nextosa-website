@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0b1f24;
+  --foreground: #0a2e22;
 }
 
 @theme inline {
@@ -10,28 +10,35 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
 
-  /* NEXTOSA brand palette */
-  /* Deep teal-ink base: stability and premium weight, a step away from the generic SaaS blue. */
-  --color-navy-950: #060f12;
-  --color-navy-900: #0b1f24;
-  --color-navy-850: #0e262c;
-  --color-navy-800: #122e35;
-  --color-navy-700: #19404a;
-  --color-navy-600: #245562;
-  --color-navy-500: #327080;
+  /* NEXTOSA brand palette: premium white theme with emerald green and crimson red. */
+  /* "navy" keeps its name (used by ~100 classes) but is now a deep forest ink: it only carries text
+     on white and the few solid dark chips/cards (featured plan, step numbers). */
+  --color-navy-950: #04140e;
+  --color-navy-900: #0a2e22;
+  --color-navy-850: #0d3a2b;
+  --color-navy-800: #114a37;
+  --color-navy-700: #186049;
+  --color-navy-600: #207a5c;
+  --color-navy-500: #2b9874;
 
-  /* Teal-emerald accent: growth, money and health, and close to the WhatsApp green our users live in.
-     600/700 are dark enough for white text and for links on white (AA contrast). */
-  --color-accent-50: #f0fdfa;
-  --color-accent-100: #ccfbf1;
-  --color-accent-200: #99f6e4;
-  --color-accent-300: #5eead4;
-  --color-accent-400: #2dd4bf;
-  --color-accent-500: #14b8a6;
-  --color-accent-600: #0f766e;
-  --color-accent-700: #115e59;
+  /* Emerald accent. 600/700 are dark enough for white text and for links on white (AA contrast). */
+  --color-accent-50: #effcf5;
+  --color-accent-100: #d6f8e6;
+  --color-accent-200: #aaf0cc;
+  --color-accent-300: #6fe0a8;
+  --color-accent-400: #34c97a;
+  --color-accent-500: #16a863;
+  --color-accent-600: #0f8a50;
+  --color-accent-700: #0c6e40;
+  --color-accent-900: #0a3d29;
 
-  --color-cyan-400: #22d3ee;
+  /* Crimson: the second brand shade (matches the logo's red), used sparingly for emphasis. */
+  --color-crimson-50: #fff1f3;
+  --color-crimson-100: #ffe0e5;
+  --color-crimson-500: #e11d48;
+  --color-crimson-600: #c9183f;
+
+  --color-cyan-400: #e11d48;
 
   --animate-fade-up: fade-up 0.7s ease-out both;
   --animate-float: float 6s ease-in-out infinite;
@@ -85,16 +92,16 @@ body {
 
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 138, 80, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 138, 80, 0.07) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
 .bg-radial-glow {
   background: radial-gradient(
     60% 50% at 50% 0%,
-    rgba(20, 184, 166, 0.22) 0%,
-    rgba(11, 31, 36, 0) 70%
+    rgba(22, 168, 99, 0.16) 0%,
+    rgba(255, 255, 255, 0) 70%
   );
 }
 
@@ -106,4 +113,50 @@ body {
 html.motion-failsafe [data-reveal] {
   opacity: 1 !important;
   transform: none !important;
+}
+
+/* ---------- Premium white theme: former dark sections ----------
+   .theme-light replaces the old dark navy backgrounds. Text utilities written for a dark surface are
+   re-mapped inside it, so no section markup had to change. Solid green buttons keep white text. */
+.theme-light,
+.theme-light-glass,
+.theme-light-tint {
+  position: relative;
+  color: var(--color-navy-900);
+}
+.theme-light {
+  background:
+    radial-gradient(60% 55% at 85% -10%, rgba(225, 29, 72, 0.06), transparent 70%),
+    radial-gradient(70% 60% at 10% 0%, rgba(22, 168, 99, 0.10), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f4fbf7 100%);
+}
+.theme-light-tint {
+  background: linear-gradient(180deg, #f4fbf7 0%, #ffffff 100%);
+}
+.theme-light-glass {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(10, 46, 34, 0.08) !important;
+  box-shadow: 0 1px 0 rgba(10, 46, 34, 0.04), 0 8px 24px -16px rgba(10, 46, 34, 0.18);
+}
+footer.theme-light { border-top: 1px solid rgba(10, 46, 34, 0.08); }
+
+:is(.theme-light, .theme-light-glass, .theme-light-tint) {
+  & .text-white:not([class*="bg-accent"]):not([class*="from-accent"]):not([class*="bg-navy"]):not([class*="bg-crimson"]) { color: var(--color-navy-900); }
+  & .text-slate-200 { color: #1f3d33; }
+  & .text-slate-300 { color: #3a574c; }
+  & .text-slate-400 { color: #53695f; }
+  & .text-slate-500 { color: #5b6f66; }
+  & .text-accent-300 { color: var(--color-accent-700); }
+  & .text-accent-400 { color: var(--color-accent-600); }
+  & .border-white\/10,
+  & .border-white\/15 { border-color: rgba(10, 46, 34, 0.1); }
+  & .bg-white\/5 { background-color: rgba(255, 255, 255, 0.8); }
+  & .bg-white\/10 { background-color: var(--color-accent-50); }
+  & [class*="bg-navy-800/"] {
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(10, 46, 34, 0.05), 0 12px 32px -18px rgba(10, 46, 34, 0.22);
+  }
+  & .hover\:bg-white\/10:hover { background-color: var(--color-accent-50); }
+  & .ring-white\/15 { --tw-ring-color: rgba(10, 46, 34, 0.14); }
+  & svg path[stroke="#ffffff"] { stroke: var(--color-navy-900); }
 }

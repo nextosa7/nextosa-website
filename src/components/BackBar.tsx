@@ -44,7 +44,7 @@ export default function BackBar() {
   }
 
   return (
-    <div className="border-b border-white/10 bg-navy-950">
+    <div className="border-b border-white/10 theme-light">
       <Container>
         <div className="flex items-center gap-4 py-2.5 text-sm">
           <button
