@@ -13,6 +13,7 @@ const STATIC_LABELS: Record<string, string> = {
   "roles-and-permissions": "Roles & permissions",
   automations: "Automations guide",
   "email-and-gmail": "Email & Gmail",
+  "connected-websites": "Connected websites",
   "whatsapp-connect": "Connect WhatsApp",
   "hospital-mode": "Hospital mode",
   "portals": "Portals",
@@ -43,6 +44,8 @@ export default function BackBar() {
     crumbs.push({ label: "Platform", href: "/#platform" });
     const page = platformPages.find((p) => p.slug === slug);
     if (page) crumbs.push({ label: page.name });
+  } else if (section === "connected-websites" && slug === "api") {
+    crumbs.push({ label: "Connected websites", href: "/connected-websites" }, { label: "Developer reference" });
   } else if (section) {
     crumbs.push({ label: STATIC_LABELS[section] ?? section });
   }

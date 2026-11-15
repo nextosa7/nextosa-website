@@ -53,6 +53,7 @@ export const siteConfig = {
       { href: "/roles-and-permissions", label: "Roles & permissions" },
       { href: "/automations", label: "Automations guide" },
       { href: "/email-and-gmail", label: "Email & Gmail" },
+      { href: "/connected-websites", label: "Connected websites" },
       { href: "/whatsapp-connect", label: "Connect WhatsApp" },
       { href: "/hospital-mode", label: "Hospital mode" },
       { href: "/portals", label: "Portals" },

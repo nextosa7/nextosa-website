@@ -25,6 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/roles-and-permissions", 0.6, "monthly"),
     entry("/automations", 0.7, "monthly"),
     entry("/email-and-gmail", 0.7, "monthly"),
+    entry("/connected-websites", 0.7, "monthly"),
+    entry("/connected-websites/api", 0.6, "monthly"),
     entry("/whatsapp-connect", 0.7, "monthly"),
     entry("/hospital-mode", 0.7, "monthly"),
     entry("/portals", 0.7, "monthly"),

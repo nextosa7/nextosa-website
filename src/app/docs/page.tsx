@@ -46,6 +46,20 @@ export default function DocsIndexPage() {
             ))}
           </div>
 
+          <h2 className="mt-14 text-2xl font-bold tracking-tight text-navy-900">Connect your website or app</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Link href="/connected-websites" className="group rounded-2xl border border-slate-200 bg-slate-50 p-7 transition hover:border-accent-400 hover:bg-white">
+              <h3 className="text-lg font-semibold text-navy-900 group-hover:text-accent-700">Connected Websites overview</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">What a connection does, the two directions, website types, setup steps, credentials and limits.</p>
+              <p className="mt-4 text-sm font-medium text-accent-600">Read the guide &rarr;</p>
+            </Link>
+            <Link href="/connected-websites/api" className="group rounded-2xl border border-slate-200 bg-slate-50 p-7 transition hover:border-accent-400 hover:bg-white">
+              <h3 className="text-lg font-semibold text-navy-900 group-hover:text-accent-700">Connected Websites API reference</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Live chat, events, product sync, Booking API, signed commands and webhooks, with cURL, Node.js and Python examples.</p>
+              <p className="mt-4 text-sm font-medium text-accent-600">Open the reference &rarr;</p>
+            </Link>
+          </div>
+
           <h2 className="mt-14 text-2xl font-bold tracking-tight text-navy-900">Guide for your business type</h2>
           <p className="mt-2 text-sm text-slate-600">Each guide covers the first-time setup, that industry&apos;s modules and daily use, the shared modules, and roles and permissions.</p>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
