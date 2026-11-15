@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import Container from "@/components/Container";
 import { Reveal } from "@/components/motion/primitives";
@@ -248,7 +249,19 @@ export default function OurStory() {
                 <div className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-24 ${i % 2 ? "lg:[&>div:first-child]:order-2" : ""}`}>
                   <div className="mx-auto w-full max-w-md">
                     <figure>
-                      <StoryVisual kind={c.visual} id={`sv${i}`} />
+                      {c.visual === "founder" ? (
+                        <Image
+                          src="/team/harsh-soni.webp"
+                          alt={`${siteConfig.founder}, founder of ${siteConfig.name}`}
+                          width={703}
+                          height={659}
+                          sizes="(min-width: 1024px) 448px, 100vw"
+                          className="h-auto w-full rounded-2xl"
+                          priority={false}
+                        />
+                      ) : (
+                        <StoryVisual kind={c.visual} id={`sv${i}`} />
+                      )}
                       <figcaption className="mt-2 border-t border-slate-300 pt-3">
                         <p className="text-sm font-semibold text-navy-900">{c.caption}</p>
                         <p className="text-xs text-slate-500">{c.captionSub}</p>
