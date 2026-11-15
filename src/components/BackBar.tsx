@@ -41,7 +41,7 @@ export default function BackBar() {
     const page = industryPages.find((p) => p.slug === slug);
     if (page) crumbs.push({ label: page.name });
   } else if (section === "platform") {
-    crumbs.push({ label: "Platform", href: "/#platform" });
+    crumbs.push({ label: "Platform", href: "/#features" });
     const page = platformPages.find((p) => p.slug === slug);
     if (page) crumbs.push({ label: page.name });
   } else if (section === "connected-websites" && slug === "api") {

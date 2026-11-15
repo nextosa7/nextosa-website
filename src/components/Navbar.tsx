@@ -37,7 +37,7 @@ export default function Navbar() {
     setOpen(false);
   };
 
-  const topLink = "text-sm font-medium text-slate-300 transition-colors hover:text-white";
+  const topLink = "whitespace-nowrap text-sm font-medium text-slate-300 transition-colors hover:text-white";
   const trigger = (key: Exclude<MenuKey, null>, label: string) => (
     <button
       type="button"
@@ -57,11 +57,11 @@ export default function Navbar() {
     <header ref={ref} className="sticky top-0 z-50 border-b border-white/10 theme-light-glass backdrop-blur-lg" onMouseLeave={() => setMenu(null)}>
       <Container>
         <nav className="flex h-18 items-center justify-between py-4">
-          <Link href="/" aria-label="NEXTOSA home" onClick={close} className="mr-6 shrink-0">
+          <Link href="/" aria-label="NEXTOSA home" onClick={close} className="mr-4 shrink-0 xl:mr-6">
             <Logo />
           </Link>
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="hidden items-center gap-4 xl:gap-7 xl:flex">
             {trigger("platform", "Platform")}
             {trigger("industries", "Industries")}
             <Link href="/platform/ai-agents" className={topLink} onMouseEnter={() => setMenu(null)}>AI Agents</Link>
@@ -73,12 +73,12 @@ export default function Navbar() {
             <Link href="/contact" className={topLink} onMouseEnter={() => setMenu(null)}>Contact</Link>
           </div>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden shrink-0 items-center gap-4 xl:gap-6 xl:flex">
             <Link href={siteConfig.loginUrl} className={topLink}>Login</Link>
-            <Button href={siteConfig.signupUrl} size="md">Start free trial</Button>
+            <Button href={siteConfig.signupUrl} size="md" className="whitespace-nowrap">Start free trial</Button>
           </div>
 
-          <button className="flex h-10 w-10 items-center justify-center rounded-lg text-white lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          <button className="flex h-10 w-10 items-center justify-center rounded-lg text-white xl:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
@@ -95,7 +95,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -4 }}
           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-x-0 top-full hidden border-b border-white/10 theme-light shadow-2xl shadow-black/40 lg:block"
+          className="absolute inset-x-0 top-full hidden border-b border-white/10 theme-light shadow-2xl shadow-black/40 xl:block"
         >
           <Container className="py-8">
             {menu === "platform" ? (
@@ -131,8 +131,16 @@ export default function Navbar() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="max-h-[80vh] overflow-y-auto border-t border-white/10 theme-light lg:hidden"
+          className="max-h-[80vh] overflow-y-auto border-t border-white/10 theme-light xl:hidden"
         >
+          {/* The two conversion actions stay pinned at the top of the menu, visible without scrolling. */}
+          {/* No .theme-light here: it sets position: relative, which would cancel sticky. */}
+          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white">
+            <Container className="flex items-center gap-3 py-3">
+              <Button href={siteConfig.loginUrl} variant="ghost" size="md" className="flex-1 whitespace-nowrap">Login</Button>
+              <Button href={siteConfig.signupUrl} size="md" className="flex-1 whitespace-nowrap">Start free trial</Button>
+            </Container>
+          </div>
           <Container className="flex flex-col gap-1 py-4">
             <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Platform</p>
             {platformPages.map((p) => (
@@ -146,10 +154,6 @@ export default function Navbar() {
             {[["/#pricing", "Pricing"], ["/docs", "Documentation"], ["/ai-tokens", "AI tokens"], ["/plan-limits", "Plan limits"], ["/security", "Security"], ["/roles-and-permissions", "Roles & permissions"], ["/automations", "Automations guide"], ["/email-and-gmail", "Email & Gmail"], ["/connected-websites", "Connected websites"], ["/whatsapp-connect", "Connect WhatsApp"], ["/hospital-mode", "Hospital mode"], ["/portals", "Portals"], ["/campaigns", "Campaigns"], ["/payments", "Payments"], ["/getting-started", "Getting started"], ["/whatsapp-templates", "WhatsApp templates"], ["/ai-agents-setup", "AI agents setup"], ["/compare", "Why NEXTOSA"], ["/about", "About"], ["/contact", "Contact"]].map(([href, label]) => (
               <Link key={href} href={href} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">{label}</Link>
             ))}
-            <Link href={siteConfig.loginUrl} onClick={close} className="rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">Login</Link>
-            <div className="mt-2">
-              <Button href={siteConfig.signupUrl} size="md" className="w-full">Start free trial</Button>
-            </div>
           </Container>
         </motion.div>
       )}

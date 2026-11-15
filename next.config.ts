@@ -2,10 +2,11 @@ import type { NextConfig } from "next";
 
 // Security headers for every response.
 //
-// The CSP is sent as Report-Only first: Next.js injects small inline scripts for hydration (and layout.tsx has one
-// of its own), so a strict script-src needs a per-request nonce before it can be enforced. Check the browser
-// console on the live site for "Content-Security-Policy-Report-Only" violations, then rename the header to
-// "Content-Security-Policy" (and drop 'unsafe-inline' once nonces are in place). Everything else is enforced now.
+// The CSP is enforced. script-src still allows 'unsafe-inline' because Next.js injects small inline scripts for
+// hydration (and layout.tsx has one of its own); removing it needs a per-request nonce. Everything else is strict:
+// no framing, no plugins, forms and base URI locked to this site, images/media/fonts/connections limited to the
+// origins listed. If a new third-party script, image host or embed is ever added, add its origin here or the
+// browser will block it.
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
@@ -27,7 +28,7 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
   // No includeSubDomains on purpose: the app and API live on other subdomains and are not controlled by this repo.
   { key: "Strict-Transport-Security", value: "max-age=63072000" },
-  { key: "Content-Security-Policy-Report-Only", value: csp },
+  { key: "Content-Security-Policy", value: csp },
 ];
 
 const nextConfig: NextConfig = {
