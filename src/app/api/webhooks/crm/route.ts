@@ -83,8 +83,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log("[crm-webhook] command received:", body.command);
-    console.log("[crm-webhook] payload:", JSON.stringify(body));
+    // Deliberately logs nothing from the payload: it can carry contact details (personal data).
 
     return Response.json({ success: true });
   } catch (error) {

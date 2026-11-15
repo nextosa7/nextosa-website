@@ -1,5 +1,8 @@
 "use server";
 
+import { headers } from "next/headers";
+import { clientKey, hit } from "@/lib/rateLimit";
+
 // Contact form. One submission does two things on the NEXTOSA side:
 //   1. POST {NEXTOSA_API_URL}/public/website-inquiries (header x-website-secret): the API stores the
 //      inquiry for the Superadmin panel and instantly emails the owner. This is the path that decides
@@ -88,6 +91,13 @@ export async function submitLeadToNextosa(
   // Honeypot: a hidden field real visitors never fill. A bot that does gets a convincing success and nothing is sent.
   if (isNonEmptyString(formData.get("company_website"))) return SUCCESS;
 
+  // Rate limits: per visitor address, and a global cap per instance so a flood of different addresses
+  // cannot email-bomb the owner. A real visitor sends one or two; these never get in their way.
+  const key = clientKey(await headers());
+  if (!hit(`ip:${key}`, 5, 10 * 60_000) || !hit("all", 60, 60 * 60_000)) {
+    return { status: "error", message: "Too many requests. Please wait a few minutes and try again." };
+  }
+
   const name = formData.get("name");
   const email = formData.get("email");
   const phone = formData.get("phone");
@@ -96,12 +106,25 @@ export async function submitLeadToNextosa(
     return { status: "error", message: "Please fill in your name, email, and phone number." };
   }
 
+  // Server-side limits (the browser's own checks can be bypassed). The API validates again.
+  const message = optional(formData.get("message"));
+  if (
+    name.length > 200 ||
+    email.length > 254 ||
+    phone.length > 30 ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim()) ||
+    (optional(formData.get("business"))?.length ?? 0) > 200 ||
+    (message?.length ?? 0) > 4000
+  ) {
+    return { status: "error", message: "Please check your details and try again." };
+  }
+
   const payload = {
     name: name.trim(),
     email: email.trim(),
     phone: phone.trim(),
     business: optional(formData.get("business")),
-    message: optional(formData.get("message")),
+    message,
   };
 
   const [api, crm] = await Promise.all([postInquiryToApi(payload), postLeadToCrm(payload)]);
